@@ -26,6 +26,14 @@
  */
 class Fitness_Planning_i18n {
 
+	/**
+	 * Register hooks in this Class
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_hooks() {
+		add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
+	}
 
 	/**
 	 * Load the plugin text domain for translation.
@@ -37,7 +45,7 @@ class Fitness_Planning_i18n {
 		load_plugin_textdomain(
 			'fitness-planning',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname(dirname(plugin_basename(__FILE__))).'/languages/'
 		);
 
 	}
