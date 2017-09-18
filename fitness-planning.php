@@ -37,7 +37,7 @@ define( 'PLUGIN_VERSION', '1.0.0' );
  * This action is documented in includes/class-fitness-planning-activator.php
  */
 function activate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-fitness-planning-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class-fitness-planning-activator.php';
 	Fitness_Planning_Activator::activate();
 }
 
@@ -46,7 +46,7 @@ function activate_fitness_planning() {
  * This action is documented in includes/class-fitness-planning-deactivator.php
  */
 function deactivate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-fitness-planning-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class-fitness-planning-deactivator.php';
 	Fitness_Planning_Deactivator::deactivate();
 }
 
@@ -57,7 +57,7 @@ register_deactivation_hook( __FILE__, 'deactivate_fitness_planning' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-fitness-planning.php';
+require plugin_dir_path( __FILE__ ) . 'classes/class-fitness-planning.php';
 
 /**
  * Begins execution of the plugin.
