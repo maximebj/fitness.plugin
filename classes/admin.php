@@ -26,6 +26,8 @@ class Fitness_Planning_Admin {
 	}
 
 	public function add_admin_menu() {
+		global $submenu;
+
 		add_menu_page(
 			'Fitness Planning',
 			'Fitness Planning',
@@ -36,27 +38,39 @@ class Fitness_Planning_Admin {
 			30
 		);
 
-		add_submenu_page(
-			$this->plugin_name,
-			__('Plannings', 'fitness-planning'),
+		$submenu['fitness-planning'][] = array(
 			__('Plannings', 'fitness-planning'),
 			'edit_posts',
-			$this->plugin_name,
-			array($this, 'menu_page1')
+			'edit.php?post_type=planning'
+		);
+
+		$submenu['fitness-planning'][] = array(
+			__('Workouts', 'fitness-planning'),
+			'edit_posts',
+			'edit.php?post_type=workout'
+		);
+
+		$submenu['fitness-planning'][] = array(
+			__('Coachs', 'fitness-planning'),
+			'edit_posts',
+			'edit.php?post_type=coach'
 		);
 
 		add_submenu_page(
 			$this->plugin_name,
-			__('Other', 'fitness-planning'),
-			__('Other', 'fitness-planning'),
+			__('Settings', 'fitness-planning'),
+			__('Settings', 'fitness-planning'),
 			'edit_posts',
-			'other',
-			array($this, 'menu_page1')
+			$this->plugin_name,
+			array($this, 'settings_page')
 		);
+
+
+
 	}
 
-	public function menu_page1(){
-    require_once plugin_dir_path(dirname(__FILE__)).'admin/templates/page1.php';
+	public function settings_page(){
+    require_once plugin_dir_path(dirname(__FILE__)).'admin/templates/settings.php';
 	}
 
 
