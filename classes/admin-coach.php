@@ -10,12 +10,12 @@ class Fitness_Planning_Admin_Coach {
 	public function define_post_types() {
 
 	 $labels = array(
-			'name' => __('Coachs', PLUGIN_NAME),
-			'all_items' => __('All coachs', PLUGIN_NAME),
-			'singular_name' => __('Coach', PLUGIN_NAME),
-			'add_new_item' => __('Add a coach', PLUGIN_NAME),
-			'edit_item' => __('Edit coach', PLUGIN_NAME),
-		  'not_found' => __('No coachs found.', PLUGIN_NAME),
+			'name' => __('Coachs', 'fitness-planning'),
+			'all_items' => __('All coachs', 'fitness-planning'),
+			'singular_name' => __('Coach', 'fitness-planning'),
+			'add_new_item' => __('Add a coach', 'fitness-planning'),
+			'edit_item' => __('Edit coach', 'fitness-planning'),
+		  'not_found' => __('No coachs found.', 'fitness-planning'),
 		);
 
 		$args = array(
@@ -34,8 +34,8 @@ class Fitness_Planning_Admin_Coach {
 	public function add_admin_menu() {
 		global $submenu;
 
-		$submenu[PLUGIN_NAME][] = array(
-			__('Coachs', PLUGIN_NAME),
+		$submenu['fitness-planning'][] = array(
+			__('Coachs', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type=coach'
 		);

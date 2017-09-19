@@ -10,11 +10,11 @@ class Fitness_Planning_Admin_Settings {
 
 
 		add_submenu_page(
-			PLUGIN_NAME,
-			__('Settings', PLUGIN_NAME),
-			__('Settings', PLUGIN_NAME),
+			'fitness-planning',
+			__('Settings', 'fitness-planning'),
+			__('Settings', 'fitness-planning'),
 			'edit_posts',
-			PLUGIN_NAME,
+			'fitness-planning',
 			array($this, 'settings_page')
 		);
 

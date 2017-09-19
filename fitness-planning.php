@@ -17,10 +17,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define('PLUGIN_VERSION', '0.0.1');
-define('PLUGIN_NAME', 'fitness-planning');
-
-
 function activate_fitness_planning() {
 	require_once plugin_dir_path( __FILE__ ).'classes/activator.php';
 	Fitness_Planning_Activator::activate();

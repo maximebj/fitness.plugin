@@ -10,12 +10,12 @@ class Fitness_Planning_Admin_Workout {
 	public function define_post_types() {
 
 		$labels = array(
- 		  'name' => __('Workouts', PLUGIN_NAME),
- 		  'all_items' => __('All workouts', PLUGIN_NAME),
- 		  'singular_name' => __('Workout', PLUGIN_NAME),
- 		  'add_new_item' => __('Add a workout', PLUGIN_NAME),
- 		  'edit_item' => __('Edit workout', PLUGIN_NAME),
-      'not_found' => __('No workout found.', PLUGIN_NAME),
+ 		  'name' => __('Workouts', 'fitness-planning'),
+ 		  'all_items' => __('All workouts', 'fitness-planning'),
+ 		  'singular_name' => __('Workout', 'fitness-planning'),
+ 		  'add_new_item' => __('Add a workout', 'fitness-planning'),
+ 		  'edit_item' => __('Edit workout', 'fitness-planning'),
+      'not_found' => __('No workout found.', 'fitness-planning'),
  		);
 
  		$args = array(
@@ -34,8 +34,8 @@ class Fitness_Planning_Admin_Workout {
 	public function add_admin_menu() {
 		global $submenu;
 
-		$submenu[PLUGIN_NAME][] = array(
-			__('Workouts', PLUGIN_NAME),
+		$submenu['fitness-planning'][] = array(
+			__('Workouts', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type=workout'
 		);

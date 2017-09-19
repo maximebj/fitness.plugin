@@ -2,6 +2,9 @@
 
 class Fitness_Planning {
 
+	protected $plugin_name = 'fitness-planning';
+	protected $plugin_version = '0.0.1';
+
 	public function run() {
 
 		// Load Classes
@@ -39,11 +42,11 @@ class Fitness_Planning {
 	}
 
 	public function get_plugin_name() {
-		return PLUGIN_NAME;
+		return $this->plugin_name;
 	}
 
 	public function get_version() {
-		return PLUGIN_VERSION;
+		return $this->plugin_version;
 	}
 
 }
