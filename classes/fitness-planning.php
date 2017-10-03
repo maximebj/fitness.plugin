@@ -8,6 +8,7 @@ class Fitness_Planning {
 	public function run() {
 
 		// Load Classes
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/helper.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/i18n.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin-planning.php';
