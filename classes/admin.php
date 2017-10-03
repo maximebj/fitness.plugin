@@ -3,17 +3,25 @@
 class Fitness_Planning_Admin {
 
 	public function register_hooks() {
-		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
-		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+		add_action('admin_enqueue_scripts', array($this, 'enqueue_assets'));
 		add_action('admin_menu', array( $this, 'add_admin_menu'));
 	}
 
-	public function enqueue_styles() {
-		wp_enqueue_style('fitness-planning', plugin_dir_url(__FILE__).'css/fitness-planning-admin.css', array(), PLUGIN_VERSION, 'all');
-	}
+	public function enqueue_assets($hook) {
+		global $post_type;
 
-	public function enqueue_scripts() {
-		wp_enqueue_script('fitness-planning', plugin_dir_url( __FILE__ ).'js/fitness-planning-admin.js', array('jquery'), PLUGIN_VERSION, false );
+		$plugin_cpts = array(
+			Fitness_Planning_Admin_Workout::CPT_SLUG,
+			Fitness_Planning_Admin_Planning::CPT_SLUG,
+			Fitness_Planning_Admin_Coach::CPT_SLUG,
+		);
+
+		if($hook != 'toplevel_page_fitness-planning' and !in_array($post_type, $plugin_cpts)) {
+      return;
+    }
+
+		wp_enqueue_style(Fitness_Planning_Helper::PLUGIN_NAME, plugin_dir_url(__FILE__).'css/fitness-planning-admin.css', array(), '1.0', 'all');
+		wp_enqueue_script(Fitness_Planning_Helper::PLUGIN_NAME, plugin_dir_url(__FILE__).'js/fitness-planning-admin.js', array('jquery'), '1.0', false );
 	}
 
 	public function add_admin_menu() {
@@ -23,10 +31,11 @@ class Fitness_Planning_Admin {
 			'Fitness Planning',
 			'Fitness Planning',
 			'edit_posts',
-			'fitness-planning',
+			Fitness_Planning_Helper::PLUGIN_NAME,
 			null,
 			'dashicons-calendar',
 			30
 		);
 	}
+
 }
