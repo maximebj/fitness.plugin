@@ -47,14 +47,9 @@ class Fitness_Planning_Admin_Workout {
 
 	public function register_meta_boxes() {
 		add_meta_box('delipress-workout-about', __('About the workout', 'fitness-planning'), array($this, 'render_metabox_about'), self::CPT_SLUG);
-		add_meta_box('delipress-workout-coachs', __('Coachs', 'fitness-planning'), array($this, 'render_metabox_coachs'), self::CPT_SLUG);
 	}
 
 	public function render_metabox_about($post) {
-    echo "...";
-	}
-
-	public function render_metabox_coachs($post) {
     echo "...";
 	}
 

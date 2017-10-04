@@ -9,6 +9,8 @@ class Fitness_Planning_Admin_Planning {
 		add_action('admin_menu', array( $this, 'add_admin_menu'));
 		add_action('add_meta_boxes', array($this, 'register_meta_boxes'));
 		add_action('save_post', array($this, 'save_custom_fields'), 10, 3);
+    add_filter('manage_'.self::CPT_SLUG.'_posts_columns', array($this, 'register_custom_columns'));
+    add_action('manage_'.self::CPT_SLUG.'_posts_custom_column' , array($this, 'add_custom_column_content'), 10, 2);
 	}
 
 	public function define_post_types() {
@@ -68,4 +70,19 @@ class Fitness_Planning_Admin_Planning {
 		if(Fitness_Planning_Helper::check_saved_post($post_type, self::CPT_SLUG, $update, $post_id)) { return; }
 
 	}
+
+  public function register_custom_columns($columns) {
+		unset($columns['date']);
+    $columns['shortcode'] = __('Shortcode', 'fitness-planning');
+
+    return $columns;
+  }
+
+  public function add_custom_column_content($column, $post_id) {
+    switch ($column) {
+      case 'shortcode':
+        require_once plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-column-shortcode.php';
+        break;
+    }
+  }
 }

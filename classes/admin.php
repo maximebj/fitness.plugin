@@ -20,8 +20,21 @@ class Fitness_Planning_Admin {
       return;
     }
 
-		wp_enqueue_style(Fitness_Planning_Helper::PLUGIN_NAME, plugin_dir_url(__FILE__).'css/fitness-planning-admin.css', array(), '1.0', 'all');
-		wp_enqueue_script(Fitness_Planning_Helper::PLUGIN_NAME, plugin_dir_url(__FILE__).'js/fitness-planning-admin.js', array('jquery'), '1.0', false );
+		wp_enqueue_style(
+			Fitness_Planning_Helper::PLUGIN_NAME,
+			plugin_dir_url(dirname(__FILE__)).'admin/css/fitness-planning-admin.css',
+			array(),
+			Fitness_Planning_Helper::VERSION,
+			'all'
+		);
+
+		wp_enqueue_script(
+			Fitness_Planning_Helper::PLUGIN_NAME,
+			plugin_dir_url(dirname(__FILE__)).'admin/js/fitness-planning-admin.js',
+			array('jquery'),
+			Fitness_Planning_Helper::VERSION,
+			false
+		);
 	}
 
 	public function add_admin_menu() {
