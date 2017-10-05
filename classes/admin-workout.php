@@ -50,7 +50,7 @@ class Fitness_Planning_Admin_Workout {
 	}
 
 	public function render_metabox_about($post) {
-    echo "...";
+    include plugin_dir_path(dirname(__FILE__)).'admin/templates/workout-metabox-about.php';
 	}
 
 	public function save_custom_fields($post_id, $post, $update) {
