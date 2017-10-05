@@ -1,6 +1,4 @@
 <div class="fitness-planning-shortcode">
-  <code class="">
-    [fitness-planning id="<?php echo $post_id; ?>"]
-  </code>
-  <button type="button" name="button" class="js-fitness-planning-copy-shortcode"><?php _e('Copy', 'fitness-planning'); ?></button>
+  <input type="text" value="[fitness-planning id='<?php echo $post_id; ?>']" readonly>
+  <button type="button" name="button" class="button"><?php _e('Copy', 'fitness-planning'); ?></button>
 </div>

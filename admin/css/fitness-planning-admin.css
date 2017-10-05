@@ -1,3 +1,1 @@
-.fitness-planning-shortcode {
-  margin-top: 10px;
-}
+.fitness-planning-shortcode{position:relative;margin-top:7px;display:inline-block;}.fitness-planning-shortcode input{width:260px;padding:5px 6px;border-radius:3px;-webkit-transform:translateY(-1px);transform:translateY(-1px);cursor:pointer;}.fitness-planning-shortcode input:focus{-webkit-box-shadow:none;box-shadow:none;border-color:#ddd}.fitness-planning-shortcode button{position:absolute;top:0;right:0}
