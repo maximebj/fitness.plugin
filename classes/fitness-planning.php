@@ -11,10 +11,10 @@ class Fitness_Planning {
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/helper.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/i18n.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin-planning.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin-workout.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin-coach.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin-settings.php';
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/planning.php';
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/workout.php';
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/coach.php';
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/settings.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/public.php';
 
 
@@ -25,20 +25,20 @@ class Fitness_Planning {
 		$class_admin = new Fitness_Planning_Admin();
     $class_admin->register_hooks();
 
-		$class_admin_planning = new Fitness_Planning_Admin_Planning();
-    $class_admin_planning->register_hooks();
-
-		$class_admin_workout = new Fitness_Planning_Admin_Workout();
-    $class_admin_workout->register_hooks();
-
-		$class_admin_coach = new Fitness_Planning_Admin_Coach();
-    $class_admin_coach->register_hooks();
-
-		$class_admin_settings = new Fitness_Planning_Admin_Settings();
-		$class_admin_settings->register_hooks();
-
-    $class_public = new Fitness_Planning_Public();
+		$class_public = new Fitness_Planning_Public();
     $class_public->register_hooks();
+
+		$class_planning = new Fitness_Planning_Planning();
+    $class_planning->register_hooks();
+
+		$class_workout = new Fitness_Planning_Workout();
+    $class_workout->register_hooks();
+
+		$class_coach = new Fitness_Planning_Coach();
+    $class_coach->register_hooks();
+
+		$class_settings = new Fitness_Planning_Settings();
+		$class_settings->register_hooks();
 
 	}
 

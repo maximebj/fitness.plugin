@@ -1,8 +1,9 @@
 <?php
 
-class Fitness_Planning_Admin_Coach {
+class Fitness_Planning_Coach {
 
 	const CPT_SLUG = 'coach';
+	const FIELDS = array('fitplan_coach_pic', 'fitplan_coach_bio');
 
 	public function register_hooks() {
 		add_action('init', array($this, 'define_post_types'));
@@ -46,16 +47,44 @@ class Fitness_Planning_Admin_Coach {
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('delipress-coach-about', __('About the coach', 'fitness-planning'), array($this, 'render_metabox_about'), self::CPT_SLUG);
+		add_meta_box('fitness-planning-coach-about', __('About the coach', 'fitness-planning'), array($this, 'render_metabox_about'), self::CPT_SLUG, 'normal', 'high');
 	}
 
 	public function render_metabox_about($post) {
+
+		wp_enqueue_media();
+
+		foreach(self::FIELDS as $field) {
+			$$field = get_post_meta($post->ID, '_'.$field, true);
+
+			if($field == "fitplan_coach_pic") {
+				$has_pic = wp_get_attachment_image_src($fitplan_coach_pic, "thumbnail");
+
+				if($has_pic) {
+					$fitplan_coach_pic_url = $has_pic[0];
+				} else {
+					$fitplan_coach_pic_url = "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g";
+				}
+
+			}
+		}
+
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/coach-metabox-about.php';
 	}
 
 	public function save_custom_fields($post_id, $post, $update) {
 		global $post_type;
 		if(Fitness_Planning_Helper::check_saved_post($post_type, self::CPT_SLUG, $update, $post_id)) { return; }
+
+		foreach(self::FIELDS as $field) {
+			if(array_key_exists($field, $_POST)) {
+	      update_post_meta(
+	        $post_id,
+	        '_'.$field,
+	        $_POST[$field]
+	      );
+	    }
+		}
 
 	}
 }

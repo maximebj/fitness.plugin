@@ -1,6 +1,6 @@
 <?php
 
-class Fitness_Planning_Admin_Settings {
+class Fitness_Planning_Settings {
 
 	public function register_hooks() {
 		add_action('admin_menu', array( $this, 'add_admin_menu'));

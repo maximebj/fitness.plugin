@@ -14,4 +14,11 @@ abstract class Fitness_Planning_Helper {
 			or (defined('DOING_AUTOSAVE') and DOING_AUTOSAVE);
 	}
 
+	public static function strings_to_js() {
+		return array(
+			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-planning'),
+			'mediaUploaderButton' => __('Use this image', 'fitness-planning'),
+		);
+	}
+
 }

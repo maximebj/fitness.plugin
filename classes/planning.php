@@ -1,6 +1,6 @@
 <?php
 
-class Fitness_Planning_Admin_Planning {
+class Fitness_Planning_Planning {
 
 	const CPT_SLUG = 'planning';
 
@@ -49,9 +49,9 @@ class Fitness_Planning_Admin_Planning {
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('delipress-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), self::CPT_SLUG);
-		add_meta_box('delipress-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), self::CPT_SLUG);
-		add_meta_box('delipress-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), self::CPT_SLUG);
+		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), self::CPT_SLUG, 'normal', 'high');
+		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), self::CPT_SLUG, 'normal', 'high');
+		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), self::CPT_SLUG, 'normal', 'high');
 	}
 
 	public function render_metabox_workout($post) {

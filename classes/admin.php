@@ -11,9 +11,9 @@ class Fitness_Planning_Admin {
 		global $post_type;
 
 		$plugin_cpts = array(
-			Fitness_Planning_Admin_Workout::CPT_SLUG,
-			Fitness_Planning_Admin_Planning::CPT_SLUG,
-			Fitness_Planning_Admin_Coach::CPT_SLUG,
+			Fitness_Planning_Workout::CPT_SLUG,
+			Fitness_Planning_Planning::CPT_SLUG,
+			Fitness_Planning_Coach::CPT_SLUG,
 		);
 
 		if($hook != 'toplevel_page_fitness-planning' and !in_array($post_type, $plugin_cpts)) {
@@ -35,6 +35,13 @@ class Fitness_Planning_Admin {
 			Fitness_Planning_Helper::VERSION,
 			false
 		);
+
+		wp_localize_script(
+			Fitness_Planning_Helper::PLUGIN_NAME,
+			'fitnessPlanningStrings',
+			Fitness_Planning_Helper::strings_to_js()
+		);
+
 	}
 
 	public function add_admin_menu() {
