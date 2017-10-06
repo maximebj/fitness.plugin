@@ -24,20 +24,18 @@
 
 
 		// Upload Image
+
     if($('.js-fitness-planning-media').length){
+
 			var file_frame;
 			var wp_media_post_id = wp.media.model.settings.post.id;
-			var set_to_post_id = 0; // TODO
 
 			$('.js-fitness-planning-change-pic').on('click', function(e){
 				e.preventDefault();
 
 				if(file_frame) {
-					file_frame.uploader.uploader.param('post_id', set_to_post_id);
 					file_frame.open();
 					return;
-				} else {
-					wp.media.model.settings.post.id = set_to_post_id;
 				}
 
 				// Create the media frame.
@@ -47,6 +45,15 @@
 						text: fitnessPlanningStrings.mediaUploaderButton,
 					},
 					multiple: false
+				});
+
+				// Callback when media library is opened
+				file_frame.on('open',function() {
+				  let selection = file_frame.state().get('selection');
+				  let id = $('#fitness-planning-pic-id').val();
+					let attachment = wp.media.attachment(id);
+					attachment.fetch();
+					selection.add( attachment ? [ attachment ] : [] );
 				});
 
 				// Callback when image is selected

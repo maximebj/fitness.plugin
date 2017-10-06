@@ -58,6 +58,7 @@ class Fitness_Planning_Coach {
 			$$field = get_post_meta($post->ID, '_'.$field, true);
 
 			if($field == "fitplan_coach_pic") {
+
 				$has_pic = wp_get_attachment_image_src($fitplan_coach_pic, "thumbnail");
 
 				if($has_pic) {
