@@ -10,13 +10,7 @@ class Fitness_Planning_Admin {
 	public function enqueue_assets($hook) {
 		global $post_type;
 
-		$plugin_cpts = array(
-			Fitness_Planning_Workout::CPT_SLUG,
-			Fitness_Planning_Planning::CPT_SLUG,
-			Fitness_Planning_Coach::CPT_SLUG,
-		);
-
-		if($hook != 'toplevel_page_fitness-planning' and !in_array($post_type, $plugin_cpts)) {
+		if($hook != 'toplevel_page_fitness-planning' and !in_array($post_type, Fitness_Planning_Helper::get_CPT_list())) {
       return;
     }
 

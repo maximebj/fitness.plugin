@@ -24,7 +24,6 @@
 
 
 		// Upload Image
-
     if($('.js-fitness-planning-media').length){
 
 			var file_frame;

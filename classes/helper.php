@@ -5,13 +5,16 @@ abstract class Fitness_Planning_Helper {
 	const PLUGIN_NAME = 'fitness-planning';
 	const VERSION = '1.0';
 
-	public static function check_saved_post($post_type, $current_type, $update, $post_id) {
+	const CPT_PLANNING = 'planning';
+	const CPT_WORKOUT = 'workout';
+	const CPT_COACH = 'coach';
 
-		return
-			$post_type != $current_type
-			or !$update
-			or wp_is_post_revision($post_id)
-			or (defined('DOING_AUTOSAVE') and DOING_AUTOSAVE);
+	public static function get_CPT_list() {
+		return array(
+			self::CPT_PLANNING,
+			self::CPT_WORKOUT,
+			self::CPT_COACH,
+		);
 	}
 
 	public static function strings_to_js() {

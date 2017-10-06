@@ -1,16 +1,23 @@
 <?php
 
-class Fitness_Planning_Planning {
+class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
-	const CPT_SLUG = 'planning';
+	public function __construct() {
+    $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
+		$this->fields = array(
+			'fitplan_workout_desc',
+			'fitplan_workout_pic',
+			'fitplan_workout_duration',
+		);
+  }
 
 	public function register_hooks() {
 		add_action('init', array($this, 'define_post_types'));
 		add_action('admin_menu', array( $this, 'add_admin_menu'));
 		add_action('add_meta_boxes', array($this, 'register_meta_boxes'));
 		add_action('save_post', array($this, 'save_custom_fields'), 10, 3);
-    add_filter('manage_'.self::CPT_SLUG.'_posts_columns', array($this, 'register_custom_columns'));
-    add_action('manage_'.self::CPT_SLUG.'_posts_custom_column' , array($this, 'add_custom_column_content'), 10, 2);
+    add_filter('manage_'.$this->CPT_slug.'_posts_columns', array($this, 'register_custom_columns'));
+    add_action('manage_'.$this->CPT_slug.'_posts_custom_column' , array($this, 'add_custom_column_content'), 10, 2);
 		add_shortcode('fitness-planning', array($this,'execute_planning_shortcode'));
 	}
 
@@ -35,7 +42,7 @@ class Fitness_Planning_Planning {
  		  'supports' => array('title'),
  	  );
 
- 	 register_post_type(self::CPT_SLUG, $args);
+ 	 register_post_type($this->CPT_slug, $args);
 	}
 
 	public function add_admin_menu() {
@@ -44,14 +51,14 @@ class Fitness_Planning_Planning {
 		$submenu[Fitness_Planning_Helper::PLUGIN_NAME][] = array(
 			__('Plannings', 'fitness-planning'),
 			'edit_posts',
-			'edit.php?post_type='.self::CPT_SLUG
+			'edit.php?post_type='.$this->CPT_slug
 		);
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), self::CPT_SLUG, 'normal', 'high');
-		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), self::CPT_SLUG, 'normal', 'high');
-		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), self::CPT_SLUG, 'normal', 'high');
+		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_workout($post) {
@@ -64,11 +71,6 @@ class Fitness_Planning_Planning {
 
 	public function render_metabox_settings($post) {
 		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-settings.php';
-	}
-
-	public function save_custom_fields($post_id, $post, $update) {
-		global $post_type;
-		if(Fitness_Planning_Helper::check_saved_post($post_type, self::CPT_SLUG, $update, $post_id)) { return; }
 	}
 
   public function register_custom_columns($columns) {

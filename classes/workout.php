@@ -1,8 +1,15 @@
 <?php
 
-class Fitness_Planning_Workout {
+class Fitness_Planning_Workout extends Fitness_Planning_Types {
 
-	const CPT_SLUG = 'workout';
+	public function __construct() {
+    $this->CPT_slug = Fitness_Planning_Helper::CPT_WORKOUT;
+		$this->fields = array(
+			'fitplan_workout_desc',
+			'fitplan_workout_pic',
+			'fitplan_workout_duration',
+		);
+  }
 
 	public function register_hooks() {
 		add_action('init', array($this, 'define_post_types'));
@@ -32,7 +39,7 @@ class Fitness_Planning_Workout {
  		  'supports' => array('title'),
  		);
 
- 		register_post_type(self::CPT_SLUG, $args);
+ 		register_post_type($this->CPT_slug, $args);
 	}
 
 	public function add_admin_menu() {
@@ -41,20 +48,16 @@ class Fitness_Planning_Workout {
 		$submenu[Fitness_Planning_Helper::PLUGIN_NAME][] = array(
 			__('Workouts', 'fitness-planning'),
 			'edit_posts',
-			'edit.php?post_type='.self::CPT_SLUG
+			'edit.php?post_type='.$this->CPT_slug
 		);
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('fitness-planning-workout-about', __('About the workout', 'fitness-planning'), array($this, 'render_metabox_about'), self::CPT_SLUG, 'normal', 'high');
+		add_meta_box('fitness-planning-workout-about', __('About the workout', 'fitness-planning'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_about($post) {
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/workout-metabox-about.php';
 	}
 
-	public function save_custom_fields($post_id, $post, $update) {
-		global $post_type;
-		if(Fitness_Planning_Helper::check_saved_post($post_type, self::CPT_SLUG, $update, $post_id)) { return; }
-	}
 }

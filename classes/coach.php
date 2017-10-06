@@ -1,9 +1,14 @@
 <?php
 
-class Fitness_Planning_Coach {
+class Fitness_Planning_Coach extends Fitness_Planning_Types {
 
-	const CPT_SLUG = 'coach';
-	const FIELDS = array('fitplan_coach_pic', 'fitplan_coach_bio');
+	public function __construct() {
+    $this->CPT_slug = Fitness_Planning_Helper::CPT_COACH;
+    $this->fields = array(
+			'fitplan_coach_pic',
+			'fitplan_coach_bio'
+		);
+  }
 
 	public function register_hooks() {
 		add_action('init', array($this, 'define_post_types'));
@@ -33,7 +38,7 @@ class Fitness_Planning_Coach {
 			'supports' => array('title'),
 		);
 
-		register_post_type(self::CPT_SLUG, $args);
+		register_post_type($this->CPT_slug, $args);
 	}
 
 	public function add_admin_menu() {
@@ -42,19 +47,19 @@ class Fitness_Planning_Coach {
 		$submenu[Fitness_Planning_Helper::PLUGIN_NAME][] = array(
 			__('Coachs', 'fitness-planning'),
 			'edit_posts',
-			'edit.php?post_type='.self::CPT_SLUG
+			'edit.php?post_type='.$this->CPT_slug
 		);
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('fitness-planning-coach-about', __('About the coach', 'fitness-planning'), array($this, 'render_metabox_about'), self::CPT_SLUG, 'normal', 'high');
+		add_meta_box('fitness-planning-coach-about', __('About the coach', 'fitness-planning'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_about($post) {
 
 		wp_enqueue_media();
 
-		foreach(self::FIELDS as $field) {
+		foreach($this->fields as $field) {
 			$$field = get_post_meta($post->ID, '_'.$field, true);
 
 			if($field == "fitplan_coach_pic") {
@@ -71,21 +76,5 @@ class Fitness_Planning_Coach {
 		}
 
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/coach-metabox-about.php';
-	}
-
-	public function save_custom_fields($post_id, $post, $update) {
-		global $post_type;
-		if(Fitness_Planning_Helper::check_saved_post($post_type, self::CPT_SLUG, $update, $post_id)) { return; }
-
-		foreach(self::FIELDS as $field) {
-			if(array_key_exists($field, $_POST)) {
-	      update_post_meta(
-	        $post_id,
-	        '_'.$field,
-	        $_POST[$field]
-	      );
-	    }
-		}
-
 	}
 }
