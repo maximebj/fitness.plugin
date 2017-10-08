@@ -14,6 +14,8 @@ class Fitness_Planning_Admin {
       return;
     }
 
+		wp_enqueue_style('wp-color-picker');
+
 		wp_enqueue_style(
 			Fitness_Planning_Helper::PLUGIN_NAME,
 			plugin_dir_url(dirname(__FILE__)).'admin/css/fitness-planning-admin.css',
@@ -25,7 +27,7 @@ class Fitness_Planning_Admin {
 		wp_enqueue_script(
 			Fitness_Planning_Helper::PLUGIN_NAME,
 			plugin_dir_url(dirname(__FILE__)).'admin/js/fitness-planning-admin.js',
-			array('jquery'),
+			array('jquery', 'wp-color-picker'),
 			Fitness_Planning_Helper::VERSION,
 			false
 		);

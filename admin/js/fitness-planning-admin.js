@@ -97,5 +97,9 @@
 		});
 
 
+    // Color Picker
+     $('.color-picker').wpColorPicker();
+
+
 	});
 })( jQuery );
