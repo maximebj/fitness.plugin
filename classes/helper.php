@@ -17,6 +17,11 @@ abstract class Fitness_Planning_Helper {
 		);
 	}
 
+  const EDITOR_PARAMS = array(
+    'media_buttons' => false,
+    'textarea_rows' => 8
+  );
+
 	public static function strings_to_js() {
 		return array(
 			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-planning'),

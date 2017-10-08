@@ -8,7 +8,6 @@ class Fitness_Planning_Settings {
 
 	public function add_admin_menu() {
 
-
 		add_submenu_page(
 			'fitness-planning',
 			__('Settings', 'fitness-planning'),

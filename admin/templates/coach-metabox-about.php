@@ -1,24 +1,9 @@
 <div class="coach postbox-inside">
   <div class="coach-picture">
-    <label for="fitplan_coach_pic"><?php _e('Picture', 'fitness-planning'); ?></label>
-    <div class="coach-picture-wrapper">
-
-      <a href="#" class="coach-picture-field js-fitness-planning-change-pic">
-        <img src="<?php echo $fitplan_coach_pic_url; ?>" id="fitness-planning-pic-preview" alt="<?php _e('Coach profile picture', 'fitness-planning'); ?>">
-      </a>
-      <input type="hidden" id="fitness-planning-pic-id" class="js-fitness-planning-media" name="fitplan_coach_pic" value="<?php echo $fitplan_coach_pic; ?>">
-
-      <div class="coach-picture-actions">
-        <a href="#" <?php if($has_pic): ?>style="display: none"<?php endif; ?> class="js-fitness-planning-change-pic"><? _e('Choose picture', 'fitness-planning'); ?></a>
-        <a href="#" <?php if(!$has_pic): ?>style="display: none"<?php endif; ?> class="js-fitness-planning-change-pic"><? _e('Change', 'fitness-planning'); ?></a>
-        <a href="#" <?php if(!$has_pic): ?>style="display: none"<?php endif; ?> class="js-fitness-planning-remove-pic"><? _e('Remove', 'fitness-planning'); ?></a>
-      </div>
-
-    </div>
-
+    <?php Fitness_Planning_Fields::image('fitplan_coach_pic', $fields); ?>
   </div>
   <div class="coach-bio">
     <label for="fitplan_coach_bio"><?php _e('A few words about him', 'fitness-planning'); ?></label>
-    <textarea name="fitplan_coach_bio" rows="5"><?php echo $fitplan_coach_bio; ?></textarea>
+    <textarea name="fitplan_coach_bio" rows="5"><?php echo $fields['fitplan_coach_bio']; ?></textarea>
   </div>
 </div>

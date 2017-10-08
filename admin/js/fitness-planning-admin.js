@@ -24,12 +24,20 @@
 
 
 		// Upload Image
-    if($('.js-fitness-planning-media').length){
+		var $pictureFields = $('.fitplan-picture');
 
+		if($pictureFields.length) {
 			var file_frame;
 			var wp_media_post_id = wp.media.model.settings.post.id;
+		}
 
-			$('.js-fitness-planning-change-pic').on('click', function(e){
+    $pictureFields.each(function() {
+
+			var $parent = $(this);
+			var $valInput = $(this).find('input[type=hidden]');
+			var $img = $(this).find('.fitplan-picture-field img');
+
+			$parent.on('click', '.js-fitness-planning-change-pic', function(e){
 				e.preventDefault();
 
 				if(file_frame) {
@@ -49,7 +57,7 @@
 				// Callback when media library is opened
 				file_frame.on('open',function() {
 				  let selection = file_frame.state().get('selection');
-				  let id = $('#fitness-planning-pic-id').val();
+				  let id = $valInput.val();
 					let attachment = wp.media.attachment(id);
 					attachment.fetch();
 					selection.add( attachment ? [ attachment ] : [] );
@@ -59,10 +67,10 @@
 				file_frame.on('select', function() {
 					let attachment = file_frame.state().get('selection').first().toJSON();
 
-					$('#fitness-planning-pic-preview').attr('src', attachment.url);
-					$('#fitness-planning-pic-id').val(attachment.id);
-					$('.coach-picture-actions a:eq(1), .coach-picture-actions a:eq(2)').show();
-					$('.coach-picture-actions a:eq(0)').hide();
+					$img.attr('src', attachment.url);
+					$valInput.val(attachment.id);
+					$parent.find('.fitplan-picture-actions a:eq(1), .fitplan-picture-actions a:eq(2)').show();
+					$parent.find('.fitplan-picture-actions a:eq(0)').hide();
 
 					wp.media.model.settings.post.id = wp_media_post_id;
 				});
@@ -71,22 +79,22 @@
 				file_frame.open();
 			});
 
-			// Restore the main ID when the add media button is pressed
-			$('a.add_media').on('click', function() {
-				wp.media.model.settings.post.id = wp_media_post_id;
-			});
-
 			// Remove Image
-			$('.js-fitness-planning-remove-pic').on('click', function(e){
+			$(this).on('click', '.js-fitness-planning-remove-pic', function(e){
 				e.preventDefault();
 
-				$('#fitness-planning-pic-preview').attr('src', 'http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g');
-				$('#fitness-planning-pic-id').val('');
+				$img.attr('src', 'http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g');
+				$valInput.val('');
 
-				$('.coach-picture-actions a:eq(1), .coach-picture-actions a:eq(2)').hide();
-				$('.coach-picture-actions a:eq(0)').show();
+				$parent.find('.fitplan-picture-actions a:eq(1), .fitplan-picture-actions a:eq(2)').hide();
+				$parent.find('.fitplan-picture-actions a:eq(0)').show();
 			});
-		}
+		});
+
+		// Restore the main ID when the add media button is pressed
+		$('a.add_media').on('click', function() {
+			wp.media.model.settings.post.id = wp_media_post_id;
+		});
 
 
 	});

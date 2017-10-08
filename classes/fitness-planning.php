@@ -9,6 +9,7 @@ class Fitness_Planning {
 
 		// Load Classes
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/helper.php';
+		require_once plugin_dir_path(dirname(__FILE__)).'classes/fields.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/types.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/i18n.php';
 		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin.php';

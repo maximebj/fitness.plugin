@@ -62,6 +62,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	}
 
 	public function render_metabox_workout($post) {
+
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
 	}
 

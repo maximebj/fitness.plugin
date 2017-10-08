@@ -57,6 +57,24 @@ class Fitness_Planning_Workout extends Fitness_Planning_Types {
 	}
 
 	public function render_metabox_about($post) {
+
+		wp_enqueue_media();
+
+		foreach($this->fields as $field) {
+			$$field = get_post_meta($post->ID, '_'.$field, true);
+
+			// if($field == "fitplan_coach_pic") {
+			//
+			// 	$has_pic = wp_get_attachment_image_src($fitplan_coach_pic, "thumbnail");
+			//
+			// 	if($has_pic) {
+			// 		$fitplan_coach_pic_url = $has_pic[0];
+			// 	} else {
+			// 		$fitplan_coach_pic_url = "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g";
+			// 	}
+			// }
+		}
+
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/workout-metabox-about.php';
 	}
 
