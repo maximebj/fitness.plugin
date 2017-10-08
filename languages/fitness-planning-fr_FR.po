@@ -1,47 +1,27 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-10-06 09:31+0200\n"
-"PO-Revision-Date: 2017-10-06 09:40+0200\n"
+"POT-Creation-Date: 2017-10-08 19:44+0200\n"
+"PO-Revision-Date: 2017-10-08 19:46+0200\n"
+"Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: fitness-planning.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
-"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
-"Language: fr_FR\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/templates/coach-metabox-about.php:3
-msgid "Picture"
-msgstr "Photo"
-
 #: admin/templates/coach-metabox-about.php:5
-msgid "Coach profile picture"
-msgstr "Photo de profil du coach"
-
-#: admin/templates/coach-metabox-about.php:10
-msgid "Choose picture"
-msgstr "Choisir une image"
-
-#: admin/templates/coach-metabox-about.php:11
-msgid "Change"
-msgstr "Remplacer"
-
-#: admin/templates/coach-metabox-about.php:12
-msgid "Remove"
-msgstr "Retirer"
-
-#: admin/templates/coach-metabox-about.php:17
 msgid "A few words about him"
 msgstr "Quelques mots sur lui/elle"
 
@@ -49,104 +29,160 @@ msgstr "Quelques mots sur lui/elle"
 msgid "Copy"
 msgstr "Copier"
 
-#: admin/templates/settings.php:2 classes/planning.php:54
-#: classes/settings.php:14 classes/settings.php:15
+#: admin/templates/settings.php:2 classes/planning.php:61
+#: classes/settings.php:13 classes/settings.php:14
 msgid "Settings"
 msgstr "Réglages"
 
-#: classes/coach.php:18 classes/coach.php:43
+#: admin/templates/workout-metabox-about.php:6
+msgid "Description"
+msgstr "Description"
+
+#: admin/templates/workout-metabox-about.php:12
+msgid "Color"
+msgstr "Couleur"
+
+#: admin/templates/workout-metabox-about.php:13
+msgid "Choose a background color for this workout"
+msgstr "Choisissez un fond pour ce cours"
+
+#: admin/templates/workout-metabox-about.php:16
+msgid "Duration"
+msgstr "Durée"
+
+#: admin/templates/workout-metabox-about.php:17
+msgid "Eg: 45 min, 1 hour"
+msgstr "Ex: 45 min, 1 heure"
+
+#: admin/templates/workout-metabox-about.php:20
+msgid "URL"
+msgstr "URL"
+
+#: admin/templates/workout-metabox-about.php:21
+msgid "Optional. Workout official description page URL"
+msgstr "Optionnelle. Page officielle de description du cours"
+
+#: admin/templates/workout-metabox-about.php:24
+msgid "Public"
+msgstr "Public"
+
+#: admin/templates/workout-metabox-about.php:25
+msgid "This workout suits best to..."
+msgstr "Ce cours est idéal pour..."
+
+#: classes/coach.php:23 classes/coach.php:48
 msgid "Coachs"
 msgstr "Coachs"
 
-#: classes/coach.php:19
+#: classes/coach.php:24
 msgid "All coachs"
 msgstr "Tous les coachs"
 
-#: classes/coach.php:20
+#: classes/coach.php:25
 msgid "Coach"
 msgstr "Coach"
 
-#: classes/coach.php:21
+#: classes/coach.php:26
 msgid "Add a coach"
 msgstr "Ajouter un coach"
 
-#: classes/coach.php:22
+#: classes/coach.php:27
 msgid "Edit coach"
 msgstr "Modifier le coach"
 
-#: classes/coach.php:23
+#: classes/coach.php:28
 msgid "No coachs found."
 msgstr "Aucun coach trouvé."
 
-#: classes/coach.php:50
+#: classes/coach.php:55
 msgid "About the coach"
 msgstr "À propos du coach"
 
-#: classes/helper.php:19
+#: classes/fields.php:8 classes/fields.php:12
+msgid "Picture"
+msgstr "Photo"
+
+#: classes/fields.php:17
+msgid "Choose picture"
+msgstr "Choisir une image"
+
+#: classes/fields.php:18
+msgid "Change"
+msgstr "Remplacer"
+
+#: classes/fields.php:19
+msgid "Remove"
+msgstr "Retirer"
+
+#: classes/helper.php:27
 msgid "Select a image to upload"
 msgstr "Insérer un média"
 
-#: classes/helper.php:20
+#: classes/helper.php:28
 msgid "Use this image"
 msgstr "Utiliser cette image"
 
-#: classes/planning.php:20 classes/planning.php:45
+#: classes/planning.php:27 classes/planning.php:52
 msgid "Plannings"
 msgstr "Plannings"
 
-#: classes/planning.php:21
+#: classes/planning.php:28
 msgid "All plannings"
 msgstr "Tous les plannings"
 
-#: classes/planning.php:22
+#: classes/planning.php:29
 msgid "Planning"
 msgstr "Planning"
 
-#: classes/planning.php:23
+#: classes/planning.php:30
 msgid "Add a planning"
 msgstr "Ajouter un planning"
 
-#: classes/planning.php:24
+#: classes/planning.php:31
 msgid "Edit planning"
 msgstr "Modifier le planning"
 
-#: classes/planning.php:25
+#: classes/planning.php:32
 msgid "No plannings found."
 msgstr "Aucun planning trouvé."
 
-#: classes/planning.php:52 classes/workout.php:20
-msgid "Add a workout"
+#: classes/planning.php:59
+msgid "Add a class"
 msgstr "Ajouter un cours"
 
-#: classes/planning.php:53
+#: classes/planning.php:60
 msgid "Planning Preview"
 msgstr "Prévisualisation du planning"
 
-#: classes/planning.php:76
+#: classes/planning.php:81
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: classes/workout.php:17 classes/workout.php:42
+#: classes/workout.php:27 classes/workout.php:52
 msgid "Workouts"
 msgstr "Cours"
 
-#: classes/workout.php:18
+#: classes/workout.php:28
 msgid "All workouts"
 msgstr "Tous les cours"
 
-#: classes/workout.php:19
+#: classes/workout.php:29
 msgid "Workout"
 msgstr "Cours"
 
-#: classes/workout.php:21
+#: classes/workout.php:30
+msgid "Add a workout"
+msgstr "Ajouter un cours"
+
+#: classes/workout.php:31
 msgid "Edit workout"
 msgstr "Modifier le cours"
 
-#: classes/workout.php:22
+#: classes/workout.php:32
 msgid "No workout found."
 msgstr "Aucun cours trouvé."
 
-#: classes/workout.php:49
+#: classes/workout.php:59
 msgid "About the workout"
 msgstr "À propos du cours"
 
@@ -164,9 +200,12 @@ msgid ""
 "Easily create and customize interactive plannings for your fitness club : "
 "Body Attack, Pump, Combat, Zumba..."
 msgstr ""
-"Créez et personnalisez facilement des plannings interactifs pour votre "
-"salle de fitness : Body Attack, Pump, Combat, Zumba..."
+"Créez et personnalisez facilement des plannings interactifs pour votre salle "
+"de fitness : Body Attack, Pump, Combat, Zumba..."
 
 #. Author of the plugin/theme
 msgid "Maxime BERNARD-JACQUET"
 msgstr "Maxime BERNARD-JACQUET"
+
+#~ msgid "Coach profile picture"
+#~ msgstr "Photo de profil du coach"
