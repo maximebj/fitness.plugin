@@ -7,11 +7,26 @@
     margin 0 0 6px
     padding 0
 
+    &:not(:first-child)
+      margin-top 24px
+
   textarea
     width 100%
 
   button
     cursor pointer
 
+  input[type=text]
+  input[type=email]
+  input[type=url]
+    width 100%
+
+  input.small-input
+    width 100px
+
   .wp-editor-wrap
     margin-top -30px
+
+  .description
+    color #666
+    font-style italic
