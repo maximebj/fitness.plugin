@@ -62,15 +62,17 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	}
 
 	public function render_metabox_workout($post) {
-
+		$fields = $this->get_custom_fields($post->ID);
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
 	}
 
 	public function render_metabox_preview($post) {
+		$fields = $this->get_custom_fields($post->ID);
 		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-preview.php';
 	}
 
 	public function render_metabox_settings($post) {
+		$fields = $this->get_custom_fields($post->ID);
 		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-settings.php';
 	}
 

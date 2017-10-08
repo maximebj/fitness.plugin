@@ -23,7 +23,7 @@ class Fitness_Planning_Types {
 	public function get_custom_field_image($fields, $key) {
 		if(array_key_exists($key, $fields) and $fields[$key]!='') {
 
-			$picture = wp_get_attachment_image_src($fields[$key], "thumbnail");
+			$picture = wp_get_attachment_image_src($fields[$key], "medium");
 
 			if($picture) {
 				$url = $picture[0];

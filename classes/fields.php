@@ -2,14 +2,14 @@
 
 abstract class Fitness_Planning_Fields {
 
-	public static function image($field_name, $fields) {
+	public static function image($field_name, $fields, $shape = "square") {
 ?>
 
 <label for="<?php echo $field_name; ?>"><?php _e('Picture', 'fitness-planning'); ?></label>
 
 <div class="fitplan-picture" id="<?php echo $field_name; ?>">
-	<a href="#" class="fitplan-picture-field js-fitness-planning-change-pic">
-		<img src="<?php echo $fields[$field_name]['url']; ?>" alt="<?php _e('Profile picture', 'fitness-planning'); ?>">
+	<a href="#" class="fitplan-picture-field <?php if($shape == "circle"): ?>fitplan-picture-field-circle<?php endif; ?> js-fitness-planning-change-pic">
+		<img src="<?php echo $fields[$field_name]['url']; ?>" alt="<?php _e('Picture', 'fitness-planning'); ?>">
 	</a>
 	<input type="hidden" class="js-fitness-planning-media" name="<?php echo $field_name; ?>" value="<?php echo $fields[$field_name]['id']; ?>">
 
