@@ -18,7 +18,8 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		add_action('save_post', array($this, 'save_custom_fields'), 10, 3);
     add_filter('manage_'.$this->CPT_slug.'_posts_columns', array($this, 'register_custom_columns'));
     add_action('manage_'.$this->CPT_slug.'_posts_custom_column' , array($this, 'add_custom_column_content'), 10, 2);
-		add_shortcode('fitness-planning', array($this,'execute_planning_shortcode'));
+
+    add_shortcode('fitness-planning', array($this,'execute_planning_shortcode'));
 	}
 
 	public function define_post_types() {
@@ -92,6 +93,6 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
   }
 
 	public function execute_planning_shortcode() {
-		echo "it's a me, planning";
+		include plugin_dir_path(dirname(__FILE__)).'public/templates/planning.php';
 	}
 }

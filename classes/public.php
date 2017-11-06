@@ -8,12 +8,31 @@ class Fitness_Planning_Public {
 	}
 
 	public function enqueue_styles() {
+		global $post;
 
-		wp_enqueue_style('fitness-planning', plugin_dir_path(dirname(__FILE__)).'public/css/fitness-planning-public.css', array(), Fitness_Planning_Helper::VERSION, 'all');
+		if(has_shortcode($post->post_content, 'fitness-planning')) {
+			wp_enqueue_style(
+				Fitness_Planning_Helper::PLUGIN_NAME,
+				plugin_dir_url(dirname(__FILE__)).'public/css/fitness-planning-public.css',
+				array(),
+				Fitness_Planning_Helper::VERSION,
+				'all'
+			);
+		}
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_script('fitness-planning', plugin_dir_path(dirname(__FILE__)).'public/js/fitness-planning-public.js', array('jquery'), Fitness_Planning_Helper::VERSION, false);
+		global $post;
+
+		if(has_shortcode($post->post_content, 'fitness-planning')) {
+			wp_enqueue_script(
+				Fitness_Planning_Helper::PLUGIN_NAME, 
+				plugin_dir_url(dirname(__FILE__)).'public/js/fitness-planning-public.js',
+				array('jquery'),
+				Fitness_Planning_Helper::VERSION,
+				false
+			);
+		}
 	}
 
 }
