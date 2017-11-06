@@ -2,12 +2,14 @@
 
 class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
+	public $weekdays = array();
+	public $custom_metas = array();
+
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
 		$this->fields = array(
-			'fitplan_workout_desc',
-			'fitplan_workout_pic',
-			'fitplan_workout_duration',
+			'fitplan_planning_workouts',
+			'fitplan_planning_weekdays',
 		);
   }
 
@@ -57,23 +59,25 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	}
 
 	public function register_meta_boxes() {
+		global $post;
+
+		$this->custom_metas = $this->get_custom_fields($post->ID);
+		$this->weekdays = $this->get_weekdays();
+
 		add_meta_box('fitness-planning-workout', __('Add a class', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
 		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
 		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_workout($post) {
-		$fields = $this->get_custom_fields($post->ID);
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
 	}
 
 	public function render_metabox_preview($post) {
-		$fields = $this->get_custom_fields($post->ID);
 		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-preview.php';
 	}
 
 	public function render_metabox_settings($post) {
-		$fields = $this->get_custom_fields($post->ID);
 		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-settings.php';
 	}
 
@@ -94,5 +98,47 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
 	public function execute_planning_shortcode() {
 		include plugin_dir_path(dirname(__FILE__)).'public/templates/planning.php';
+	}
+
+	public function get_weekdays() {
+		$start_of_week = get_option('start_of_week');
+
+		$base_week = array(
+			array('slug' => 'sunday', 'name' => __('Sunday')),
+			array('slug' => 'monday', 'name' => __('Monday')),
+			array('slug' => 'tuesday', 'name' => __('Tuesday')),
+			array('slug' => 'wednesday', 'name' => __('Wednesday')),
+			array('slug' => 'thursday', 'name' => __('Thursday')),
+			array('slug' => 'friday', 'name' => __('Friday')),
+			array('slug' => 'saturday', 'name' => __('Saturday')),
+		);
+
+		// Define which days are dislayed
+		foreach($base_week as &$day) {
+
+			if($this->custom_metas['fitplan_planning_weekdays'] == "" ) {
+
+				// All days are selected by default
+				$day['displayed'] = true;
+			} else {
+
+				// if 'monday' is in selected weekdays array
+				$day['displayed'] = in_array($day['slug'], $this->custom_metas['fitplan_planning_weekdays']);
+			}
+		}
+
+		$weekdays = array();
+
+		for($i = $start_of_week; $i < 7; $i++) {
+			$weekdays[] = $base_week[$i];
+		}
+
+		if($start_of_week != 0) {
+			for($i = 0; $i < $start_of_week; $i++) {
+				$weekdays[] = $base_week[$i];
+			}
+		}
+
+		return $weekdays;
 	}
 }

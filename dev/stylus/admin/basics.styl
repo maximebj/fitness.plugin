@@ -1,7 +1,7 @@
 .postbox-inside
   margin -6px -12px -12px -12px
 
-  label
+  .label
     display block
     font-weight bold
     margin 0 0 6px
@@ -24,9 +24,23 @@
   input.small-input
     width 100px
 
+  input[type=checkbox]
+    margin 0
+
   .wp-editor-wrap
     margin-top -30px
 
   .description
     color #666
     font-style italic
+
+
+.inline-boxes
+  display flex
+
+.inline-boxes-item
+  margin-right pad-m
+
+  label
+    display inline-block
+    text-transform capitalize

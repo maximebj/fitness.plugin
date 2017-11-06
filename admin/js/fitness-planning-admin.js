@@ -101,5 +101,12 @@
      $('.color-picker').wpColorPicker();
 
 
+		// change weekdays (planning)
+		$('input[name="fitplan_planning_weekdays[]"]').change(function() {
+			var day = $(this).val();
+			$('.fitplan-planning-day[data-day='+day+']').toggleClass('is-shown');
+		});
+
+
 	});
 })( jQuery );

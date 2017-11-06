@@ -5,7 +5,7 @@ abstract class Fitness_Planning_Fields {
 	public static function image($field_name, $fields, $shape = "square") {
 ?>
 
-<label for="<?php echo $field_name; ?>"><?php _e('Picture', 'fitness-planning'); ?></label>
+<label class="label" for="<?php echo $field_name; ?>"><?php _e('Picture', 'fitness-planning'); ?></label>
 
 <div class="fitplan-picture" id="<?php echo $field_name; ?>">
 	<a href="#" class="fitplan-picture-field <?php if($shape == "circle"): ?>fitplan-picture-field-circle<?php endif; ?> js-fitness-planning-change-pic">
