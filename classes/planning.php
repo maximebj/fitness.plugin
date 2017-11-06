@@ -70,6 +70,19 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	}
 
 	public function render_metabox_workout($post) {
+
+		$args = array(
+			'post_type' => Fitness_Planning_Helper::CPT_WORKOUT,
+			'posts_per_page' => -1
+		);
+		$workouts = get_posts($args);
+
+		$args = array(
+			'post_type' => Fitness_Planning_Helper::CPT_COACH,
+			'posts_per_page' => -1
+		);
+		$coachs = get_posts($args);
+
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
 	}
 

@@ -104,7 +104,13 @@
 		// change weekdays (planning)
 		$('input[name="fitplan_planning_weekdays[]"]').change(function() {
 			var day = $(this).val();
+
+			// Toggle in planning
 			$('.fitplan-planning-day[data-day='+day+']').toggleClass('is-shown');
+
+			// Toggle in Add select
+			$('select[name=fitplan_addworkout_day] option[value='+day+']').prop('disabled', !$(this).prop('checked'));
+
 		});
 
 

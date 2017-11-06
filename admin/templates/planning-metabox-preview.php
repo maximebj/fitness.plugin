@@ -7,7 +7,8 @@
 
       <div class="fitplan-planning-item fitplan-planning-duration-1h">
         <p class="fitplan-planning-item-title">Body Attack</p>
-        <p class="fitplan-planning-item-hour">9h00 <br> 10h00</p>
+        <p class="fitplan-planning-item-hour">9h00 - 10h00</p>
+        <p>Avec Aaron</p>
       </div>
 
       <div class="fitplan-planning-item fitplan-planning-duration-1h fitplan-planning-offset-30m">
