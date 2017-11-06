@@ -101,7 +101,7 @@
      $('.color-picker').wpColorPicker();
 
 
-		// change weekdays (planning)
+		// Plannning - Change weekdays
 		$('input[name="fitplan_planning_weekdays[]"]').change(function() {
 			var day = $(this).val();
 
@@ -110,6 +110,35 @@
 
 			// Toggle in Add select
 			$('select[name=fitplan_addworkout_day] option[value='+day+']').prop('disabled', !$(this).prop('checked'));
+		});
+
+
+		// Planning - Add workout to planning
+		$('.js-fitplan-add-to-planning').click(function(e){
+			e.preventDefault();
+
+			var day = $('.js-fitplan-day').val();
+
+			var datas = {
+				"workout": $('.js-fitplan-name').val(),
+				"start": $('.js-fitplan-start').val(),
+				"finish": $('.js-fitplan-finish').val(),
+				"coach": $('.js-fitplan-coach').val()
+			};
+
+			var $planningField = $('input[name=fitplan_planning]');
+			var planning = $planningField.val();
+
+			// For new planning
+			if(planning == ""){
+				planning = { "monday": [], "tuesday": [], "wednesday": [], "thursday": [], "friday": [], "saturday": [], "sunday": []};
+			} else {
+				planning = JSON.parse(planning);
+			}
+
+			planning[day].push(datas);
+
+			$planningField.val(JSON.stringify(planning));
 
 		});
 

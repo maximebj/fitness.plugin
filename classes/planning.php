@@ -8,7 +8,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
 		$this->fields = array(
-			'fitplan_planning_workouts',
+			'fitplan_planning',
 			'fitplan_planning_weekdays',
 		);
   }
@@ -73,14 +73,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
 		$args = array(
 			'post_type' => Fitness_Planning_Helper::CPT_WORKOUT,
-			'posts_per_page' => -1
+			'posts_per_page' => -1,
+			'orderby' => 'title',
+			'order' => 'ASC',
 		);
 		$workouts = get_posts($args);
 
-		$args = array(
-			'post_type' => Fitness_Planning_Helper::CPT_COACH,
-			'posts_per_page' => -1
-		);
+		$args['post_type'] = Fitness_Planning_Helper::CPT_COACH;
 		$coachs = get_posts($args);
 
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
