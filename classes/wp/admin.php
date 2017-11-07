@@ -18,7 +18,7 @@ class Fitness_Planning_Admin {
 
 		wp_enqueue_style(
 			Fitness_Planning_Helper::PLUGIN_NAME,
-			plugin_dir_url(dirname(__FILE__)).'admin/css/fitness-planning-admin.css',
+			Fitness_Planning_Helper::get_url().'admin/css/fitness-planning-admin.css',
 			array(),
 			Fitness_Planning_Helper::VERSION,
 			'all'
@@ -26,7 +26,7 @@ class Fitness_Planning_Admin {
 
 		wp_enqueue_script(
 			Fitness_Planning_Helper::PLUGIN_NAME,
-			plugin_dir_url(dirname(__FILE__)).'admin/js/fitness-planning-admin.js',
+			Fitness_Planning_Helper::get_url().'admin/js/fitness-planning-admin.js',
 			array('jquery', 'wp-color-picker', 'moment'),
 			Fitness_Planning_Helper::VERSION,
 			false
@@ -41,7 +41,7 @@ class Fitness_Planning_Admin {
 		if($hook == 'post.php' and $post_type == Fitness_Planning_Helper::CPT_PLANNING) {
 			wp_enqueue_script(
 				'moment',
-				plugin_dir_url(dirname(__FILE__)).'admin/js/libs/moment.min.js',
+				Fitness_Planning_Helper::get_url().'admin/js/libs/moment.min.js',
 				array(),
 				'2.1.9',
 				false

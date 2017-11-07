@@ -3,7 +3,7 @@
     <p class="label"><?php _e('Show', 'fitness-planning'); ?></p>
 
     <div class="inline-boxes">
-      <?php foreach($this->weekdays as $day): ?>
+      <?php foreach($this->datas['weekdays'] as $day): ?>
       <div class="inline-boxes-item">
         <input type="checkbox" name="fitplan_planning_weekdays[]" id="fitplan_planning_weekdays_<?php echo $day['slug']; ?>" value="<?php echo $day['slug']; ?>" <?php if($day['displayed']): ?>checked<?php endif; ?>>
         <label for="fitplan_planning_weekdays_<?php echo $day['slug']; ?>"><?php echo $day['name']; ?></label>

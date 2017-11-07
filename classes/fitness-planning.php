@@ -4,17 +4,21 @@ class Fitness_Planning {
 
 	public function run() {
 
+		$path = plugin_dir_path(dirname(__FILE__));
+
 		// Load Classes
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/helper.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/fields.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/types.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/i18n.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/admin.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/planning.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/workout.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/coach.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/settings.php';
-		require_once plugin_dir_path(dirname(__FILE__)).'classes/public.php';
+		require_once $path.'classes/helpers/helper.php';
+		require_once $path.'classes/helpers/fields.php';
+
+		require_once $path.'classes/wp/i18n.php';
+		require_once $path.'classes/wp/admin.php';
+		require_once $path.'classes/wp/public.php';
+		require_once $path.'classes/wp/settings.php';
+
+		require_once $path.'classes/entities/abstract-types.php';
+		require_once $path.'classes/entities/planning.php';
+		require_once $path.'classes/entities/workout.php';
+		require_once $path.'classes/entities/coach.php';
 
 
 		// Init Classes and Hooks

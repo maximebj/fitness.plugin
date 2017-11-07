@@ -67,7 +67,7 @@ class Fitness_Planning_Workout extends Fitness_Planning_Types {
 
 		wp_enqueue_media();
 
-    include plugin_dir_path(dirname(__FILE__)).'admin/templates/workout-metabox-about.php';
+    include Fitness_Planning_Helper::get_path().'admin/templates/workout-metabox-about.php';
 	}
 
 }

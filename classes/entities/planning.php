@@ -2,8 +2,6 @@
 
 class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
-	public $weekdays = array();
-
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
 		$this->fields = array(
@@ -61,8 +59,11 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		);
 	}
 
-	public function register_meta_boxes() {
+
+	private function prepare_datas() {
 		global $post;
+
+		// All metaboxes stuff
 
 		$this->datas = $this->get_custom_fields($post->ID);
 
@@ -71,15 +72,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		if($this->datas['fitplan_planning_afternoon_start'] == "") { $this->datas['fitplan_planning_afternoon_start'] = '17:00'; }
 		if($this->datas['fitplan_planning_afternoon_end'] == "") { $this->datas['fitplan_planning_afternoon_end'] = '21:00'; }
 
+		$this->datas['weekdays'] = $this->get_weekdays();
 
-		$this->weekdays = $this->get_weekdays();
+		$this->datas['planning'] = json_decode($this->datas['fitplan_planning']);
 
-		add_meta_box('fitness-planning-workout', __('Add a class', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
-		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
-		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
-	}
+		var_dump(json_decode($this->datas['fitplan_planning']));
 
-	public function render_metabox_workout($post) {
+		// Workout Metabox stuff
 
 		$args = array(
 			'post_type' => Fitness_Planning_Helper::CPT_WORKOUT,
@@ -88,29 +87,40 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 			'order' => 'ASC',
 		);
 		$workouts_raw = get_posts($args);
-		$worktous = array();
+		$this->datas['workouts'] = array();
 
 		foreach($workouts_raw as $workout):
-			$workouts[$workout->ID] = $workout->post_title;
+			$this->datas['workouts'][$workout->ID] = $workout->post_title;
 		endforeach;
 
 		$args['post_type'] = Fitness_Planning_Helper::CPT_COACH;
 		$coachs_raw = get_posts($args);
-		$coachs = array();
+		$this->datas['coachs'] = array();
 
 		foreach($coachs_raw as $coach):
-			$coachs[$coach->ID] = $coach->post_title;
+			$this->datas['coachs'][$coach->ID] = $coach->post_title;
 		endforeach;
 
-    include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
+	}
+
+	public function register_meta_boxes() {
+		$this->prepare_datas();
+
+		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
+	}
+
+	public function render_metabox_workout($post) {
+    include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-workout.php';
 	}
 
 	public function render_metabox_preview($post) {
-		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-preview.php';
+		include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-preview.php';
 	}
 
 	public function render_metabox_settings($post) {
-		include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-settings.php';
+		include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-settings.php';
 	}
 
   public function register_custom_columns($columns) {
@@ -123,13 +133,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
   public function add_custom_column_content($column, $post_id) {
     switch ($column) {
       case 'shortcode':
-        include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-column-shortcode.php';
+        include Fitness_Planning_Helper::get_path().'admin/templates/planning-column-shortcode.php';
         break;
     }
   }
 
 	public function execute_planning_shortcode() {
-		include plugin_dir_path(dirname(__FILE__)).'public/templates/planning.php';
+		include Fitness_Planning_Helper::get_path().'public/templates/planning.php';
 	}
 
 	public function get_weekdays() {
