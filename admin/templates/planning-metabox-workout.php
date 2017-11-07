@@ -8,8 +8,8 @@
       <span><?php _e('Add', 'fitness-planning'); ?></span>
 
       <select name="fitplan_addworkout_name" class="js-fitplan-name">
-        <?php foreach($workouts as $workout): ?>
-        <option value="<?php echo $workout->ID; ?>"><?php echo $workout->post_title; ?></option>
+        <?php foreach($workouts as $ID => $title): ?>
+        <option value="<?php echo $ID; ?>"><?php echo $title; ?></option>
         <?php endforeach; ?>
       </select>
 
@@ -23,17 +23,17 @@
 
       <span><?php _e('From', 'fitness-planning'); ?></span>
 
-      <input type="time" class="js-fitplan-start" value="17:00">
+      <input name="fitplan_addworkout_start" type="time" class="js-fitplan-start" value="17:00">
 
       <span><?php _e('To', 'fitness-planning'); ?></span>
 
-      <input type="time" class="js-fitplan-finish" value="18:00">
+      <input name="fitplan_addworkout_finish" type="time" class="js-fitplan-finish" value="18:00">
 
       <span><?php _e('With', 'fitness-planning'); ?></span>
 
-      <select name="" id="" <?php if(count($coachs) == 0) echo "disabled"; ?> class="js-fitplan-coach">
-        <?php foreach($coachs as $coach): ?>
-        <option value="<?php echo $coach->ID; ?>"><?php echo $coach->post_title; ?></option>
+      <select name="fitplan_addworkout_coach" <?php if(count($coachs) == 0) echo "disabled"; ?> class="js-fitplan-coach">
+        <?php foreach($coachs as $ID => $title): ?>
+        <option value="<?php echo $ID; ?>"><?php echo $title; ?></option>
         <?php endforeach; ?>
         <?php if(count($coachs) == 0): ?>
         <option value=""><?php _e('No coach defined'); ?></option>
@@ -42,6 +42,11 @@
 
       <button class="button button-primary js-fitplan-add-to-planning"><?php _e('Add to planning', 'fitness-planning'); ?></button>
       <?php endif; ?>
+
+      <script>
+        var fitplanWorkouts = <?php echo json_encode($workouts) ?>;
+        var fitplanCoachs = <?php echo json_encode($coachs) ?>;
+      </script>
 
   </div>
 </div>

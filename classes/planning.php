@@ -3,13 +3,16 @@
 class Fitness_Planning_Planning extends Fitness_Planning_Types {
 
 	public $weekdays = array();
-	public $custom_metas = array();
 
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
 		$this->fields = array(
 			'fitplan_planning',
 			'fitplan_planning_weekdays',
+			'fitplan_planning_morning_start',
+			'fitplan_planning_morning_finish',
+			'fitplan_planning_afternoon_start',
+			'fitplan_planning_mafternoon_finish',
 		);
   }
 
@@ -61,7 +64,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 	public function register_meta_boxes() {
 		global $post;
 
-		$this->custom_metas = $this->get_custom_fields($post->ID);
+		$this->datas = $this->get_custom_fields($post->ID);
 		$this->weekdays = $this->get_weekdays();
 
 		add_meta_box('fitness-planning-workout', __('Add a class', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
@@ -77,10 +80,20 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 			'orderby' => 'title',
 			'order' => 'ASC',
 		);
-		$workouts = get_posts($args);
+		$workouts_raw = get_posts($args);
+		$worktous = array();
+
+		foreach($workouts_raw as $workout):
+			$workouts[$workout->ID] = $workout->post_title;
+		endforeach;
 
 		$args['post_type'] = Fitness_Planning_Helper::CPT_COACH;
-		$coachs = get_posts($args);
+		$coachs_raw = get_posts($args);
+		$coachs = array();
+
+		foreach($coachs_raw as $coach):
+			$coachs[$coach->ID] = $coach->post_title;
+		endforeach;
 
     include plugin_dir_path(dirname(__FILE__)).'admin/templates/planning-metabox-workout.php';
 	}
@@ -128,14 +141,14 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		// Define which days are dislayed
 		foreach($base_week as &$day) {
 
-			if($this->custom_metas['fitplan_planning_weekdays'] == "" ) {
+			if($this->datas['fitplan_planning_weekdays'] == "" ) {
 
 				// All days are selected by default
 				$day['displayed'] = true;
 			} else {
 
 				// if 'monday' is in selected weekdays array
-				$day['displayed'] = in_array($day['slug'], $this->custom_metas['fitplan_planning_weekdays']);
+				$day['displayed'] = in_array($day['slug'], $this->datas['fitplan_planning_weekdays']);
 			}
 		}
 

@@ -57,9 +57,9 @@ class Fitness_Planning_Coach extends Fitness_Planning_Types {
 
 	public function render_metabox_about($post) {
 
-    $fields = $this->get_custom_fields($post->ID);
+    $this->datas = $this->get_custom_fields($post->ID);
 
-		$fields['fitplan_coach_pic'] = $this->get_custom_field_image($fields, 'fitplan_coach_pic');
+		$this->datas['fitplan_coach_pic'] = $this->get_custom_field_image($this->datas, 'fitplan_coach_pic');
 
 		wp_enqueue_media();
 

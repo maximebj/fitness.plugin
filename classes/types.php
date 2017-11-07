@@ -4,6 +4,7 @@ class Fitness_Planning_Types {
 
 	protected $CPT_slug;
 	protected $fields;
+	protected $datas;
 
 	public function get_slug(){
 		return self::$CPT_slug;

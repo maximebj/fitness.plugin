@@ -61,9 +61,9 @@ class Fitness_Planning_Workout extends Fitness_Planning_Types {
 
 	public function render_metabox_about($post) {
 
-		$fields = $this->get_custom_fields($post->ID);
+		$this->datas = $this->get_custom_fields($post->ID);
 
-		$fields['fitplan_workout_pic'] = $this->get_custom_field_image($fields, 'fitplan_workout_pic');
+		$this->datas['fitplan_workout_pic'] = $this->get_custom_field_image($this->datas, 'fitplan_workout_pic');
 
 		wp_enqueue_media();
 

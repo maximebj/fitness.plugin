@@ -16,6 +16,6 @@
 
   </div>
 
-  <input type="hidden" name="fitplan_planning" value="<?php echo esc_js($this->custom_metas['fitplan_planning']); ?>">
+  <input type="hidden" name="fitplan_planning" value="<?php echo esc_js($this->datas['fitplan_planning']); ?>">
 
 </div>

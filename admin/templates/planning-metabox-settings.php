@@ -11,6 +11,11 @@
       <?php endforeach; ?>
     </div>
 
+    <p class="label"><?php _e('Planning hours', 'fitness-planning'); ?></p>
+
+    <p>Morning : From <input type="time" value="09:00"> to <input type="time" value="13:00"></p>
+    <p>Afternoon : From <input type="time" value="17:00"> to <input type="time" value="21:00"></p>
+
     <p class="label"><?php _e('Others', 'fitness-planning'); ?></p>
     <p>
       <?php _e('You can customize the first day of the week or the date format in <a href="options-general.php" target="_blank">Settings > General</a>.', 'fitness-planning'); ?>
