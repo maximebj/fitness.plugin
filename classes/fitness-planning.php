@@ -15,10 +15,12 @@ class Fitness_Planning {
 		require_once $path.'classes/wp/public.php';
 		require_once $path.'classes/wp/settings.php';
 
-		require_once $path.'classes/entities/abstract-types.php';
+		require_once $path.'classes/entities/abstract-entity.php';
 		require_once $path.'classes/entities/planning.php';
 		require_once $path.'classes/entities/workout.php';
 		require_once $path.'classes/entities/coach.php';
+
+		require_once $path.'classes/services/planningServices.php';
 
 
 		// Init Classes and Hooks

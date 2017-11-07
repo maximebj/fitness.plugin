@@ -1,6 +1,6 @@
 <?php
 
-class Fitness_Planning_Coach extends Fitness_Planning_Types {
+class Fitness_Planning_Coach extends Fitness_Planning_Entity {
 
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_COACH;

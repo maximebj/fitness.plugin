@@ -1,6 +1,8 @@
 <?php
 
-class Fitness_Planning_Planning extends Fitness_Planning_Types {
+class Fitness_Planning_Planning extends Fitness_Planning_Entity {
+
+	public $services;
 
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
@@ -12,6 +14,8 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 			'fitplan_planning_afternoon_start',
 			'fitplan_planning_afternoon_end',
 		);
+
+		$this->services = new Fitness_Planning_Planning_Services();
   }
 
 	public function register_hooks() {
@@ -59,52 +63,11 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		);
 	}
 
-
-	private function prepare_datas() {
+	public function register_meta_boxes() {
 		global $post;
 
-		// All metaboxes stuff
-
-		$this->datas = $this->get_custom_fields($post->ID);
-
-		if($this->datas['fitplan_planning_morning_start'] == "") { $this->datas['fitplan_planning_morning_start'] = '09:00'; }
-		if($this->datas['fitplan_planning_morning_end'] == "") { $this->datas['fitplan_planning_morning_end'] = '13:00'; }
-		if($this->datas['fitplan_planning_afternoon_start'] == "") { $this->datas['fitplan_planning_afternoon_start'] = '17:00'; }
-		if($this->datas['fitplan_planning_afternoon_end'] == "") { $this->datas['fitplan_planning_afternoon_end'] = '21:00'; }
-
-		$this->datas['weekdays'] = $this->get_weekdays();
-
-		$this->datas['planning'] = json_decode($this->datas['fitplan_planning']);
-
-		var_dump(json_decode($this->datas['fitplan_planning']));
-
-		// Workout Metabox stuff
-
-		$args = array(
-			'post_type' => Fitness_Planning_Helper::CPT_WORKOUT,
-			'posts_per_page' => -1,
-			'orderby' => 'title',
-			'order' => 'ASC',
-		);
-		$workouts_raw = get_posts($args);
-		$this->datas['workouts'] = array();
-
-		foreach($workouts_raw as $workout):
-			$this->datas['workouts'][$workout->ID] = $workout->post_title;
-		endforeach;
-
-		$args['post_type'] = Fitness_Planning_Helper::CPT_COACH;
-		$coachs_raw = get_posts($args);
-		$this->datas['coachs'] = array();
-
-		foreach($coachs_raw as $coach):
-			$this->datas['coachs'][$coach->ID] = $coach->post_title;
-		endforeach;
-
-	}
-
-	public function register_meta_boxes() {
-		$this->prepare_datas();
+		$raw_datas = $this->get_custom_fields($post->ID);
+		$this->datas = $this->services->prepare_datas($raw_datas);
 
 		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
 		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
@@ -142,45 +105,4 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		include Fitness_Planning_Helper::get_path().'public/templates/planning.php';
 	}
 
-	public function get_weekdays() {
-		$start_of_week = get_option('start_of_week');
-
-		$base_week = array(
-			array('slug' => 'sunday', 'name' => __('Sunday')),
-			array('slug' => 'monday', 'name' => __('Monday')),
-			array('slug' => 'tuesday', 'name' => __('Tuesday')),
-			array('slug' => 'wednesday', 'name' => __('Wednesday')),
-			array('slug' => 'thursday', 'name' => __('Thursday')),
-			array('slug' => 'friday', 'name' => __('Friday')),
-			array('slug' => 'saturday', 'name' => __('Saturday')),
-		);
-
-		// Define which days are dislayed
-		foreach($base_week as &$day) {
-
-			if($this->datas['fitplan_planning_weekdays'] == "" ) {
-
-				// All days are selected by default
-				$day['displayed'] = true;
-			} else {
-
-				// if 'monday' is in selected weekdays array
-				$day['displayed'] = in_array($day['slug'], $this->datas['fitplan_planning_weekdays']);
-			}
-		}
-
-		$weekdays = array();
-
-		for($i = $start_of_week; $i < 7; $i++) {
-			$weekdays[] = $base_week[$i];
-		}
-
-		if($start_of_week != 0) {
-			for($i = 0; $i < $start_of_week; $i++) {
-				$weekdays[] = $base_week[$i];
-			}
-		}
-
-		return $weekdays;
-	}
 }

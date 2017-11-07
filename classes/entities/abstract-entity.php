@@ -1,6 +1,6 @@
 <?php
 
-abstract class Fitness_Planning_Types {
+abstract class Fitness_Planning_Entity {
 
 	protected $CPT_slug;
 	protected $fields;
