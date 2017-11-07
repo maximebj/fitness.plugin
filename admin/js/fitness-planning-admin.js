@@ -143,5 +143,51 @@
 		});
 
 
+		// Adapt planning size from opening hours
+
+		var fitplanPlanning = $('.fitplan-planning');
+
+		if(fitplanPlanning.length) {
+			adaptPlanning();
+		}
+
+		$('input[name=fitplan_planning_morning_start], input[name=fitplan_planning_morning_end], input[name=fitplan_planning_afternoon_start], input[name=fitplan_planning_afternoon_end]').change(function(){
+			adaptPlanning();
+		});
+
+		function adaptPlanning() {
+
+			var ratio = 2; // 1h = 120px
+
+			// Morning
+
+			var morningStart = $('input[name=fitplan_planning_morning_start]').val();
+			var morningEnd = $('input[name=fitplan_planning_morning_end').val();
+
+			var m1 = moment(morningStart, "HH:mm");
+			var m2 = moment(morningEnd, "HH:mm");
+
+			var diffMorning = m2.diff(m1, 'minutes') * ratio;
+
+			var $fitplanPlanningMorning = $('.fitplan-planning-morning');
+
+			$fitplanPlanningMorning.css('height', diffMorning+'px');
+
+			// Afternoon
+
+			var afternoonStart = $('input[name=fitplan_planning_afternoon_start]').val();
+			var afternoonEnd = $('input[name=fitplan_planning_afternoon_end').val();
+
+			var m1 = moment(afternoonStart, "HH:mm");
+			var m2 = moment(afternoonEnd, "HH:mm");
+
+			var diffAfternoon = m2.diff(m1, 'minutes') * ratio;
+
+			var $fitplanPlanningAfternoon = $('.fitplan-planning-afternoon');
+			$fitplanPlanningAfternoon.css('height', diffAfternoon+'px');
+		}
+
+
+
 	});
 })( jQuery );

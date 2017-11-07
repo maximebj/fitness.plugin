@@ -5,6 +5,14 @@
     <div class="fitplan-planning-day<?php if($day['displayed']): ?> is-shown<?php endif; ?>" data-day="<?php echo $day['slug']; ?>">
       <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
 
+      <div class="fitplan-planning-morning">
+
+      </div>
+
+      <div class="fitplan-planning-afternoon">
+
+      </div>
+
       <!-- <div class="fitplan-planning-item fitplan-planning-duration-1h">
         <p class="fitplan-planning-item-title">Body Attack</p>
         <p class="fitplan-planning-item-hour">9h00 - 10h00</p>

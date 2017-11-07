@@ -10,9 +10,9 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 			'fitplan_planning',
 			'fitplan_planning_weekdays',
 			'fitplan_planning_morning_start',
-			'fitplan_planning_morning_finish',
+			'fitplan_planning_morning_end',
 			'fitplan_planning_afternoon_start',
-			'fitplan_planning_mafternoon_finish',
+			'fitplan_planning_afternoon_end',
 		);
   }
 
@@ -65,6 +65,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Types {
 		global $post;
 
 		$this->datas = $this->get_custom_fields($post->ID);
+
+		if($this->datas['fitplan_planning_morning_start'] == "") { $this->datas['fitplan_planning_morning_start'] = '09:00'; }
+		if($this->datas['fitplan_planning_morning_end'] == "") { $this->datas['fitplan_planning_morning_end'] = '13:00'; }
+		if($this->datas['fitplan_planning_afternoon_start'] == "") { $this->datas['fitplan_planning_afternoon_start'] = '17:00'; }
+		if($this->datas['fitplan_planning_afternoon_end'] == "") { $this->datas['fitplan_planning_afternoon_end'] = '21:00'; }
+
+
 		$this->weekdays = $this->get_weekdays();
 
 		add_meta_box('fitness-planning-workout', __('Add a class', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');

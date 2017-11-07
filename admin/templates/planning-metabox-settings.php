@@ -13,8 +13,17 @@
 
     <p class="label"><?php _e('Planning hours', 'fitness-planning'); ?></p>
 
-    <p>Morning : From <input type="time" value="09:00"> to <input type="time" value="13:00"></p>
-    <p>Afternoon : From <input type="time" value="17:00"> to <input type="time" value="21:00"></p>
+    <p>
+      Morning :
+      From <input type="time" name="fitplan_planning_morning_start" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>">
+      to <input type="time" name="fitplan_planning_morning_end" value="<?php echo $this->datas['fitplan_planning_morning_end'] ?>">
+    </p>
+
+    <p>
+      Afternoon :
+      From <input type="time" name="fitplan_planning_afternoon_start" value="<?php echo $this->datas['fitplan_planning_afternoon_start'] ?>">
+      to <input type="time" name="fitplan_planning_afternoon_end" value="<?php echo $this->datas['fitplan_planning_afternoon_end'] ?>">
+    </p>
 
     <p class="label"><?php _e('Others', 'fitness-planning'); ?></p>
     <p>
