@@ -24,10 +24,24 @@ class Fitness_Planning_Admin {
 			'all'
 		);
 
+		$dependencies = array('jquery', 'wp-color-picker');
+
+		if($hook == 'post.php' and $post_type == Fitness_Planning_Helper::CPT_PLANNING) {
+			$dependencies[] = 'moment';
+
+			wp_enqueue_script(
+				'moment',
+				Fitness_Planning_Helper::get_url().'admin/js/libs/moment.min.js',
+				array(),
+				'2.1.9',
+				false
+			);
+    }
+
 		wp_enqueue_script(
 			Fitness_Planning_Helper::PLUGIN_NAME,
 			Fitness_Planning_Helper::get_url().'admin/js/fitness-planning-admin.js',
-			array('jquery', 'wp-color-picker', 'moment'),
+			$dependencies,
 			Fitness_Planning_Helper::VERSION,
 			false
 		);
@@ -37,16 +51,6 @@ class Fitness_Planning_Admin {
 			'fitnessPlanningStrings',
 			Fitness_Planning_Helper::strings_to_js()
 		);
-
-		if($hook == 'post.php' and $post_type == Fitness_Planning_Helper::CPT_PLANNING) {
-			wp_enqueue_script(
-				'moment',
-				Fitness_Planning_Helper::get_url().'admin/js/libs/moment.min.js',
-				array(),
-				'2.1.9',
-				false
-			);
-    }
 
 	}
 
