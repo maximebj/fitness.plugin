@@ -72,6 +72,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
 		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
 		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-custom', __('Styling', 'fitness-planning'), array($this, 'render_metabox_styling'), $this->CPT_slug, 'side', 'low');
 	}
 
 	public function render_metabox_workout($post) {
@@ -84,6 +85,10 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 
 	public function render_metabox_settings($post) {
 		include Fitness_Planning_Consts::get_path().'admin/templates/planning-metabox-settings.php';
+	}
+
+	public function render_metabox_styling($post) {
+		include Fitness_Planning_Consts::get_path().'admin/templates/planning-metabox-styling.php';
 	}
 
   public function register_custom_columns($columns) {
