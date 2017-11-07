@@ -14,15 +14,15 @@
     <p class="label"><?php _e('Planning hours', 'fitness-planning'); ?></p>
 
     <p>
-      Morning :
-      From <input type="time" name="fitplan_planning_morning_start" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>">
-      to <input type="time" name="fitplan_planning_morning_end" value="<?php echo $this->datas['fitplan_planning_morning_end'] ?>">
+      <span class="fitplan-row"><?php _e('Morning:', 'fitness-planning'); ?></span>
+      <?php _e('from', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_start" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>">
+      <?php _e('to', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_end" value="<?php echo $this->datas['fitplan_planning_morning_end'] ?>">
     </p>
 
     <p>
-      Afternoon :
-      From <input type="time" name="fitplan_planning_afternoon_start" value="<?php echo $this->datas['fitplan_planning_afternoon_start'] ?>">
-      to <input type="time" name="fitplan_planning_afternoon_end" value="<?php echo $this->datas['fitplan_planning_afternoon_end'] ?>">
+      <span class="fitplan-row"><?php _e('Afternoon:', 'fitness-planning'); ?></span>
+      <?php _e('from', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_afternoon_start" value="<?php echo $this->datas['fitplan_planning_afternoon_start'] ?>">
+      <?php _e('to', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_afternoon_end" value="<?php echo $this->datas['fitplan_planning_afternoon_end'] ?>">
     </p>
 
     <p class="label"><?php _e('Others', 'fitness-planning'); ?></p>
