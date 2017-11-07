@@ -7,20 +7,20 @@ class Fitness_Planning {
 		$path = plugin_dir_path(dirname(__FILE__));
 
 		// Load Classes
-		require_once $path.'classes/helpers/helper.php';
-		require_once $path.'classes/helpers/fields.php';
+		require_once $path.'classes/Helpers/Consts.php';
+		require_once $path.'classes/Helpers/Fields.php';
 
-		require_once $path.'classes/wp/i18n.php';
-		require_once $path.'classes/wp/admin.php';
-		require_once $path.'classes/wp/public.php';
-		require_once $path.'classes/wp/settings.php';
+		require_once $path.'classes/WP/I18n.php';
+		require_once $path.'classes/WP/Admin.php';
+		require_once $path.'classes/WP/Public.php';
+		require_once $path.'classes/WP/Settings.php';
 
-		require_once $path.'classes/entities/abstract-entity.php';
-		require_once $path.'classes/entities/planning.php';
-		require_once $path.'classes/entities/workout.php';
-		require_once $path.'classes/entities/coach.php';
+		require_once $path.'classes/Entities/AbstractEntity.php';
+		require_once $path.'classes/Entities/Planning.php';
+		require_once $path.'classes/Entities/Workout.php';
+		require_once $path.'classes/Entities/Coach.php';
 
-		require_once $path.'classes/services/planningServices.php';
+		require_once $path.'classes/Services/planningServices.php';
 
 
 		// Init Classes and Hooks
@@ -48,11 +48,11 @@ class Fitness_Planning {
 	}
 
 	public function get_plugin_name() {
-		return Fitness_Planning_Helper::PLUGIN_NAME;
+		return Fitness_Planning_Consts::PLUGIN_NAME;
 	}
 
 	public function get_version() {
-		return Fitness_Planning_Helper::VERSION;
+		return Fitness_Planning_Consts::VERSION;
 	}
 
 }

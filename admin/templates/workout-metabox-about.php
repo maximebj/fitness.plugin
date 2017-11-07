@@ -4,7 +4,7 @@
     <?php Fitness_Planning_Fields::image('fitplan_workout_pic', $this->datas); ?>
 
     <label class="label" for="fitplan_workout_desc"><?php _e('Description', 'fitness-planning'); ?></label>
-    <?php wp_editor($this->datas['fitplan_workout_desc'], 'fitplan_workout_desc', $settings = Fitness_Planning_Helper::EDITOR_PARAMS); ?>
+    <?php wp_editor($this->datas['fitplan_workout_desc'], 'fitplan_workout_desc', $settings = Fitness_Planning_Consts::EDITOR_PARAMS); ?>
 
   </div>
   <div class="f33">

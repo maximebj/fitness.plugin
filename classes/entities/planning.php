@@ -5,7 +5,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 	public $services;
 
 	public function __construct() {
-    $this->CPT_slug = Fitness_Planning_Helper::CPT_PLANNING;
+    $this->CPT_slug = Fitness_Planning_Consts::CPT_PLANNING;
 		$this->fields = array(
 			'fitplan_planning',
 			'fitplan_planning_weekdays',
@@ -56,7 +56,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 	public function add_admin_menu() {
 		global $submenu;
 
-		$submenu[Fitness_Planning_Helper::PLUGIN_NAME][] = array(
+		$submenu[Fitness_Planning_Consts::PLUGIN_NAME][] = array(
 			__('Plannings', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
@@ -75,15 +75,15 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 	}
 
 	public function render_metabox_workout($post) {
-    include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-workout.php';
+    include Fitness_Planning_Consts::get_path().'admin/templates/planning-metabox-workout.php';
 	}
 
 	public function render_metabox_preview($post) {
-		include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-preview.php';
+		include Fitness_Planning_Consts::get_path().'admin/templates/planning-metabox-preview.php';
 	}
 
 	public function render_metabox_settings($post) {
-		include Fitness_Planning_Helper::get_path().'admin/templates/planning-metabox-settings.php';
+		include Fitness_Planning_Consts::get_path().'admin/templates/planning-metabox-settings.php';
 	}
 
   public function register_custom_columns($columns) {
@@ -96,13 +96,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
   public function add_custom_column_content($column, $post_id) {
     switch ($column) {
       case 'shortcode':
-        include Fitness_Planning_Helper::get_path().'admin/templates/planning-column-shortcode.php';
+        include Fitness_Planning_Consts::get_path().'admin/templates/planning-column-shortcode.php';
         break;
     }
   }
 
 	public function execute_planning_shortcode() {
-		include Fitness_Planning_Helper::get_path().'public/templates/planning.php';
+		include Fitness_Planning_Consts::get_path().'public/templates/planning.php';
 	}
 
 }

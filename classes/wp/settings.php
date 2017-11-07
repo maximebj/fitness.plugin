@@ -20,6 +20,6 @@ class Fitness_Planning_Settings {
 	}
 
 	public function settings_page(){
-    require_once Fitness_Planning_Helper::get_path().'admin/templates/settings.php';
+    require_once Fitness_Planning_Consts::get_path().'admin/templates/settings.php';
 	}
 }

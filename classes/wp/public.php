@@ -12,10 +12,10 @@ class Fitness_Planning_Public {
 
 		if(has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_style(
-				Fitness_Planning_Helper::PLUGIN_NAME,
-				Fitness_Planning_Helper::get_url().'public/css/fitness-planning-public.css',
+				Fitness_Planning_Consts::PLUGIN_NAME,
+				Fitness_Planning_Consts::get_url().'public/css/fitness-planning-public.css',
 				array(),
-				Fitness_Planning_Helper::VERSION,
+				Fitness_Planning_Consts::VERSION,
 				'all'
 			);
 		}
@@ -26,10 +26,10 @@ class Fitness_Planning_Public {
 
 		if(has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_script(
-				Fitness_Planning_Helper::PLUGIN_NAME,
-				Fitness_Planning_Helper::get_url().'public/js/fitness-planning-public.js',
+				Fitness_Planning_Consts::PLUGIN_NAME,
+				Fitness_Planning_Consts::get_url().'public/js/fitness-planning-public.js',
 				array('jquery'),
-				Fitness_Planning_Helper::VERSION,
+				Fitness_Planning_Consts::VERSION,
 				false
 			);
 		}

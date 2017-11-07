@@ -11,7 +11,7 @@ class Fitness_Planning_i18n {
 		load_plugin_textdomain(
 			'fitness-planning',
 			false,
-			Fitness_Planning_Helper::get_path().'languages/'
+			Fitness_Planning_Consts::get_path().'languages/'
 		);
 
 	}

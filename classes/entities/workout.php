@@ -3,7 +3,7 @@
 class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 
 	public function __construct() {
-    $this->CPT_slug = Fitness_Planning_Helper::CPT_WORKOUT;
+    $this->CPT_slug = Fitness_Planning_Consts::CPT_WORKOUT;
 		$this->fields = array(
 			'fitplan_workout_desc',
 			'fitplan_workout_pic',
@@ -48,7 +48,7 @@ class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 	public function add_admin_menu() {
 		global $submenu;
 
-		$submenu[Fitness_Planning_Helper::PLUGIN_NAME][] = array(
+		$submenu[Fitness_Planning_Consts::PLUGIN_NAME][] = array(
 			__('Workouts', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
@@ -67,7 +67,7 @@ class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 
 		wp_enqueue_media();
 
-    include Fitness_Planning_Helper::get_path().'admin/templates/workout-metabox-about.php';
+    include Fitness_Planning_Consts::get_path().'admin/templates/workout-metabox-about.php';
 	}
 
 }

@@ -23,7 +23,7 @@ class Fitness_Planning_Planning_Services {
 		// Workout Metabox stuff
 
 		$args = array(
-			'post_type' => Fitness_Planning_Helper::CPT_WORKOUT,
+			'post_type' => Fitness_Planning_Consts::CPT_WORKOUT,
 			'posts_per_page' => -1,
 			'orderby' => 'title',
 			'order' => 'ASC',
@@ -35,7 +35,7 @@ class Fitness_Planning_Planning_Services {
 			$datas['workouts'][$workout->ID] = $workout->post_title;
 		endforeach;
 
-		$args['post_type'] = Fitness_Planning_Helper::CPT_COACH;
+		$args['post_type'] = Fitness_Planning_Consts::CPT_COACH;
 		$coachs_raw = get_posts($args);
 		$datas['coachs'] = array();
 
