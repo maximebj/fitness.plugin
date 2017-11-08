@@ -10,9 +10,9 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 			'fitplan_planning',
 			'fitplan_planning_weekdays',
 			'fitplan_planning_morning_start',
-			'fitplan_planning_morning_end',
+			'fitplan_planning_morning_finish',
 			'fitplan_planning_afternoon_start',
-			'fitplan_planning_afternoon_end',
+			'fitplan_planning_afternoon_finish',
 		);
 
 		$this->services = new Fitness_Planning_Planning_Services();

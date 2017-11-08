@@ -10,15 +10,52 @@ class Fitness_Planning_Planning_Services {
 		// All metaboxes stuff
 
 		if($datas['fitplan_planning_morning_start'] == "") { $datas['fitplan_planning_morning_start'] = '09:00'; }
-		if($datas['fitplan_planning_morning_end'] == "") { $datas['fitplan_planning_morning_end'] = '13:00'; }
+		if($datas['fitplan_planning_morning_finish'] == "") { $datas['fitplan_planning_morning_finish'] = '13:00'; }
 		if($datas['fitplan_planning_afternoon_start'] == "") { $datas['fitplan_planning_afternoon_start'] = '17:00'; }
-		if($datas['fitplan_planning_afternoon_end'] == "") { $datas['fitplan_planning_afternoon_end'] = '21:00'; }
+		if($datas['fitplan_planning_afternoon_finish'] == "") { $datas['fitplan_planning_afternoon_finish'] = '21:00'; }
 
 		$datas['weekdays'] = $this->get_weekdays($datas);
 
-		$datas['planning'] = json_decode($datas['fitplan_planning']);
+		$datas['planning'] = json_decode($datas['fitplan_planning'], true);
 
-		var_dump(json_decode($datas['fitplan_planning']));
+		$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+		$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
+
+		foreach($datas['planning'] as $day => $workouts) {
+			foreach($workouts as $key => $workout) {
+
+				// Transform IDs in names
+
+				$workout_datas = get_post($workout['name']);
+				$datas['planning'][$day][$key]['name'] = $workout_datas->post_title;
+
+				$coach_datas = get_post($workout['coach']);
+				$datas['planning'][$day][$key]['coach'] = $coach_datas->post_title;
+
+				// Positions
+
+				$start_time  = DateTime::createFromFormat('H:i', $workout['start']);
+				$finish_time = DateTime::createFromFormat('H:i', $workout['finish']);
+
+				$duration = $finish_time->diff($start_time);
+				$duration_in_min = $duration->h * 60 + $duration->i;
+
+				$base_time = ($workout['time'] == "morning") ? $morning_start_time : $afternoon_start_time;
+
+				$from_top = $start_time->diff($base_time);
+				$from_top_in_min = $from_top->h * 60 + $from_top->i;
+
+				// TODO change to get value from $datas['fitplan_planning_height_ratio'];
+				$ratio = 1.5;
+
+				$top = $from_top_in_min * $ratio;
+				$height = $duration_in_min * $ratio;
+
+				$datas['planning'][$day][$key]['top'] = $top."px";
+				$datas['planning'][$day][$key]['height'] = $height."px";
+
+			}
+		}
 
 		// Workout Metabox stuff
 

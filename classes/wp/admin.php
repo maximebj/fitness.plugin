@@ -24,10 +24,7 @@ class Fitness_Planning_Admin {
 			'all'
 		);
 
-		$dependencies = array('jquery', 'wp-color-picker');
-
 		if($hook == 'post.php' and $post_type == Fitness_Planning_Consts::CPT_PLANNING) {
-			$dependencies[] = 'moment';
 
 			wp_enqueue_script(
 				'moment',
@@ -36,12 +33,20 @@ class Fitness_Planning_Admin {
 				'2.1.9',
 				false
 			);
+
+			wp_enqueue_script(
+				Fitness_Planning_Consts::PLUGIN_NAME.'-manage-workouts',
+				Fitness_Planning_Consts::get_url().'admin/js/fitness-planning-manage-workouts.js',
+				array('jquery', 'moment'),
+				Fitness_Planning_Consts::VERSION,
+				false
+			);
     }
 
 		wp_enqueue_script(
 			Fitness_Planning_Consts::PLUGIN_NAME,
 			Fitness_Planning_Consts::get_url().'admin/js/fitness-planning-admin.js',
-			$dependencies,
+			array('jquery', 'wp-color-picker'),
 			Fitness_Planning_Consts::VERSION,
 			false
 		);

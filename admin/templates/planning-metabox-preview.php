@@ -6,24 +6,32 @@
       <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
 
       <div class="fitplan-planning-morning">
-        <?php foreach($this->datas['planning'] as $ID => $title): ?>
-          <div class="fitplan-planning-item ">
-            <p class="fitplan-planning-item-title">...</p>
-            <p class="fitplan-planning-item-hour">...</p>
-            <p class="fitplan-planning-item-coach">...</p>
-          </div>
-        <?php endforeach; ?>
+        <?php
+          foreach($this->datas['planning'][$day['slug']] as $workout):
+            if($workout['time'] == "morning"){
+              include 'parts/planning-item.php';
+            }
+          endforeach;
+        ?>
       </div>
 
       <div class="fitplan-planning-afternoon">
-
+        <?php
+          foreach($this->datas['planning'][$day['slug']] as $workout):
+            if($workout['time'] == "afternoon"){
+              include 'parts/planning-item.php';
+            }
+          endforeach;
+        ?>
       </div>
-
 
     </div>
     <?php endforeach; ?>
-
   </div>
+
+  <template class="fitplan-planning-item-template">
+    <?php include 'parts/planning-item.php'; ?>
+  </template>
 
   <input type="hidden" name="fitplan_planning" value="<?php echo esc_js($this->datas['fitplan_planning']); ?>">
 
