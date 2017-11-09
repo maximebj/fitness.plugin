@@ -63,7 +63,7 @@ abstract class Fitness_Planning_Entity {
 		}
 	}
 
-	public static function check_saved_post($post_type, $current_type, $update, $post_id) {
+	private function check_saved_post($post_type, $current_type, $update, $post_id) {
 
 		return
 			$post_type != $current_type

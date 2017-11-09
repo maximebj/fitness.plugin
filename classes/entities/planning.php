@@ -106,8 +106,12 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
     }
   }
 
-	public function execute_planning_shortcode() {
-		include Fitness_Planning_Consts::get_path().'public/templates/planning.php';
+	public function execute_planning_shortcode($attributes) {
+
+		$raw_datas = $this->get_custom_fields($attributes['id']);
+		$this->datas = $this->services->prepare_datas($raw_datas);
+
+		include Fitness_Planning_Consts::get_path().'public/templates/shortcode-planning.php';
 	}
 
 }
