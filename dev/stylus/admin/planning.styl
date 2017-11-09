@@ -1,6 +1,9 @@
 // Add Workout to planning
 
 .add-workout
+  line-height 52px
+  margin 0 pad-s
+
   span
     margin 0 pad-xs 0 pad-s
 
@@ -16,11 +19,25 @@
 
   .button
     margin-left pad-m
-    vertical-align bottom
-    height 26px
+    vertical-align baseline
+    height 27px
     line-height 25px
-    transform translateY(-2px)
+    transform translateY(-1px)
 
+    &:active
+      vertical-align baseline
+
+  .fitplan-add-workout-cancel
+    display inline-block
+    text-decoration none
+    margin-left pad-s
+    display none
+
+#fitness-planning-workout .postbox-inside
+  transition .2s background ease-in
+
+  &.is-featured
+    background #93DA9F
 
 // Planning
 
@@ -65,8 +82,15 @@
   z-index 1
   width 100%
   overflow hidden
-  cursor pointer
   box-sizing border-box
+
+  transition all .3s ease-in
+
+  &.is-edited .fitplan-planning-item-inside
+    opacity .5
+
+  &:hover .fitplan-planning-item-overlay
+    display flex
 
 .fitplan-planning-item-inside
   flex auto
@@ -91,7 +115,38 @@
   position absolute
   display none
 
+.fitplan-planning-item-overlay
+  position absolute
+  z-index 10
+  top 3px
+  left 3px
+  right 3px
+  bottom 1px
+  display none
+  justify-content stretch
+  background rgba(0,0,0, .7)
+  border-radius 4px
 
+  a
+    text-decoration none
+    color white
+
+.fitplan-planning-delete-item
+  position absolute
+  z-index 15
+  top 6px
+  right 8px
+  font-size 18px
+  line-height 1
+
+.fitplan-planning-edit-item
+  flex auto
+  display flex
+  align-items center
+  justify-content center
+
+  span
+    display block
 
 .fitplan-planning-item-template
   display none // IE11 -

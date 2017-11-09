@@ -7,21 +7,25 @@
 
       <div class="fitplan-planning-morning">
         <?php
-          foreach($this->datas['planning'][$day['slug']] as $workout):
-            if($workout['time'] == "morning"){
-              include 'parts/planning-item.php';
-            }
-          endforeach;
+          if(isset($this->datas['planning'])):
+            foreach($this->datas['planning'][$day['slug']] as $id => $entry):
+              if($entry['time'] == "morning"){
+                include 'parts/planning-item.php';
+              }
+            endforeach;
+          endif;
         ?>
       </div>
 
       <div class="fitplan-planning-afternoon">
         <?php
-          foreach($this->datas['planning'][$day['slug']] as $workout):
-            if($workout['time'] == "afternoon"){
-              include 'parts/planning-item.php';
-            }
-          endforeach;
+          if(isset($this->datas['planning'])):
+            foreach($this->datas['planning'][$day['slug']] as $id => $entry):
+              if($entry['time'] == "afternoon"){
+                include 'parts/planning-item.php';
+              }
+            endforeach;
+          endif;
         ?>
       </div>
 

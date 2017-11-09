@@ -34,6 +34,9 @@ abstract class Fitness_Planning_Consts {
 		return array(
 			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-planning'),
 			'mediaUploaderButton' => __('Use this image', 'fitness-planning'),
+			'editWorkoutTitle' => __('Edit this Workout', 'fitness-planning'),
+			'editWorkoutButton' => __('Apply changes', 'fitness-planning'),
+			'editWorkoutAction' => __('Edit', 'fitness-planning'),
 		);
 	}
 

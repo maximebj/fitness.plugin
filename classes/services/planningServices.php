@@ -16,44 +16,54 @@ class Fitness_Planning_Planning_Services {
 
 		$datas['weekdays'] = $this->get_weekdays($datas);
 
-		$datas['planning'] = json_decode($datas['fitplan_planning'], true);
+		if($datas['fitplan_planning'] != ""){
+			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
+		}
 
 		$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
 		$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
 
-		foreach($datas['planning'] as $day => $workouts) {
-			foreach($workouts as $key => $workout) {
+		if(isset($datas['planning'])){
+			foreach($datas['planning'] as $day => $entries) {
+				foreach($entries as $key => $entry) {
 
-				// Transform IDs in names
+					// Transform IDs in names
 
-				$workout_datas = get_post($workout['name']);
-				$datas['planning'][$day][$key]['name'] = $workout_datas->post_title;
+					$workout_datas = get_post($entry['workout']);
+					$datas['planning'][$day][$key]['workout'] = array(
+						"id" => $entry['workout'],
+						"name" => $workout_datas->post_title,
+					);
 
-				$coach_datas = get_post($workout['coach']);
-				$datas['planning'][$day][$key]['coach'] = $coach_datas->post_title;
+					$coach_datas = get_post($entry['coach']);
+					$datas['planning'][$day][$key]['coach'] = array(
+						"id" => $entry['coach'],
+						"name" => $coach_datas->post_title,
+					);
 
-				// Positions
+					// Positions
 
-				$start_time  = DateTime::createFromFormat('H:i', $workout['start']);
-				$finish_time = DateTime::createFromFormat('H:i', $workout['finish']);
+					$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
+					$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
 
-				$duration = $finish_time->diff($start_time);
-				$duration_in_min = $duration->h * 60 + $duration->i;
+					$duration = $finish_time->diff($start_time);
+					$duration_in_min = $duration->h * 60 + $duration->i;
 
-				$base_time = ($workout['time'] == "morning") ? $morning_start_time : $afternoon_start_time;
+					$base_time = ($entry['time'] == "morning") ? $morning_start_time : $afternoon_start_time;
 
-				$from_top = $start_time->diff($base_time);
-				$from_top_in_min = $from_top->h * 60 + $from_top->i;
+					$from_top = $start_time->diff($base_time);
+					$from_top_in_min = $from_top->h * 60 + $from_top->i;
 
-				// TODO change to get value from $datas['fitplan_planning_height_ratio'];
-				$ratio = 1.5;
+					// TODO change to get value from $datas['fitplan_planning_height_ratio'];
+					$ratio = 1.5;
 
-				$top = $from_top_in_min * $ratio;
-				$height = $duration_in_min * $ratio;
+					$top = $from_top_in_min * $ratio;
+					$height = $duration_in_min * $ratio;
 
-				$datas['planning'][$day][$key]['top'] = $top."px";
-				$datas['planning'][$day][$key]['height'] = $height."px";
+					$datas['planning'][$day][$key]['top'] = $top."px";
+					$datas['planning'][$day][$key]['height'] = $height."px";
 
+				}
 			}
 		}
 
