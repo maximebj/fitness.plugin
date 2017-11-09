@@ -15,7 +15,7 @@
   </div>
 
   <div class="fitplan-planning-item-overlay">
-    <a href="#" class="fitplan-planning-edit-item"><span><?php _e('Edit', 'fitness-planning'); ?></span></a>
+    <a href="#" class="fitplan-planning-edit-item"><span><?php _e('Click to edit', 'fitness-planning'); ?></span></a>
     <a href="#" class="fitplan-planning-delete-item">×</a>
   </div>
 </div>

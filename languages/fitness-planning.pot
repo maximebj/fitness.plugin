@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-10-08 19:44+0200\n"
+"POT-Creation-Date: 2017-11-09 16:55+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: fitness-planning.php\n"
@@ -25,12 +25,88 @@ msgstr ""
 msgid "A few words about him"
 msgstr ""
 
+#: admin/templates/parts/planning-item.php:13
+msgid "With"
+msgstr ""
+
+#: admin/templates/parts/planning-item.php:18
+msgid "Click to edit"
+msgstr ""
+
 #: admin/templates/planning-column-shortcode.php:3
 msgid "Copy"
 msgstr ""
 
-#: admin/templates/settings.php:2 classes/planning.php:61
-#: classes/settings.php:13 classes/settings.php:14
+#: admin/templates/planning-metabox-settings.php:3
+msgid "Show"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:14
+msgid "Planning hours"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:17
+msgid "Morning:"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:18
+#: admin/templates/planning-metabox-settings.php:24
+#: admin/templates/planning-metabox-workout.php:24
+msgid "from"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:19
+#: admin/templates/planning-metabox-settings.php:25
+#: admin/templates/planning-metabox-workout.php:28
+msgid "to"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:23
+msgid "Afternoon:"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:28
+msgid "Others"
+msgstr ""
+
+#: admin/templates/planning-metabox-settings.php:30
+msgid ""
+"You can customize the first day of the week or the date format in <a href="
+"\"options-general.php\" target=\"_blank\">Settings > General</a>."
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:5
+msgid ""
+"You don't have any workout to add to the planning. <a href='edit.php?"
+"post_type=workout'>Add a Workout</a>."
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:8
+msgid "Add"
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:16
+msgid "on"
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:32
+msgid "with"
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:39
+msgid "No coach defined"
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:43
+msgid "Add to planning"
+msgstr ""
+
+#: admin/templates/planning-metabox-workout.php:46
+msgid "Cancel"
+msgstr ""
+
+#: admin/templates/settings.php:2 classes/Entities/Planning.php:74
+#: classes/WP/Settings.php:13 classes/WP/Settings.php:14
 msgid "Settings"
 msgstr ""
 
@@ -70,120 +146,160 @@ msgstr ""
 msgid "This workout suits best to..."
 msgstr ""
 
-#: classes/coach.php:23 classes/coach.php:48
+#: classes/Entities/Coach.php:23 classes/Entities/Coach.php:48
 msgid "Coachs"
 msgstr ""
 
-#: classes/coach.php:24
+#: classes/Entities/Coach.php:24
 msgid "All coachs"
 msgstr ""
 
-#: classes/coach.php:25
+#: classes/Entities/Coach.php:25
 msgid "Coach"
 msgstr ""
 
-#: classes/coach.php:26
+#: classes/Entities/Coach.php:26
 msgid "Add a coach"
 msgstr ""
 
-#: classes/coach.php:27
+#: classes/Entities/Coach.php:27
 msgid "Edit coach"
 msgstr ""
 
-#: classes/coach.php:28
+#: classes/Entities/Coach.php:28
 msgid "No coachs found."
 msgstr ""
 
-#: classes/coach.php:55
+#: classes/Entities/Coach.php:55
 msgid "About the coach"
 msgstr ""
 
-#: classes/fields.php:8 classes/fields.php:12
-msgid "Picture"
-msgstr ""
-
-#: classes/fields.php:17
-msgid "Choose picture"
-msgstr ""
-
-#: classes/fields.php:18
-msgid "Change"
-msgstr ""
-
-#: classes/fields.php:19
-msgid "Remove"
-msgstr ""
-
-#: classes/helper.php:27
-msgid "Select a image to upload"
-msgstr ""
-
-#: classes/helper.php:28
-msgid "Use this image"
-msgstr ""
-
-#: classes/planning.php:27 classes/planning.php:52
+#: classes/Entities/Planning.php:35 classes/Entities/Planning.php:60
 msgid "Plannings"
 msgstr ""
 
-#: classes/planning.php:28
+#: classes/Entities/Planning.php:36
 msgid "All plannings"
 msgstr ""
 
-#: classes/planning.php:29
+#: classes/Entities/Planning.php:37
 msgid "Planning"
 msgstr ""
 
-#: classes/planning.php:30
+#: classes/Entities/Planning.php:38
 msgid "Add a planning"
 msgstr ""
 
-#: classes/planning.php:31
+#: classes/Entities/Planning.php:39
 msgid "Edit planning"
 msgstr ""
 
-#: classes/planning.php:32
+#: classes/Entities/Planning.php:40
 msgid "No plannings found."
 msgstr ""
 
-#: classes/planning.php:59
-msgid "Add a class"
-msgstr ""
-
-#: classes/planning.php:60
-msgid "Planning Preview"
-msgstr ""
-
-#: classes/planning.php:81
-msgid "Shortcode"
-msgstr ""
-
-#: classes/workout.php:27 classes/workout.php:52
-msgid "Workouts"
-msgstr ""
-
-#: classes/workout.php:28
-msgid "All workouts"
-msgstr ""
-
-#: classes/workout.php:29
-msgid "Workout"
-msgstr ""
-
-#: classes/workout.php:30
+#: classes/Entities/Planning.php:72 classes/Entities/Workout.php:30
 msgid "Add a workout"
 msgstr ""
 
-#: classes/workout.php:31
+#: classes/Entities/Planning.php:73
+msgid "Planning Preview"
+msgstr ""
+
+#: classes/Entities/Planning.php:75
+msgid "Styling"
+msgstr ""
+
+#: classes/Entities/Planning.php:96
+msgid "Shortcode"
+msgstr ""
+
+#: classes/Entities/Workout.php:27 classes/Entities/Workout.php:52
+msgid "Workouts"
+msgstr ""
+
+#: classes/Entities/Workout.php:28
+msgid "All workouts"
+msgstr ""
+
+#: classes/Entities/Workout.php:29
+msgid "Workout"
+msgstr ""
+
+#: classes/Entities/Workout.php:31
 msgid "Edit workout"
 msgstr ""
 
-#: classes/workout.php:32
+#: classes/Entities/Workout.php:32
 msgid "No workout found."
 msgstr ""
 
-#: classes/workout.php:59
+#: classes/Entities/Workout.php:59
 msgid "About the workout"
+msgstr ""
+
+#: classes/Helpers/Consts.php:35
+msgid "Select a image to upload"
+msgstr ""
+
+#: classes/Helpers/Consts.php:36
+msgid "Use this image"
+msgstr ""
+
+#: classes/Helpers/Consts.php:37
+msgid "Edit this Workout"
+msgstr ""
+
+#: classes/Helpers/Consts.php:38
+msgid "Apply changes"
+msgstr ""
+
+#: classes/Helpers/Consts.php:39
+msgid "Edit"
+msgstr ""
+
+#: classes/Helpers/Fields.php:8 classes/Helpers/Fields.php:12
+msgid "Picture"
+msgstr ""
+
+#: classes/Helpers/Fields.php:17
+msgid "Choose picture"
+msgstr ""
+
+#: classes/Helpers/Fields.php:18
+msgid "Change"
+msgstr ""
+
+#: classes/Helpers/Fields.php:19
+msgid "Remove"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:100 public/templates/planning.php:41
+msgid "Sunday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:101 public/templates/planning.php:6
+msgid "Monday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:102 public/templates/planning.php:21
+msgid "Tuesday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:103 public/templates/planning.php:25
+msgid "Wednesday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:104 public/templates/planning.php:29
+msgid "Thursday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:105 public/templates/planning.php:33
+msgid "Friday"
+msgstr ""
+
+#: classes/Services/PlanningServices.php:106 public/templates/planning.php:37
+msgid "Saturday"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

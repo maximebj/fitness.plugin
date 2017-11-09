@@ -13,7 +13,7 @@
       <?php endforeach; ?>
     </select>
 
-    <span><?php _e('On', 'fitness-planning'); ?></span>
+    <span><?php _e('on', 'fitness-planning'); ?></span>
 
     <select name="fitplan_addworkout_day" class="js-fitplan-day">
       <?php $first = true; foreach($this->datas['weekdays'] as $day): ?>
@@ -21,15 +21,15 @@
       <?php endforeach; ?>
     </select>
 
-    <span><?php _e('From', 'fitness-planning'); ?></span>
+    <span><?php _e('from', 'fitness-planning'); ?></span>
 
     <input name="fitplan_addworkout_start" type="time" step="900" class="js-fitplan-start" value="17:00">
 
-    <span><?php _e('To', 'fitness-planning'); ?></span>
+    <span><?php _e('to', 'fitness-planning'); ?></span>
 
     <input name="fitplan_addworkout_finish" type="time" step="900" class="js-fitplan-finish" value="18:00">
 
-    <span><?php _e('With', 'fitness-planning'); ?></span>
+    <span><?php _e('with', 'fitness-planning'); ?></span>
 
     <select name="fitplan_addworkout_coach" <?php if(count($this->datas['coachs']) == 0) echo "disabled"; ?> class="js-fitplan-coach">
       <?php $first = true; foreach($this->datas['coachs'] as $ID => $title): ?>
