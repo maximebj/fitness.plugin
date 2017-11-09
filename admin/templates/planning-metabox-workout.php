@@ -23,11 +23,11 @@
 
     <span><?php _e('From', 'fitness-planning'); ?></span>
 
-    <input name="fitplan_addworkout_start" type="time" class="js-fitplan-start" value="17:00">
+    <input name="fitplan_addworkout_start" type="time" step="900" class="js-fitplan-start" value="17:00">
 
     <span><?php _e('To', 'fitness-planning'); ?></span>
 
-    <input name="fitplan_addworkout_finish" type="time" class="js-fitplan-finish" value="18:00">
+    <input name="fitplan_addworkout_finish" type="time" step="900" class="js-fitplan-finish" value="18:00">
 
     <span><?php _e('With', 'fitness-planning'); ?></span>
 
