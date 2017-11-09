@@ -18,12 +18,12 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 function activate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ).'classes/activator.php';
+	require_once plugin_dir_path( __FILE__ ).'classes/WP/Activator.php';
 	Fitness_Planning_Activator::activate();
 }
 
 function deactivate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ).'classes/deactivator.php';
+	require_once plugin_dir_path( __FILE__ ).'classes/WP/Deactivator.php';
 	Fitness_Planning_Deactivator::deactivate();
 }
 
