@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-11 22:44+0100\n"
-"PO-Revision-Date: 2017-11-11 22:52+0100\n"
+"POT-Creation-Date: 2017-11-12 00:02+0100\n"
+"PO-Revision-Date: 2017-11-12 00:02+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -35,6 +35,7 @@ msgid "Click to edit"
 msgstr "Cliquez pour éditer"
 
 #: admin/templates/planning-column-shortcode.php:3
+msgctxt "verb"
 msgid "Copy"
 msgstr "Copier"
 
@@ -111,7 +112,7 @@ msgstr "Ajouter au planning"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: admin/templates/settings.php:2 classes/Entities/Planning.php:74
+#: admin/templates/settings.php:2 classes/Entities/Planning.php:75
 #: classes/WP/Settings.php:13 classes/WP/Settings.php:14
 msgid "Settings"
 msgstr "Réglages"
@@ -164,45 +165,54 @@ msgstr "Aucun coach trouvé."
 msgid "About the coach"
 msgstr "À propos du coach"
 
-#: classes/Entities/Planning.php:35 classes/Entities/Planning.php:60
+#: classes/Entities/Planning.php:36 classes/Entities/Planning.php:61
 msgid "Plannings"
 msgstr "Plannings"
 
-#: classes/Entities/Planning.php:36
+#: classes/Entities/Planning.php:37
 msgid "All plannings"
 msgstr "Tous les plannings"
 
-#: classes/Entities/Planning.php:37
+#: classes/Entities/Planning.php:38
 msgid "Planning"
 msgstr "Planning"
 
-#: classes/Entities/Planning.php:38
+#: classes/Entities/Planning.php:39
 msgid "Add a planning"
 msgstr "Ajouter un planning"
 
-#: classes/Entities/Planning.php:39
+#: classes/Entities/Planning.php:40
 msgid "Edit planning"
 msgstr "Modifier le planning"
 
-#: classes/Entities/Planning.php:40
+#: classes/Entities/Planning.php:41
 msgid "No plannings found."
 msgstr "Aucun planning trouvé."
 
-#: classes/Entities/Planning.php:72 classes/Entities/Workout.php:29
+#: classes/Entities/Planning.php:73 classes/Entities/Workout.php:29
 msgid "Add a workout"
 msgstr "Ajouter un cours"
 
-#: classes/Entities/Planning.php:73
+#: classes/Entities/Planning.php:74
 msgid "Planning Preview"
 msgstr "Prévisualisation du planning"
 
-#: classes/Entities/Planning.php:75
+#: classes/Entities/Planning.php:76
 msgid "Styling"
 msgstr "Personnalisation"
 
-#: classes/Entities/Planning.php:96
+#: classes/Entities/Planning.php:97
 msgid "Shortcode"
 msgstr "Shortcode"
+
+#: classes/Entities/Planning.php:115
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+#: classes/Entities/Planning.php:139
+msgctxt "noun"
+msgid "Copy"
+msgstr "Copie"
 
 #: classes/Entities/Workout.php:26 classes/Entities/Workout.php:51
 msgid "Workouts"
@@ -490,6 +500,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Maxime BERNARD-JACQUET"
 msgstr "Maxime BERNARD-JACQUET"
+
+#~ msgid "Copy"
+#~ msgstr "Copier"
 
 #~ msgid "Duration"
 #~ msgstr "Durée"

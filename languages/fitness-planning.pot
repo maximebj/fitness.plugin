@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-11 22:44+0100\n"
+"POT-Creation-Date: 2017-11-12 00:02+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -35,6 +35,7 @@ msgid "Click to edit"
 msgstr ""
 
 #: admin/templates/planning-column-shortcode.php:3
+msgctxt "verb"
 msgid "Copy"
 msgstr ""
 
@@ -106,7 +107,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: admin/templates/settings.php:2 classes/Entities/Planning.php:74
+#: admin/templates/settings.php:2 classes/Entities/Planning.php:75
 #: classes/WP/Settings.php:13 classes/WP/Settings.php:14
 msgid "Settings"
 msgstr ""
@@ -159,44 +160,53 @@ msgstr ""
 msgid "About the coach"
 msgstr ""
 
-#: classes/Entities/Planning.php:35 classes/Entities/Planning.php:60
+#: classes/Entities/Planning.php:36 classes/Entities/Planning.php:61
 msgid "Plannings"
 msgstr ""
 
-#: classes/Entities/Planning.php:36
+#: classes/Entities/Planning.php:37
 msgid "All plannings"
 msgstr ""
 
-#: classes/Entities/Planning.php:37
+#: classes/Entities/Planning.php:38
 msgid "Planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:38
+#: classes/Entities/Planning.php:39
 msgid "Add a planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:39
+#: classes/Entities/Planning.php:40
 msgid "Edit planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:40
+#: classes/Entities/Planning.php:41
 msgid "No plannings found."
 msgstr ""
 
-#: classes/Entities/Planning.php:72 classes/Entities/Workout.php:29
+#: classes/Entities/Planning.php:73 classes/Entities/Workout.php:29
 msgid "Add a workout"
 msgstr ""
 
-#: classes/Entities/Planning.php:73
+#: classes/Entities/Planning.php:74
 msgid "Planning Preview"
 msgstr ""
 
-#: classes/Entities/Planning.php:75
+#: classes/Entities/Planning.php:76
 msgid "Styling"
 msgstr ""
 
-#: classes/Entities/Planning.php:96
+#: classes/Entities/Planning.php:97
 msgid "Shortcode"
+msgstr ""
+
+#: classes/Entities/Planning.php:115
+msgid "Duplicate"
+msgstr ""
+
+#: classes/Entities/Planning.php:139
+msgctxt "noun"
+msgid "Copy"
 msgstr ""
 
 #: classes/Entities/Workout.php:26 classes/Entities/Workout.php:51

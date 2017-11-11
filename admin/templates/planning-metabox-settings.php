@@ -15,8 +15,8 @@
 
     <p>
       <span class="fitplan-row"><?php _e('Morning:', 'fitness-planning'); ?></span>
-      <?php _e('from', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_start" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>">
-      <?php _e('to', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_finish" value="<?php echo $this->datas['fitplan_planning_morning_finish'] ?>">
+      <?php _e('from', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_start" step="900" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>">
+      <?php _e('to', 'fitness-planning'); ?> <input type="time" name="fitplan_planning_morning_finish" step="900" value="<?php echo $this->datas['fitplan_planning_morning_finish'] ?>">
     </p>
 
     <p>
