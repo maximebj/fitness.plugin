@@ -8,7 +8,6 @@ class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 			'fitplan_workout_desc',
 			'fitplan_workout_pic',
 			'fitplan_workout_color',
-			'fitplan_workout_duration',
 			'fitplan_workout_url',
 			'fitplan_workout_public',
 		);
