@@ -30,16 +30,28 @@ class Fitness_Planning_Planning_Services {
 					// Transform IDs in names
 
 					$workout_datas = get_post($entry['workout']);
-					$datas['planning'][$day][$key]['workout'] = array(
-						"id" => $entry['workout'],
-						"name" => $workout_datas->post_title,
-					);
+
+					// If workout has been deleted
+					if(is_null($workout_datas)){
+						unset($datas['planning'][$day][$key]);
+						continue;
+					} else {
+						$datas['planning'][$day][$key]['workout'] = array(
+							"id" => $entry['workout'],
+							"name" => $workout_datas->post_title,
+						);
+					}
 
 					$coach_datas = get_post($entry['coach']);
-					$datas['planning'][$day][$key]['coach'] = array(
-						"id" => $entry['coach'],
-						"name" => $coach_datas->post_title,
-					);
+
+					if(is_null($coach_datas)){
+						unset($datas['planning'][$day][$key]['coach']);
+					} else {
+						$datas['planning'][$day][$key]['coach'] = array(
+							"id" => $entry['coach'],
+							"name" => $coach_datas->post_title,
+						);
+					}
 
 					// Positions
 
