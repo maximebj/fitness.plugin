@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-09 16:55+0100\n"
-"PO-Revision-Date: 2017-11-09 16:57+0100\n"
+"POT-Creation-Date: 2017-11-11 22:44+0100\n"
+"PO-Revision-Date: 2017-11-11 22:52+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -26,6 +26,7 @@ msgid "A few words about him"
 msgstr "Quelques mots sur lui/elle"
 
 #: admin/templates/parts/planning-item.php:13
+#: public/templates/parts/planning-item.php:13
 msgid "With"
 msgstr "Avec"
 
@@ -115,41 +116,25 @@ msgstr "Annuler"
 msgid "Settings"
 msgstr "Réglages"
 
-#: admin/templates/workout-metabox-about.php:6
-msgid "Description"
-msgstr "Description"
-
-#: admin/templates/workout-metabox-about.php:12
+#: admin/templates/workout-metabox-about.php:9
 msgid "Color"
 msgstr "Couleur"
 
-#: admin/templates/workout-metabox-about.php:13
+#: admin/templates/workout-metabox-about.php:10
 msgid "Choose a background color for this workout"
 msgstr "Choisissez un fond pour ce cours"
 
-#: admin/templates/workout-metabox-about.php:16
-msgid "Duration"
-msgstr "Durée"
-
-#: admin/templates/workout-metabox-about.php:17
-msgid "Eg: 45 min, 1 hour"
-msgstr "Ex: 45 min, 1 heure"
-
-#: admin/templates/workout-metabox-about.php:20
+#: admin/templates/workout-metabox-about.php:13
 msgid "URL"
 msgstr "URL"
 
-#: admin/templates/workout-metabox-about.php:21
+#: admin/templates/workout-metabox-about.php:14
 msgid "Optional. Workout official description page URL"
 msgstr "Optionnelle. Page officielle de description du cours"
 
-#: admin/templates/workout-metabox-about.php:24
-msgid "Public"
-msgstr "Public"
-
-#: admin/templates/workout-metabox-about.php:25
-msgid "This workout suits best to..."
-msgstr "Ce cours est idéal pour..."
+#: admin/templates/workout-metabox-about.php:20
+msgid "Description"
+msgstr "Description"
 
 #: classes/Entities/Coach.php:23 classes/Entities/Coach.php:48
 msgid "Coachs"
@@ -203,7 +188,7 @@ msgstr "Modifier le planning"
 msgid "No plannings found."
 msgstr "Aucun planning trouvé."
 
-#: classes/Entities/Planning.php:72 classes/Entities/Workout.php:30
+#: classes/Entities/Planning.php:72 classes/Entities/Workout.php:29
 msgid "Add a workout"
 msgstr "Ajouter un cours"
 
@@ -219,27 +204,27 @@ msgstr "Personnalisation"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: classes/Entities/Workout.php:27 classes/Entities/Workout.php:52
+#: classes/Entities/Workout.php:26 classes/Entities/Workout.php:51
 msgid "Workouts"
 msgstr "Cours"
 
-#: classes/Entities/Workout.php:28
+#: classes/Entities/Workout.php:27
 msgid "All workouts"
 msgstr "Tous les cours"
 
-#: classes/Entities/Workout.php:29
+#: classes/Entities/Workout.php:28
 msgid "Workout"
 msgstr "Cours"
 
-#: classes/Entities/Workout.php:31
+#: classes/Entities/Workout.php:30
 msgid "Edit workout"
 msgstr "Modifier le cours"
 
-#: classes/Entities/Workout.php:32
+#: classes/Entities/Workout.php:31
 msgid "No workout found."
 msgstr "Aucun cours trouvé."
 
-#: classes/Entities/Workout.php:59
+#: classes/Entities/Workout.php:58
 msgid "About the workout"
 msgstr "À propos du cours"
 
@@ -279,33 +264,211 @@ msgstr "Remplacer"
 msgid "Remove"
 msgstr "Retirer"
 
-#: classes/Services/PlanningServices.php:100 public/templates/planning.php:41
+#: classes/Services/PlanningServices.php:112
 msgid "Sunday"
 msgstr "Dimanche"
 
-#: classes/Services/PlanningServices.php:101 public/templates/planning.php:6
+#: classes/Services/PlanningServices.php:113
 msgid "Monday"
 msgstr "Lundi"
 
-#: classes/Services/PlanningServices.php:102 public/templates/planning.php:21
+#: classes/Services/PlanningServices.php:114
 msgid "Tuesday"
 msgstr "Mardi"
 
-#: classes/Services/PlanningServices.php:103 public/templates/planning.php:25
+#: classes/Services/PlanningServices.php:115
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: classes/Services/PlanningServices.php:104 public/templates/planning.php:29
+#: classes/Services/PlanningServices.php:116
 msgid "Thursday"
 msgstr "Jeudi"
 
-#: classes/Services/PlanningServices.php:105 public/templates/planning.php:33
+#: classes/Services/PlanningServices.php:117
 msgid "Friday"
 msgstr "Vendredi"
 
-#: classes/Services/PlanningServices.php:106 public/templates/planning.php:37
+#: classes/Services/PlanningServices.php:118
 msgid "Saturday"
 msgstr "Samedi"
+
+#: classes/WP/Activator.php:15
+msgctxt "Find it on official website"
+msgid ""
+"BODYATTACK™ is a high-energy fitness class with moves that cater for total "
+"beginners to total addicts. We combine athletic movements like running, "
+"lunging and jumping with strength exercises such as push-ups and squats."
+msgstr ""
+"Le BODYATTACK™ est un cours de fitness énergisant avec des mouvements qui "
+"s’adressent aussi bien aux débutants qu’aux passionnés. Nous combinons des "
+"mouvements athlétiques comme la course, des flexions et des sauts avec des "
+"exercices de force comme des pompes et des squats."
+
+#: classes/WP/Activator.php:22
+msgctxt "Find it on official website"
+msgid ""
+"BODYPUMP™ is a barbell workout for anyone looking to get lean, toned and fit "
+"– fast. Using light to moderate weights with lots of repetition, BODYPUMP "
+"gives you a total body workout. It will burn up to 540 calories."
+msgstr ""
+"BODYPUMP™ est pour toutes les personnes qui souhaitent s’affiner, se "
+"tonifier et se remettre en forme – rapidement. En faisant un grand nombre de "
+"répétitions avec des poids légers à moyens, BODYPUMP constitue un "
+"entraînement complet du corps. Vous brulerez jusqu’à 540 calories."
+
+#: classes/WP/Activator.php:29
+msgctxt "Find it on official website"
+msgid ""
+"Step into a BODYCOMBAT workout and you’ll punch and kick your way to "
+"fitness, burning up to 740 calories along the way. This high-energy martial-"
+"arts inspired workout is totally non-contact and there are no complex moves "
+"to master. "
+msgstr ""
+"Venez essayer un cours de BODYCOMBAT™ et vous mènerez votre combat vers la "
+"forme, grâce aux 740 calories que vous brulerez. Ce cours à haute intensité "
+"inspiré des arts martiaux est sans contact et il n’y a pas de mouvements "
+"compliqués à maîtriser. "
+
+#: classes/WP/Activator.php:36
+msgctxt "Find it on official website"
+msgid ""
+"Choreographed by Gandalf Archer-Mills in Auckland, New Zealand, BODYJAM™ is "
+"the ultimate combination of music and dance. Tracks that you love right now? "
+"They’re in BODYJAM. That new style you’ve heard about? It was in BODYJAM "
+"last year."
+msgstr ""
+"Chorégraphié par Gandalf Archer-Mills à Auckland, Nouvelle-Zélande, le "
+"BODYJAM™ est la combinaison parfaite de musique et de danse. Les morceaux du "
+"moment que vous aimez ? Ils sont déjà dans BODYJAM. Ce nouveau style dont "
+"vous avez entendu parler ? C’était dans un BODYJAM l’année dernière."
+
+#: classes/WP/Activator.php:43
+msgctxt "Find it on official website"
+msgid ""
+"If you want the optimal mix of strength, cardio and core training this is "
+"it. Step into a BODYVIVE™ class and you'll tick off a complete workout. The "
+"challenging mix of lunges, squats, running and tubing exercises will help "
+"you burn calories and take your fitness to the next level. You'll leave "
+"fizzing with energy and on track for all-around healthy living."
+msgstr ""
+"Si vous souhaitez un entraînement qui mêle de façon optimale la force, le "
+"cardio et le renforcement de la ceinture abdominale, le voici. Participer à "
+"un cours de BODYVIVE™ vous fait faire un entraînement complet. Le mélange "
+"stimulant de fentes, squats, course et d’exercices avec des élastiques de "
+"résistance vous aidera à brûler des calories et à franchir une nouvelle "
+"étape. Vous ferez le plein d’énergie et serez en route vers une vie saine."
+
+#: classes/WP/Activator.php:50
+msgctxt "Find it on official website"
+msgid ""
+"Ideal for anyone and everyone, BODYBALANCE™ is the yoga-based class that "
+"will improve your mind, your body and your life."
+msgstr ""
+"Idéal pour tout le monde, BODYBALANCE™ est le cours inspiré du yoga qui "
+"améliore votre esprit, votre corps et votre vie."
+
+#: classes/WP/Activator.php:57
+msgctxt "Find it on official website"
+msgid ""
+"RPM™ is a group indoor cycling workout where you control the intensity. It’s "
+"fun, low impact and you can burn up to 675 calories a session. With great "
+"music pumping and the group spinning as one, your instructor takes you on a "
+"journey of hill climbs, sprints and flat riding."
+msgstr ""
+"Le RPM™ est le cours de spinning qui donne un maximum de résultats avec un "
+"minimum d’impact sur vos articulations. Sur une musique énergisante, prenez "
+"la route avec votre coach qui emmènera le peloton sur un parcours jonché de "
+"collines à grimper, de sprints et de plats."
+
+#: classes/WP/Activator.php:64
+msgctxt "Find it on official website"
+msgid ""
+"Exercising muscles around the core, CXWORX™ provides the vital ingredient "
+"for a stronger body. A stronger core makes you better at all things you do, "
+"from everyday life to your favorite sports - it’s the glue that holds "
+"everything together."
+msgstr ""
+"En faisant travailler les muscles profonds CXWORX™ est l’ingrédient "
+"essentiel pour un corps plus fort. Une ceinture abdominale plus tonique vous "
+"rend meilleur - dans la vie de tous les jours comme dans vos activités "
+"sportives préférées - c’est le ciment qui maintient le corps."
+
+#: classes/WP/Activator.php:71
+msgctxt "Find it on official website"
+msgid ""
+"A fun-loving, insanely addictive dance workout. SH’BAM™ is an ego-free zone "
+"– no dance experience required. All you need is a playful attitude and a "
+"cheeky smile so forget being a wallflower – even if you walk in thinking you "
+"can’t, you’ll walk out knowing you can!"
+msgstr ""
+"Un cours de danse ludique et incroyablement addictif. Le SH’BAM™ est une "
+"zone sans ego – aucune expérience de danse n’est nécessaire. Tout ce qu’il "
+"faut c’est une attitude positive et délurée. Ne soyez pas timide – même si "
+"vous pensez ne pas y arriver, vous finirez le cours avec la preuve que vous "
+"en êtes capable !"
+
+#: classes/WP/Activator.php:78
+msgctxt "Find it on official website"
+msgid ""
+"LES MILLS GRIT™ Cardio is a 30-minute high-intensity interval training "
+"(HIIT) workout that improves cardiovascular fitness, increase speed and "
+"maximize calorie burn. This workout uses a variety of body weight exercises "
+"and provides the challenge and intensity you need to get results fast."
+msgstr ""
+"LES MILLS GRIT™ Cardio est un entraînement à haute intensité (HIIT) de 30 "
+"minutes qui améliore la forme cardiovasculaire, augmente la vitesse et "
+"maximise la dépense énergétique. Cet entraînement utilise un ensemble "
+"d’exercices utilisant le poids du corps, vous mettant au défi afin d’obtenir "
+"des résultats rapidement."
+
+#: classes/WP/Activator.php:85
+msgctxt "Find it on official website"
+msgid ""
+"LES MILLS GRIT™ Plyo is a 30-minute high-intensity interval training (HIIT) "
+"plyometric-based workout, designed to make you perform like an athlete. This "
+"workout uses a bench and combines explosive jumping exercises with agility "
+"training to increase explosiveness and to build a lean and athletic body. "
+msgstr ""
+"LES MILLS GRIT™ Plyo est un entraînement à haute intensité (HIIT) de 30 "
+"minutes, basé sur la pliométrie, conçu pour faire de vous un athlète. Cet "
+"entraînement utilise un banc et combine des exercices de détente verticale à "
+"des exercices d’agilité pour améliorer l’explosivité et dessiner un corps "
+"athlétique. "
+
+#: classes/WP/Activator.php:92
+msgctxt "Find it on official website"
+msgid ""
+"LES MILLS GRIT™ Strength is a 30-minute high-intensity interval training "
+"(HIIT) workout, designed to improve strength and build lean muscle. This "
+"workout uses barbell, weight plate and body weight exercises to blast all "
+"major muscle groups."
+msgstr ""
+"LES MILLS GRIT™ Strength est un entraînement à haute intensité (HIIT) de 30 "
+"minutes, conçu pour améliorer la force et développer la masse musculaire. "
+"Cet entraînement est composé d’exercices d’haltères et de poids du corps "
+"pour faire travailler les groupes musculaires principaux."
+
+#: classes/WP/Activator.php:99
+msgctxt "Find it on official website"
+msgid ""
+"LES MILLS SPRINT™ is a 30-minute High-Intensity Interval Training (HIIT) "
+"workout, using an indoor bike to achieve fast results."
+msgstr ""
+"LES MILLS SPRINT™ est un entraînement à haute intensité (HIIT), à base de "
+"spinning permettant d’obtenir des résultats très rapidement."
+
+#: classes/WP/Activator.php:106
+msgctxt "Find it on official website"
+msgid ""
+"Zumba involves dance and aerobic movements performed to energetic music. The "
+"choreography incorporates hip-hop, soca, samba, salsa, merengue and mambo. "
+"Squats and lunges are also included."
+msgstr ""
+"La Zumba est un programme d'entraînement physique complet, alliant tous les "
+"éléments de la remise en forme : cardio et préparation musculaire, équilibre "
+"et flexibilité. Les chorégraphies s'inspirent principalement des danses "
+"latines (salsa, merengue, cumbia, reggaeton, soca, samba, tango, flamenco…), "
+"mais aussi de styles variés comme la danse du ventre ou la Quebradita."
 
 #. Plugin Name of the plugin/theme
 msgid "Fitness Planning"
@@ -327,6 +490,18 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Maxime BERNARD-JACQUET"
 msgstr "Maxime BERNARD-JACQUET"
+
+#~ msgid "Duration"
+#~ msgstr "Durée"
+
+#~ msgid "Eg: 45 min, 1 hour"
+#~ msgstr "Ex: 45 min, 1 heure"
+
+#~ msgid "Public"
+#~ msgstr "Public"
+
+#~ msgid "This workout suits best to..."
+#~ msgstr "Ce cours est idéal pour..."
 
 #~ msgid "On"
 #~ msgstr "Le"
