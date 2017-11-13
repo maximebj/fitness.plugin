@@ -31,11 +31,11 @@
 		var $workoutFormCancelButton = $workoutForm.find('.fitplan-add-workout-cancel');
 
 		// -- Fields
-		var $workoutFormWorkoutField = $('.js-fitplan-workout');
-		var $workoutFormDayField = $('.js-fitplan-day');
-		var $workoutFormStartField = $('.js-fitplan-start');
-		var $workoutFormFinishField = $('.js-fitplan-finish');
-		var $workoutFormCoachField = $('.js-fitplan-coach');
+		var $workoutFormWorkoutField = $('input[name=fitplan_addworkout_workout]');
+		var $workoutFormDayField = $('input[name=fitplan_addworkout_day]');
+		var $workoutFormStartField = $('input[name=fitplan_addworkout_start]');
+		var $workoutFormFinishField = $('input[name=fitplan_addworkout_finish]');
+		var $workoutFormCoachField = $('input[name=fitplan_addworkout_coach]');
 
 		// Settings Fiels
 		var $morningStart = $('input[name=fitplan_planning_morning_start]');
@@ -283,6 +283,19 @@
 				}
 			});
 		}
+
+
+		// Fields controls
+
+		$workoutFormStartField.change(function() {
+			var start = $(this).val();
+
+			var minStartTime = moment(start, "HH:mm").add(30, 'm');
+			var endTime = moment(start, "HH:mm").add(1, 'h');
+
+			$workoutFormFinishField.val(endTime.format("HH:mm")).attr('min', minStartTime.format("HH:mm"));
+		});
+
 
 
     // Live customization

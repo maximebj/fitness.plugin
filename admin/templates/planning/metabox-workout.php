@@ -7,7 +7,7 @@
 
     <span class="fitplan-add-workout-action" ><?php _e('Add', 'fitness-planning'); ?></span>
 
-    <select name="fitplan_addworkout_workout" class="js-fitplan-workout">
+    <select name="fitplan_addworkout_workout">
       <?php $first = true; foreach($this->datas['workouts'] as $ID => $title): ?>
       <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $title; ?></option>
       <?php endforeach; ?>
@@ -15,7 +15,7 @@
 
     <span><?php _e('on', 'fitness-planning'); ?></span>
 
-    <select name="fitplan_addworkout_day" class="js-fitplan-day">
+    <select name="fitplan_addworkout_day">
       <?php $first = true; foreach($this->datas['weekdays'] as $day): ?>
       <option value="<?php echo $day['slug']; ?>" <?php if($first){ $first=false; echo 'selected'; } ?> <?php if(!$day['displayed']) echo 'disabled'; ?>><?php echo $day['name']; ?></option>
       <?php endforeach; ?>
@@ -23,15 +23,15 @@
 
     <span><?php _e('from', 'fitness-planning'); ?></span>
 
-    <input name="fitplan_addworkout_start" type="time" step="900" class="js-fitplan-start" value="17:00">
+    <input name="fitplan_addworkout_start" type="time" step="900" value="17:00">
 
     <span><?php _e('to', 'fitness-planning'); ?></span>
 
-    <input name="fitplan_addworkout_finish" type="time" step="900" class="js-fitplan-finish" value="18:00">
+    <input name="fitplan_addworkout_finish" type="time" step="900" value="18:00" min="17:00" max="23:59">
 
     <span><?php _e('with', 'fitness-planning'); ?></span>
 
-    <select name="fitplan_addworkout_coach" <?php if(count($this->datas['coachs']) == 0) echo "disabled"; ?> class="js-fitplan-coach">
+    <select name="fitplan_addworkout_coach" <?php if(count($this->datas['coachs']) == 0) echo "disabled"; ?>>
       <?php $first = true; foreach($this->datas['coachs'] as $ID => $title): ?>
       <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $title; ?></option>
       <?php endforeach; ?>
