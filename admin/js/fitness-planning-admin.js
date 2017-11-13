@@ -98,7 +98,11 @@
 
 
     // Color Picker
-     $('.color-picker').wpColorPicker();
+     $('.color-picker').wpColorPicker({
+			change: function(event, ui) {
+        $(this).closest('input').val(ui.color.toString()).trigger('change');
+    	}
+		});
 
 
 		// Plannning - Change weekdays

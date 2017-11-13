@@ -1,9 +1,9 @@
 <div class="fitplan-section">
-  <div class="fitplan-planning">
+  <div class="fitplan-planning" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>">
 
     <?php foreach($this->datas['weekdays'] as $day): ?>
-    <div class="fitplan-planning-day<?php if($day['displayed']): ?> is-shown<?php endif; ?>" data-day="<?php echo $day['slug']; ?>">
-      <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
+    <div class="fitplan-planning-day" style="<?php if(!$day['displayed']): ?>display: none;<?php endif; ?>" data-day="<?php echo $day['slug']; ?>">
+      <div class="fitplan-planning-title" style="color: <?php echo $this->datas['fitplan_planning_days_text_color']; ?>"><?php echo $day['name']; ?></div>
 
       <div class="fitplan-planning-morning">
         <?php

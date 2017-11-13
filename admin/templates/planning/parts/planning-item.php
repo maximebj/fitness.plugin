@@ -2,9 +2,23 @@
   <div
     class="fitplan-planning-item-inside"
     style="
-      <?php if($this->datas['fitplan_planning_workout_display_color']): echo 'background-color: '.@$entry['workout']['metas']['fitplan_workout_color']; else: echo 'background-color: '.$this->datas['fitplan_planning_workout_default_color']; endif; ?>;
-      <?php echo 'color: '.$this->datas['fitplan_planning_workout_text_color']; ?>;"
-    data-color="<?php echo @$entry['workout']['metas']['fitplan_workout_color']; ?>">
+      <?php
+      if($this->datas['fitplan_planning_workout_display_color']):
+        echo 'background-color: '.@$entry['workout']['metas']['fitplan_workout_color'];
+      else:
+        echo 'background-color: '.$this->datas['fitplan_planning_workout_default_color'];
+      endif;
+      ?>;
+      <?php echo 'color: '.$this->datas['fitplan_planning_workout_text_color']; ?>;
+      <?php echo 'border-radius: '.$this->datas['fitplan_planning_workout_radius']; ?>px;"
+
+    data-color="<?php
+      if($this->datas['fitplan_planning_workout_display_color']):
+        echo $this->datas['fitplan_planning_workout_default_color']; 
+      else:
+        echo @$entry['workout']['metas']['fitplan_workout_color'];
+      endif;
+    ?>">
 
     <div class="fitplan-planning-item-pic" <?php if(!$this->datas['fitplan_planning_workout_display_pic']): ?>style="display: none;"<?php endif; ?>>
       <img src="<?php echo @$entry['workout']['metas']['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']['name']; ?>">

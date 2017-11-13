@@ -1,71 +1,25 @@
-// Add Workout to planning
-
-.add-workout
-  line-height 52px
-  margin 0 pad-s
-
-  span
-    margin 0 pad-xs 0 pad-s
-
-    &:first-child
-      margin-left 0
-
-  select
-    vertical-align baseline
-
-  input[type="time"]
-    border-radius 4px
-    height 28px
-
-  .button
-    margin-left pad-m
-    vertical-align baseline
-    height 27px
-    line-height 25px
-    transform translateY(-1px)
-
-    &:active
-      vertical-align baseline
-
-  .fitplan-add-workout-cancel
-    display inline-block
-    text-decoration none
-    margin-left pad-s
-    display none
-
-#fitness-planning-workout .fitplan-section
-  transition .2s background ease-in
-
-  &.is-featured
-    background #93DA9F
-
-// Planning
-
 .fitplan-planning
   display flex
   width 100%
 
 .fitplan-planning-day
-  display none
   flex 1
   width 0
 
   &:not(:first-child)
     border-left 1px solid wp-neutral
 
-  &.is-shown
-    display block
-
 .fitplan-planning-title
   text-align center
   border-bottom 1px solid wp-neutral
   padding pad-s
   text-transform capitalize
+  font-weight bold
 
 .fitplan-planning-morning
   position relative
   overflow hidden
-  border-bottom 15px solid #f5f5f5
+  border-bottom 15px solid wp-neutral
   height 0
   transition height .5s ease-in-out
 

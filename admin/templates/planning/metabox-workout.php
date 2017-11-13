@@ -1,5 +1,5 @@
 <div class="fitplan-section">
-  <div class="add-workout">
+  <div class="fitplan-add-workout">
 
     <?php if(count($this->datas['workouts']) == 0): ?>
     <p><?php _e("You don't have any workout to add to the planning. <a href='edit.php?post_type=workout'>Add a Workout</a>.", 'fitness-planning'); ?></p>

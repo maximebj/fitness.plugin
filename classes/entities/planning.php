@@ -8,16 +8,23 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
     $this->CPT_slug = Fitness_Planning_Consts::CPT_PLANNING;
 		$this->fields = array(
 			'fitplan_planning' => "",
+
 			'fitplan_planning_weekdays' => "",
 			'fitplan_planning_morning_start' => "09:00",
 			'fitplan_planning_morning_finish' => "13:00",
 			'fitplan_planning_afternoon_start' => "17:00",
 			'fitplan_planning_afternoon_finish' => "21:00",
-      'fitplan_planning_workout_display_pic' => true,
+
+			'fitplan_planning_workout_display_pic' => true,
       'fitplan_planning_workout_display_color' => false,
       'fitplan_planning_workout_display_title' => true,
       'fitplan_planning_workout_text_color' => "#fff",
-      'fitplan_planning_workout_default_color' => "#eee",
+			'fitplan_planning_workout_default_color' => "#eee",
+			'fitplan_planning_workout_radius' => "4",
+
+			'fitplan_planning_background_color' => "",
+			'fitplan_planning_days_text_color' => "#000",
+			'fitplan_planning_px_per_hour' => '90',
 		);
 
 		$this->services = new Fitness_Planning_Planning_Services();

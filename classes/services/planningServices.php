@@ -58,7 +58,6 @@ class Fitness_Planning_Planning_Services {
 					}
 
 					// Positions
-
 					$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
 					$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
 
@@ -73,8 +72,8 @@ class Fitness_Planning_Planning_Services {
 					$from_top = $start_time->diff($base_time);
 					$from_top_in_min = $from_top->h * 60 + $from_top->i;
 
-					// TODO change to get value from $datas['fitplan_planning_height_ratio'];
-					$ratio = 1.5;
+					// Ratio. eg: 90px per hour = 1.5 ratio in height
+					$ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
 
 					$top = $from_top_in_min * $ratio;
 					$height = $duration_in_min * $ratio;

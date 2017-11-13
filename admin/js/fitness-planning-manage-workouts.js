@@ -229,9 +229,14 @@
 
 
 
-		// Adapt planning size from opening hours
+		// Launch at Startup
 
 		adaptPlanning();
+		checkItemsMinHeight();
+
+
+
+		// Adapt planning size from opening hours
 
 		$('input[name=fitplan_planning_morning_start], input[name=fitplan_planning_morning_finish], input[name=fitplan_planning_afternoon_start], input[name=fitplan_planning_afternoon_finish]').change(function(){
 		  adaptPlanning();
@@ -263,6 +268,98 @@
 
 		  $fitplanPlanningAfternoon.css('height', diffAfternoon+'px');
 		}
+
+
+		// Recalculate Planning items positions
+		function recalculatePlanning() {
+			console.log('...');
+		}
+
+		function checkItemsMinHeight() {
+			$('.fitplan-planning-item').each(function() {
+				if (this.clientHeight < 50) {
+					$(this).find('.fitplan-planning-item-pic').hide();
+					$(this).find('.fitplan-planning-item-title').show();
+				}
+			});
+		}
+
+
+    // Live customization
+
+		// # Workouts
+
+    // --- Show Logo
+    $('input[name=fitplan_planning_workout_display_pic]').change(function(){
+      $('.fitplan-planning-item-pic').toggle();
+			checkItemsMinHeight();
+    });
+
+    // --- Show Name
+    $('input[name=fitplan_planning_workout_display_title]').change(function(){
+      $('.fitplan-planning-item-title').toggle();
+			checkItemsMinHeight();
+    });
+
+		// --- Show Background Color
+    $('input[name=fitplan_planning_workout_display_color]').change(function(){
+			$('.fitplan-default-bg-color').slideToggle(200); // Default color field
+
+			$('.fitplan-planning-item-inside').each(function() {
+				var currentVal = $(this).css('background-color');
+				var replaceWith = $(this).attr('data-color');
+
+				$(this).css('background-color', replaceWith);
+				$(this).attr('data-color', currentVal);
+			});
+    });
+
+		// --- Background Color
+		$('input[name=fitplan_planning_workout_default_color]').change(function(){
+			var color = $(this).val();
+			var showBGColor = $('input[name=fitplan_planning_workout_display_color]').prop('checked');
+
+			$('.fitplan-planning-item-inside').each(function() {
+				if(showBGColor) {
+					$(this).attr('data-color', color);
+				} else {
+					$(this).css('background-color', color);
+				}
+			});
+
+		});
+
+		// --- Text Color
+		$('input[name=fitplan_planning_workout_text_color]').change(function(){
+			var color = $(this).val();
+			$('.fitplan-planning-item-inside').css('color', color);
+		});
+
+		// --- Border Radius
+		$('input[name=fitplan_planning_workout_radius]').change(function(){
+			var radius = $(this).val();
+			$('.fitplan-planning-item-inside').css('border-radius', radius+'px');
+    });
+
+
+		// # Planning
+
+		// --- Text Color
+		$('input[name=fitplan_planning_days_text_color]').change(function(){
+			var color = $(this).val();
+			$('.fitplan-planning-title').css('color', color);
+		});
+
+		// --- Background Color
+		$('input[name=fitplan_planning_background_color]').change(function(){
+			var color = $(this).val();
+			$('.fitplan-planning').css('background-color', color);
+		});
+
+		$('input[name=fitplan_planning_px_per_hour]').change(function(){
+			recalculatePlanning();
+		});
+
 
 	});
 })( jQuery );

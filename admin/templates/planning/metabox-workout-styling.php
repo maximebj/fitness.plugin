@@ -13,17 +13,16 @@
 <p>
   <input type="hidden" name="fitplan_planning_workout_display_color" value="off">
   <input type="checkbox" name="fitplan_planning_workout_display_color" id="fitplan_planning_workout_display_color"<?php if($this->datas['fitplan_planning_workout_display_color']): ?>checked<?php endif; ?>>
-  <label for="fitplan_planning_workout_display_color"><?php _e('Show background color', 'fitness-planning'); ?></label>
+  <label for="fitplan_planning_workout_display_color"><?php _e('Show workout background color', 'fitness-planning'); ?></label>
 </p>
+
+<div class="fitplan-default-bg-color" style="<?php if($this->datas['fitplan_planning_workout_display_color']): echo 'display: none'; endif; ?>">
+  <label class="fitplan-label" for="fitplan_planning_workout_default_color"><?php _e('Background color', 'fitness-planning'); ?></label>
+  <input type="text" class="color-picker" data-alpha="true" name="fitplan_planning_workout_default_color" value="<?php echo $this->datas['fitplan_planning_workout_default_color']; ?>">
+</div>
 
 <label class="fitplan-label" for="fitplan_planning_workout_text_color"><?php _e('Text color', 'fitness-planning'); ?></label>
+<input type="text" class="color-picker" data-alpha="true"  name="fitplan_planning_workout_text_color" value="<?php echo $this->datas['fitplan_planning_workout_text_color']; ?>">
 
-<p class="fitplan-color-label">
-  <input type="text" class="color-picker" data-alpha="true"  name="fitplan_planning_workout_text_color" value="<?php echo $this->datas['fitplan_planning_workout_text_color']; ?>">
-</p>
-
-<label class="fitplan-label" for="fitplan_planning_workout_default_color"><?php _e('Workout default color', 'fitness-planning'); ?></label>
-
-<p>
-  <input type="text" class="color-picker" data-alpha="true" name="fitplan_planning_workout_default_color" value="<?php echo $this->datas['fitplan_planning_workout_default_color']; ?>">
-</p>
+<label class="fitplan-label" for="fitplan_planning_workout_radius"><?php _e('Border radius', 'fitness-planning'); ?></label>
+<input type="number" min="0" class="fitplan-small-num" name="fitplan_planning_workout_radius" value="<?php echo $this->datas['fitplan_planning_workout_radius']; ?>"> px

@@ -61,3 +61,47 @@
   label
     display inline-block
     text-transform capitalize
+
+.fitplan-small-num
+  width 55px
+
+// Add Workout to planning
+
+.fitplan-add-workout
+  line-height 52px
+  margin 0 pad-s
+
+  span
+    margin 0 pad-xs 0 pad-s
+
+    &:first-child
+      margin-left 0
+
+  select
+    vertical-align baseline
+
+  input[type="time"]
+    border-radius 4px
+    height 28px
+
+  .button
+    margin-left pad-m
+    vertical-align baseline
+    height 27px
+    line-height 25px
+    transform translateY(-1px)
+
+    &:active
+      vertical-align baseline
+
+  .fitplan-add-workout-cancel
+    display inline-block
+    text-decoration none
+    margin-left pad-s
+    display none
+
+#fitness-planning-workout .fitplan-section
+  transition .2s background ease-in
+
+  &.is-featured
+    background #93DA9F
