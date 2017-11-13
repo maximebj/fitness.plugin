@@ -14,8 +14,18 @@ abstract class Fitness_Planning_Entity {
 
 		$values = array();
 
-		foreach($this->fields as $field) {
+		foreach($this->fields as $field => $default) {
 			$values[$field] = get_post_meta($post_id, '_'.$field, true);
+
+			// Default value if not found
+			if($values[$field] == "") {
+				$values[$field] = $default;
+			}
+
+			// Checkboxes
+			if($values[$field] == "off") {
+				$values[$field] = false;
+			}
 		}
 
 		return $values;
@@ -34,7 +44,7 @@ abstract class Fitness_Planning_Entity {
 
 			return array(
 				"id" => $fields[$key],
-				"isset" => $picture,
+				"isset" => isset($picture),
 				"url" => $url,
 			);
 
@@ -52,8 +62,10 @@ abstract class Fitness_Planning_Entity {
 
 		if($this->check_saved_post($post_type, $this->CPT_slug, $update, $post_id)) { return; }
 
-		foreach($this->fields as $field) {
+		foreach($this->fields as $field => $value) {
+
 			if(array_key_exists($field, $_POST)) {
+
 	      update_post_meta(
 	        $post_id,
 	        '_'.$field,

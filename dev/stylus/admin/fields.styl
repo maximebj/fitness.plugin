@@ -34,8 +34,30 @@
     padding-left 8px
     margin-left 4px
 
-
-
 .fitplan-row
   display inline-block
   width 80px
+
+.fitplan-label
+  display block
+  font-weight bold
+  margin 0 0 6px
+  padding 0
+
+  &:not(:first-child)
+    margin-top 20px
+
+.fitplan-description
+  color #666
+  font-style italic
+  margin 0 0 pad-xs 0
+
+.fitplan-inline-boxes
+  display flex
+
+.fitplan-inline-boxes-item
+  margin-right pad-m
+
+  label
+    display inline-block
+    text-transform capitalize

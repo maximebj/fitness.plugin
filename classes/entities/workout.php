@@ -5,11 +5,10 @@ class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Consts::CPT_WORKOUT;
 		$this->fields = array(
-			'fitplan_workout_desc',
-			'fitplan_workout_pic',
-			'fitplan_workout_color',
-			'fitplan_workout_url',
-			'fitplan_workout_public',
+			'fitplan_workout_desc' => "",
+			'fitplan_workout_pic' => "",
+			'fitplan_workout_color' => "#eee",
+			'fitplan_workout_url' => "",
 		);
   }
 
@@ -66,7 +65,7 @@ class Fitness_Planning_Workout extends Fitness_Planning_Entity {
 
 		wp_enqueue_media();
 
-    include Fitness_Planning_Consts::get_path().'admin/templates/workout-metabox-about.php';
+    include Fitness_Planning_Consts::get_path().'admin/templates/workout/metabox-about.php';
 	}
 
 }

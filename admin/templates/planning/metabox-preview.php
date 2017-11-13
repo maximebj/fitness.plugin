@@ -1,4 +1,4 @@
-<div class="postbox-inside">
+<div class="fitplan-section">
   <div class="fitplan-planning">
 
     <?php foreach($this->datas['weekdays'] as $day): ?>
@@ -34,7 +34,7 @@
   </div>
 
   <template class="fitplan-planning-item-template">
-    <?php include 'parts/planning-item.php'; ?>
+    <?php include 'planning/parts/planning-item.php'; ?>
   </template>
 
   <input type="hidden" name="fitplan_planning" value="<?php echo esc_js($this->datas['fitplan_planning']); ?>">

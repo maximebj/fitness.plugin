@@ -1,4 +1,4 @@
-<div class="postbox-inside">
+<div class="fitplan-section">
   <div class="add-workout">
 
     <?php if(count($this->datas['workouts']) == 0): ?>

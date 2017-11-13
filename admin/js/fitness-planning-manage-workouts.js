@@ -198,7 +198,7 @@
 		  $workoutFormDayField.val(day);
 
 			// Visually animate color
-			var $workoutFormContent = $workoutForm.find('.postbox-inside');
+			var $workoutFormContent = $workoutForm.find('.fitplan-section');
 			$workoutFormContent.addClass('is-featured');
 
 			window.setTimeout(function(){

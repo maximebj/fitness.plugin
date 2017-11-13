@@ -9,51 +9,58 @@ class Fitness_Planning_Planning_Services {
 
 		// All metaboxes stuff
 
-		if($datas['fitplan_planning_morning_start'] == "") { $datas['fitplan_planning_morning_start'] = '09:00'; }
-		if($datas['fitplan_planning_morning_finish'] == "") { $datas['fitplan_planning_morning_finish'] = '13:00'; }
-		if($datas['fitplan_planning_afternoon_start'] == "") { $datas['fitplan_planning_afternoon_start'] = '17:00'; }
-		if($datas['fitplan_planning_afternoon_finish'] == "") { $datas['fitplan_planning_afternoon_finish'] = '21:00'; }
-
 		$datas['weekdays'] = $this->get_weekdays($datas);
 
 		if($datas['fitplan_planning'] != ""){
+
 			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
-		}
+			$to_remove = array();
 
-		$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
-		$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
-
-		if(isset($datas['planning'])){
 			foreach($datas['planning'] as $day => $entries) {
 				foreach($entries as $key => $entry) {
 
-					// Transform IDs in names
-
 					$workout_datas = get_post($entry['workout']);
 
-					// If workout has been deleted
-					if(is_null($workout_datas)){
+					// If workout has been deleted (in Workouts)
+					if($workout_datas == null) {
+						$to_remove[] = array("day" =>$day, "key" => $key);
 						unset($datas['planning'][$day][$key]);
+
 						continue;
-					} else {
-						$datas['planning'][$day][$key]['workout'] = array(
-							"id" => $entry['workout'],
-							"name" => $workout_datas->post_title,
-						);
 					}
+
+					$workout = new Fitness_Planning_Workout();
+					$workout_metas = $workout->get_custom_fields($workout_datas->ID);
+					$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
+
+					$entry['workout'] = array(
+						"id" => $entry['workout'],
+						"name" => $workout_datas->post_title,
+						"metas" => $workout_metas,
+					);
 
 					$coach_datas = get_post($entry['coach']);
 
-					if(is_null($coach_datas)){
+					// If coach has been deleted (In Coachs)
+					if($coach_datas == null){
 						unset($datas['planning'][$day][$key]['coach']);
 					} else {
-						$datas['planning'][$day][$key]['coach'] = array(
+
+						$coach = new Fitness_Planning_Coach();
+						$coach_metas = $coach->get_custom_fields($coach_datas->ID);
+						$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
+
+						$entry['coach'] = array(
 							"id" => $entry['coach'],
 							"name" => $coach_datas->post_title,
+							"metas" => $coach_metas,
 						);
 					}
 
 					// Positions
+
+					$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+					$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
 
 					$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
 					$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
@@ -72,10 +79,27 @@ class Fitness_Planning_Planning_Services {
 					$top = $from_top_in_min * $ratio;
 					$height = $duration_in_min * $ratio;
 
-					$datas['planning'][$day][$key]['top'] = $top."px";
-					$datas['planning'][$day][$key]['height'] = $height."px";
+					$entry['top'] = $top."px";
+					$entry['height'] = $height."px";
 
+					// Set item datas in global array
+					$datas['planning'][$day][$key] = $entry;
 				}
+			}
+
+			// Updated field in case changes were made
+			if(count($to_remove) > 0){
+				$prov = json_decode($datas['fitplan_planning'], true);
+
+				foreach($to_remove as $remove) {
+
+					$day = $remove['day'];
+					$key = $remove['key'];
+
+					unset($prov[$day][$key]);
+				}
+				$datas['fitplan_planning'] = json_encode($prov);
+
 			}
 		}
 

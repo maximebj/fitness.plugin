@@ -5,8 +5,8 @@ class Fitness_Planning_Coach extends Fitness_Planning_Entity {
 	public function __construct() {
     $this->CPT_slug = Fitness_Planning_Consts::CPT_COACH;
     $this->fields = array(
-			'fitplan_coach_pic',
-			'fitplan_coach_bio'
+			'fitplan_coach_pic' => "",
+			'fitplan_coach_bio' => "",
 		);
   }
 
@@ -63,6 +63,6 @@ class Fitness_Planning_Coach extends Fitness_Planning_Entity {
 
 		wp_enqueue_media();
 
-    include Fitness_Planning_Consts::get_path().'admin/templates/coach-metabox-about.php';
+    include Fitness_Planning_Consts::get_path().'admin/templates/coach/metabox-about.php';
 	}
 }
