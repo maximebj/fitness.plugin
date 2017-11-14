@@ -16,73 +16,76 @@ class Fitness_Planning_Planning_Services {
 			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
 			$to_remove = array();
 
+
 			foreach($datas['planning'] as $day => $entries) {
 				foreach($entries as $key => $entry) {
+					if($entry != null){
 
-					$workout_datas = get_post($entry['workout']);
+						$workout_datas = get_post($entry['workout']);
 
-					// If workout has been deleted (in Workouts)
-					if($workout_datas == null) {
-						$to_remove[] = array("day" =>$day, "key" => $key);
-						unset($datas['planning'][$day][$key]);
+						// If workout has been deleted (in Workouts)
+						if($workout_datas == null) {
+							$to_remove[] = array("day" =>$day, "key" => $key);
+							unset($datas['planning'][$day][$key]);
 
-						continue;
-					}
+							continue;
+						}
 
-					$workout = new Fitness_Planning_Workout();
-					$workout_metas = $workout->get_custom_fields($workout_datas->ID);
-					$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
+						$workout = new Fitness_Planning_Workout();
+						$workout_metas = $workout->get_custom_fields($workout_datas->ID);
+						$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
 
-					$entry['workout'] = array(
-						"id" => $entry['workout'],
-						"name" => $workout_datas->post_title,
-						"metas" => $workout_metas,
-					);
-
-					$coach_datas = get_post($entry['coach']);
-
-					// If coach has been deleted (In Coachs)
-					if($coach_datas == null){
-						unset($datas['planning'][$day][$key]['coach']);
-					} else {
-
-						$coach = new Fitness_Planning_Coach();
-						$coach_metas = $coach->get_custom_fields($coach_datas->ID);
-						$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
-
-						$entry['coach'] = array(
-							"id" => $entry['coach'],
-							"name" => $coach_datas->post_title,
-							"metas" => $coach_metas,
+						$entry['workout'] = array(
+							"id" => $entry['workout'],
+							"name" => $workout_datas->post_title,
+							"metas" => $workout_metas,
 						);
+
+						$coach_datas = get_post($entry['coach']);
+
+						// If coach has been deleted (In Coachs)
+						if($coach_datas == null){
+							unset($datas['planning'][$day][$key]['coach']);
+						} else {
+
+							$coach = new Fitness_Planning_Coach();
+							$coach_metas = $coach->get_custom_fields($coach_datas->ID);
+							$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
+
+							$entry['coach'] = array(
+								"id" => $entry['coach'],
+								"name" => $coach_datas->post_title,
+								"metas" => $coach_metas,
+							);
+						}
+
+						// Positions
+						$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+						$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
+
+						$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
+						$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
+
+						$duration = $finish_time->diff($start_time);
+						$duration_in_min = $duration->h * 60 + $duration->i;
+
+						$base_time = ($entry['time'] == "morning") ? $morning_start_time : $afternoon_start_time;
+
+						$from_top = $start_time->diff($base_time);
+						$from_top_in_min = $from_top->h * 60 + $from_top->i;
+
+						// Ratio. eg: 90px per hour = 1.5 ratio in height
+						$ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
+
+						$top = $from_top_in_min * $ratio;
+						$height = $duration_in_min * $ratio;
+
+						$entry['top'] = $top."px";
+						$entry['height'] = $height."px";
+
+						// Set item datas in global array
+						$datas['planning'][$day][$key] = $entry;
 					}
-
-					// Positions
-					$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
-					$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
-
-					$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
-					$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
-
-					$duration = $finish_time->diff($start_time);
-					$duration_in_min = $duration->h * 60 + $duration->i;
-
-					$base_time = ($entry['time'] == "morning") ? $morning_start_time : $afternoon_start_time;
-
-					$from_top = $start_time->diff($base_time);
-					$from_top_in_min = $from_top->h * 60 + $from_top->i;
-
-					// Ratio. eg: 90px per hour = 1.5 ratio in height
-					$ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
-
-					$top = $from_top_in_min * $ratio;
-					$height = $duration_in_min * $ratio;
-
-					$entry['top'] = $top."px";
-					$entry['height'] = $height."px";
-
-					// Set item datas in global array
-					$datas['planning'][$day][$key] = $entry;
 				}
 			}
 
