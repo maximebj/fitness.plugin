@@ -11,6 +11,10 @@
 		var oldAction = '';
 
 
+		// General components
+		var $fitplanPlanning = $('.fitplan-planning');
+		var $fitplanModal = $('.fitplan-planning-modal');
+
 		// General planning morning/afternoon sub parts
 		var $fitplanPlanningMorning = $('.fitplan-planning-morning');
 		var $fitplanPlanningAfternoon = $('.fitplan-planning-afternoon');
@@ -167,7 +171,7 @@
 
     // Remove Workout from planning
 
-    $('.fitplan-planning').on('click', '.fitplan-planning-delete-item', function(e){
+    $fitplanPlanning.on('click', '.fitplan-planning-delete-item', function(e){
 			e.preventDefault();
 
 			var $item = $(this).parents('.fitplan-planning-item');
@@ -194,7 +198,7 @@
 
 		// Edit Workout
 
-		$('.fitplan-planning').on('click', '.fitplan-planning-edit-item' ,function(e){
+		$fitplanPlanning.on('click', '.fitplan-planning-edit-item' ,function(e){
 			e.preventDefault();
 
 			// In case someone is already being edited
@@ -424,13 +428,12 @@
 		// --- Background Color
 		$('input[name=fitplan_planning_background_color]').change(function(){
 			var color = $(this).val();
-			$('.fitplan-planning').css('background-color', color);
+			$fitplanPlanning.css('background-color', color);
 		});
 
 		$('input[name=fitplan_planning_px_per_hour]').change(function(){
 			recalculatePlanning();
 		});
-
 
 	});
 })( jQuery );
