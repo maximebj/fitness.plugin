@@ -44,7 +44,7 @@ abstract class Fitness_Planning_Entity {
 
 			return array(
 				"id" => $fields[$key],
-				"isset" => isset($picture),
+				"isset" => ($picture) ? true : false,
 				"url" => $url,
 			);
 
