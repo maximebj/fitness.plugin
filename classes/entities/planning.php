@@ -16,9 +16,9 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 			'fitplan_planning_afternoon_finish' => "21:00",
 
 			'fitplan_planning_workout_display_pic' => true,
-      'fitplan_planning_workout_display_color' => false,
-      'fitplan_planning_workout_display_title' => true,
-      'fitplan_planning_workout_text_color' => "#fff",
+      'fitplan_planning_workout_display_color' => true,
+      'fitplan_planning_workout_display_title' => false,
+      'fitplan_planning_workout_text_color' => "#444",
 			'fitplan_planning_workout_default_color' => "#eee",
 			'fitplan_planning_workout_radius' => "4",
 
