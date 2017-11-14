@@ -1,4 +1,4 @@
-<div class="fitplan-planning-item" data-id="<?php echo @$id ?>" style="top: <?php echo @$entry['top']; ?>; height: <?php echo @$entry['height']; ?>;">
+<div class="fitplan-planning-item fitplan-planning-item-workout-<?php echo @$entry['workout']['id']; ?>" data-id="<?php echo @$id ?>" style="top: <?php echo @$entry['top']; ?>; height: <?php echo @$entry['height']; ?>;">
   <div
     class="fitplan-planning-item-inside"
     style="
