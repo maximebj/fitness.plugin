@@ -17,14 +17,14 @@ abstract class Fitness_Planning_Entity {
 		foreach($this->fields as $field => $default) {
 			$values[$field] = get_post_meta($post_id, '_'.$field, true);
 
-			// Default value if not found
-			if($values[$field] == "") {
-				$values[$field] = $default;
-			}
-
 			// Checkboxes
 			if($values[$field] == "off") {
 				$values[$field] = false;
+			}
+
+			// Default value if not found
+			if($values[$field] == "") {
+				$values[$field] = $default;
 			}
 		}
 
@@ -34,7 +34,7 @@ abstract class Fitness_Planning_Entity {
 	public function get_custom_field_image($fields, $key) {
 		if(array_key_exists($key, $fields) and $fields[$key]!='') {
 
-			$picture = wp_get_attachment_image_src($fields[$key], "medium");
+			$picture = wp_get_attachment_image_src($fields[$key], "large");
 
 			if($picture) {
 				$url = $picture[0];
