@@ -37,6 +37,8 @@ abstract class Fitness_Planning_Consts {
 			'editWorkoutTitle' => __('Edit this Workout', 'fitness-planning'),
 			'editWorkoutButton' => __('Apply changes', 'fitness-planning'),
 			'editWorkoutAction' => __('Edit', 'fitness-planning'),
+			'addWorkoutTimeError' => __('Start time must be before end Time', 'fitness-planning'),
+			'addWorkoutConflictError' => __("You can't add a workout here because there is already another one at this time. We suggest you make another planning (eg: special bike planning) ", 'fitness-planning'),
 		);
 	}
 

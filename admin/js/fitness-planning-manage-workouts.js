@@ -31,11 +31,11 @@
 		var $workoutFormCancelButton = $workoutForm.find('.fitplan-add-workout-cancel');
 
 		// -- Fields
-		var $workoutFormWorkoutField = $('input[name=fitplan_addworkout_workout]');
-		var $workoutFormDayField = $('input[name=fitplan_addworkout_day]');
-		var $workoutFormStartField = $('input[name=fitplan_addworkout_start]');
-		var $workoutFormFinishField = $('input[name=fitplan_addworkout_finish]');
-		var $workoutFormCoachField = $('input[name=fitplan_addworkout_coach]');
+		var $workoutFormWorkoutField = $(':input[name=fitplan_addworkout_workout]');
+		var $workoutFormDayField = $(':input[name=fitplan_addworkout_day]');
+		var $workoutFormStartField = $(':input[name=fitplan_addworkout_start]');
+		var $workoutFormFinishField = $(':input[name=fitplan_addworkout_finish]');
+		var $workoutFormCoachField = $(':input[name=fitplan_addworkout_coach]');
 
 		// Settings Fiels
 		var $morningStart = $('input[name=fitplan_planning_morning_start]');
@@ -49,6 +49,8 @@
 		$('.js-fitplan-add-to-planning').click(function(e){
 		  e.preventDefault();
 
+			// Get datas
+
 			var day = $workoutFormDayField.val();
 
 		  var datas = {
@@ -61,6 +63,13 @@
 			var morningFinish = $morningFinish.val();
 		  var morningFinishTime = moment(morningFinish, "HH:mm");
 		  var workoutStartTime = moment(datas.start, "HH:mm");
+		  var workoutFinishTime = moment(datas.finish, "HH:mm");
+
+			// Fields Validation
+			if(workoutStartTime > workoutFinishTime) {
+				alert(fitnessPlanningStrings.addWorkoutTimeError);
+				return false;
+			}
 
 		  if(workoutStartTime < morningFinishTime) {
 				datas.time = "morning";
@@ -75,7 +84,34 @@
 		    planning = { "monday": {}, "tuesday": {}, "wednesday": {}, "thursday": {}, "friday": {}, "saturday": {}, "sunday": {}};
 		  } else {
 		    planning = JSON.parse(planning);
+
+				// Fields Validation
+				var result = true;
+				$.each(planning[day], function(index, value) {
+
+					var otherWorkoutStartTime = moment(value.start, "HH:mm");
+					var otherWorkoutFinishTime = moment(value.finish, "HH:mm");
+
+					// check for start time conflict
+					if(workoutStartTime >= otherWorkoutStartTime && workoutStartTime < otherWorkoutFinishTime) {
+						alert(fitnessPlanningStrings.addWorkoutConflictError);
+						result = false;
+						return false;
+					}
+
+					// check for finish time conflict
+					if(result && workoutFinishTime > otherWorkoutStartTime && workoutFinishTime <= otherWorkoutFinishTime) {
+						alert(fitnessPlanningStrings.addWorkoutConflictError);
+						result = false;
+						return false;
+					}
+				});
+
+				if(!result) {
+					return;
+				}
 		  }
+
 
 			var id = Object.keys(planning[day]).length;
 		  planning[day][id] = datas;
@@ -238,9 +274,10 @@
 
 		// Adapt planning size from opening hours
 
-		$('input[name=fitplan_planning_morning_start], input[name=fitplan_planning_morning_finish], input[name=fitplan_planning_afternoon_start], input[name=fitplan_planning_afternoon_finish]').change(function(){
-		  adaptPlanning();
-		});
+		$morningStart.change(function() { adaptPlanning() });
+		$morningFinish.change(function() { adaptPlanning() });
+		$afternoonStart.change(function() { adaptPlanning() });
+		$afternoonFinish.change(function() { adaptPlanning() });
 
 		function adaptPlanning() {
 
@@ -251,6 +288,12 @@
 
 		  var morningStartTime = moment(morningStart, "HH:mm");
 		  var morningFinishTime = moment(morningFinish, "HH:mm");
+
+			if( morningStartTime > morningFinishTime ) {
+				$('.js-fitplan-morning-finish-before-start').show();
+			} else {
+				$('.js-fitplan-morning-finish-before-start').hide();
+			}
 
 		  var diffMorning = morningFinishTime.diff(morningStartTime, 'minutes') * ratio;
 
@@ -263,6 +306,18 @@
 
 		  var afternoonStartTime = moment(afternoonStart, "HH:mm");
 		  var afternoonFinishTime = moment(afternoonFinish, "HH:mm");
+
+			if( afternoonStartTime > afternoonFinishTime ) {
+				$('.js-fitplan-afternoon-finish-before-start').show();
+			} else {
+				$('.js-fitplan-afternoon-finish-before-start').hide();
+			}
+
+			if( morningFinishTime > afternoonStartTime ) {
+				$('.js-fitplan-afternoon-start-before-morning-finish').show();
+			} else {
+				$('.js-fitplan-afternoon-start-before-morning-finish').hide();
+			}
 
 		  var diffAfternoon = afternoonFinishTime.diff(afternoonStartTime, 'minutes') * ratio;
 
@@ -286,6 +341,9 @@
 
 
 		// Fields controls
+
+
+		// --- Workout Finish time must be after Start
 
 		$workoutFormStartField.change(function() {
 			var start = $(this).val();
