@@ -1,5 +1,69 @@
 .fitplan-planning-item
   cursor help
 
-.fitplan-planning
+.fitplan-planning:not(.fitplan-planning-mobile)
   border 1px solid wp-neutral
+
+// Responsive
+// --- We don't use media queries but instead we check the width of the planning
+
+.fitplan-planning-mobile
+  display block
+
+  .fitplan-planning-day
+    margin-top pad-l
+
+  .fitplan-planning-morning
+  .fitplan-planning-afternoon
+    height auto !important
+
+  .fitplan-planning-morning
+    border-bottom 2px dashed wp-neutral
+    margin-bottom pad-s
+
+  .fitplan-planning-title
+    font-weight bold
+    font-size 1.3em
+    margin-bottom pad-s
+
+  .fitplan-planning-item
+    position relative
+    top auto !important
+    height auto !important
+    margin-bottom pad-s
+
+    &:hover
+      z-index 1
+
+      .fitplan-planning-item-bubble
+        display block
+
+  .fitplan-planning-item-inside
+    padding pad-s
+    display flex
+    align-items center
+
+    &:hover .fitplan-planning-item-bubble
+      display block
+
+  .fitplan-planning-item-title
+    display none !important
+    margin-bottom 0
+
+  .fitplan-planning-item-pic
+    display block !important
+
+    img
+      display block
+      height 30px
+
+  .fitplan-planning-item-hour
+    flex auto
+    text-align right
+    margin 0
+
+
+  .fitplan-planning-item-bubble
+    top 100%
+    left 0
+    width 100%

@@ -24,15 +24,15 @@ class Fitness_Planning_Public {
 	public function enqueue_scripts() {
 		global $post;
 
-		// if(has_shortcode($post->post_content, 'fitness-planning')) {
-		// 	wp_enqueue_script(
-		// 		Fitness_Planning_Consts::PLUGIN_NAME,
-		// 		Fitness_Planning_Consts::get_url().'public/js/fitness-planning-public.js',
-		// 		array('jquery'),
-		// 		Fitness_Planning_Consts::VERSION,
-		// 		false
-		// 	);
-		// }
+		if(has_shortcode($post->post_content, 'fitness-planning')) {
+			wp_enqueue_script(
+				Fitness_Planning_Consts::PLUGIN_NAME,
+				Fitness_Planning_Consts::get_url().'public/js/fitness-planning-public.js',
+				array('jquery'),
+				Fitness_Planning_Consts::VERSION,
+				false
+			);
+		}
 	}
 
 }
