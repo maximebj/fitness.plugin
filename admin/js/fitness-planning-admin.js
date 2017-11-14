@@ -3,7 +3,7 @@
 	$(document).ready(function() {
 
 		// Copy shortcode
-		$('.wp-list-table').on('click', '.fitness-planning-shortcode button, .fitness-planning-shortcode input', function(e){
+		$('.fitness-planning-shortcode button, .fitness-planning-shortcode input').on('click', function(e){
 			e.preventDefault();
 
 			if(event.target.tagName === 'BUTTON') {

@@ -83,8 +83,13 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 		$this->datas = $this->services->prepare_datas($raw_datas);
 
 		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
+
 		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
+
 		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
+
+		add_meta_box('fitness-planning-shortcode', __('Shortcode', 'fitness-planning'), array($this, 'render_metabox_shortcode'), $this->CPT_slug, 'side', 'low');
+
 		add_meta_box('fitness-planning-workout-styling', __('Customize Workouts', 'fitness-planning'), array($this, 'render_metabox_workout_styling'), $this->CPT_slug, 'side', 'low');
 
 		add_meta_box('fitness-planning-styling', __('Customize Planning', 'fitness-planning'), array($this, 'render_metabox_planning_styling'), $this->CPT_slug, 'side', 'low');
@@ -100,6 +105,11 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 
 	public function render_metabox_settings($post) {
 		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-settings.php';
+	}
+
+	public function render_metabox_shortcode($post) {
+		$post_id = $post->ID;
+		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-shortcode.php';
 	}
 
 	public function render_metabox_workout_styling($post) {
