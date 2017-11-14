@@ -5,7 +5,7 @@
       foreach($this->datas['weekdays'] as $day):
         if($day['displayed']):
     ?>
-    <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>">
+    <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>" style="color: <?php echo $this->datas['fitplan_planning_days_text_color']; ?>">
       <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
 
       <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px">
