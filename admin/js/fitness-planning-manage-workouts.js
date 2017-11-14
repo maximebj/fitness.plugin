@@ -268,12 +268,6 @@
 			$workoutFormCancelButton.hide();
 		}
 
-
-
-		// Launch at Startup
-
-		checkItemsMinHeight();
-
 		// Adapt planning size from opening hours
 
 		$morningStart.change(function() { adaptPlanning() });

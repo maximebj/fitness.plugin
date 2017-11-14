@@ -20,11 +20,11 @@
       endif;
     ?>">
 
-    <div class="fitplan-planning-item-pic" <?php if(!$this->datas['fitplan_planning_workout_display_pic']): ?>style="display: none;"<?php endif; ?>>
+    <div class="fitplan-planning-item-pic" <?php if(!$this->datas['fitplan_planning_workout_display_pic'] or intval($entry['height']) < 50 ): ?>style="display: none;"<?php endif; ?>>
       <img src="<?php echo $entry['workout']['metas']['fitplan_workout_pic']['url']; ?>" alt="<?php echo $entry['workout']['name']; ?>">
     </div>
 
-    <p class="fitplan-planning-item-title" data-workout-id="<?php echo $entry['workout']['id']; ?>" <?php if(!$this->datas['fitplan_planning_workout_display_title']): ?>style="display: none;"<?php endif; ?>>
+    <p class="fitplan-planning-item-title" data-workout-id="<?php echo $entry['workout']['id']; ?>" <?php if(!$this->datas['fitplan_planning_workout_display_title'] and intval($entry['height']) >= 50 ): ?>style="display: none;"<?php endif; ?>>
       <?php echo $entry['workout']['name']; ?>
     </p>
 
