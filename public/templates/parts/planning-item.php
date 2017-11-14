@@ -65,7 +65,7 @@
       <img class="fitplan-planning-modal-coach-img" src="<?php echo @$entry['coach']['metas']['fitplan_coach_pic']['url']; ?>" alt="<?php echo @$entry['coach']['name']; ?>">
       <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
       <br>
-      <strong class="fitplan-planning-item-coach-name" data-coach-id="<?php echo @$entry['coach']['id']; ?>"><?php echo @$entry['coach']['name']; ?></strong>
+      <strong class="fitplan-planning-item-coach-name"><?php echo @$entry['coach']['name']; ?></strong>
       <div class="fitplan-planning-modal-coach-bio">
         <?php echo @$entry['coach']['metas']['fitplan_coach_bio']; ?>
       </div>

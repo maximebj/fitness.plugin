@@ -17,15 +17,19 @@ abstract class Fitness_Planning_Entity {
 		foreach($this->fields as $field => $default) {
 			$values[$field] = get_post_meta($post_id, '_'.$field, true);
 
-			// Checkboxes
-			if($values[$field] == "off") {
-				$values[$field] = false;
-			}
-
 			// Default value if not found
 			if($values[$field] == "") {
 				$values[$field] = $default;
 			}
+
+			// Checkboxes
+			if($values[$field] == "off") {
+				$values[$field] = false;
+			}
+			if($values[$field] == "on") {
+				$values[$field] = true;
+			}
+
 		}
 
 		return $values;

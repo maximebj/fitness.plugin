@@ -16,7 +16,29 @@ class Fitness_Planning_Planning_Services {
 			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
 			$to_remove = array();
 
+      // Ratio. eg: 90px per hour = 1.5 ratio in height
+      $ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
 
+      // Planning
+
+      $morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+      $morning_finish_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
+
+      $afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
+      $afternoon_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_finish']);
+
+      $morning_duration = $morning_finish_time->diff($morning_start_time);
+      $morning_duration = ($morning_duration->h * 60 + $morning_duration->i) * $ratio;
+
+      $afternoon_duration = $afternoon_finish_time->diff($afternoon_start_time);
+      $afternoon_duration = ($afternoon_duration->h * 60 + $afternoon_duration->i) * $ratio;
+
+      $datas['planning_height'] = array(
+        "morning" => $morning_duration,
+        "afternoon" => $afternoon_duration,
+      );
+
+      // Entries
 			foreach($datas['planning'] as $day => $entries) {
 				foreach($entries as $key => $entry) {
 					if($entry != null){
@@ -60,8 +82,6 @@ class Fitness_Planning_Planning_Services {
 						}
 
 						// Positions
-						$morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
-						$afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
 
 						$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
 						$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
@@ -73,9 +93,6 @@ class Fitness_Planning_Planning_Services {
 
 						$from_top = $start_time->diff($base_time);
 						$from_top_in_min = $from_top->h * 60 + $from_top->i;
-
-						// Ratio. eg: 90px per hour = 1.5 ratio in height
-						$ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
 
 						$top = $from_top_in_min * $ratio;
 						$height = $duration_in_min * $ratio;
@@ -172,5 +189,4 @@ class Fitness_Planning_Planning_Services {
 
 		return $weekdays;
 	}
-
 }

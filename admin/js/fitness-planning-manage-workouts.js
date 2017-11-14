@@ -2,14 +2,7 @@
 	'use strict';
 	$(document).ready(function() {
 
-		// Vars and Selectors
-
-		var ratio = 1.5;
-
-		var oldTitle = '';
-		var oldButton = '';
-		var oldAction = '';
-
+		// Selectors
 
 		// General components
 		var $fitplanPlanning = $('.fitplan-planning');
@@ -47,6 +40,14 @@
 		var $afternoonStart = $('input[name=fitplan_planning_afternoon_start]');
 		var $afternoonFinish = $('input[name=fitplan_planning_afternoon_finish');
 
+
+		// Vars
+
+		var ratio = parseInt($fitplanPlanning.attr('data-px-per-hour')) / 60 ;
+
+		var oldTitle = '';
+		var oldButton = '';
+		var oldAction = '';
 
 		// Add or edit workout to planning
 
@@ -271,7 +272,6 @@
 
 		// Launch at Startup
 
-		adaptPlanning();
 		checkItemsMinHeight();
 
 		// Adapt planning size from opening hours
@@ -356,15 +356,14 @@
 		// Fields controls
 
 
-		// --- Workout Finish time must be after Start
+		// --- Auto update Finish Hour when changing Starting hour
 
 		$workoutFormStartField.change(function() {
 			var start = $(this).val();
 
-			var minStartTime = moment(start, "HH:mm").add(30, 'm');
 			var endTime = moment(start, "HH:mm").add(1, 'h');
 
-			$workoutFormFinishField.val(endTime.format("HH:mm")).attr('min', minStartTime.format("HH:mm"));
+			$workoutFormFinishField.val(endTime.format("HH:mm"));
 		});
 
 

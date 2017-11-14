@@ -1,6 +1,6 @@
 <div class="fitplan-wrapper">
 
-  <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>">
+  <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>">
     <?php
       foreach($this->datas['weekdays'] as $day):
         if($day['displayed']):
@@ -8,7 +8,7 @@
     <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>">
       <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
 
-      <div class="fitplan-planning-morning">
+      <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px">
         <?php
           if(isset($this->datas['planning'])):
             foreach($this->datas['planning'][$day['slug']] as $id => $entry):
@@ -20,7 +20,7 @@
         ?>
       </div>
 
-      <div class="fitplan-planning-afternoon">
+      <div class="fitplan-planning-afternoon" style="height: <?php echo $this->datas['planning_height']['afternoon']; ?>px">
         <?php
           if(isset($this->datas['planning'])):
             foreach($this->datas['planning'][$day['slug']] as $id => $entry):

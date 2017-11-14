@@ -27,7 +27,7 @@
 
     <span><?php _e('to', 'fitness-planning'); ?></span>
 
-    <input name="fitplan_addworkout_finish" type="time" step="900" value="18:00" min="17:00" max="23:59">
+    <input name="fitplan_addworkout_finish" type="time" step="900" value="18:00">
 
     <span><?php _e('with', 'fitness-planning'); ?></span>
 
