@@ -274,8 +274,6 @@
 		adaptPlanning();
 		checkItemsMinHeight();
 
-
-
 		// Adapt planning size from opening hours
 
 		$morningStart.change(function() { adaptPlanning() });
@@ -328,7 +326,6 @@
 		  $fitplanPlanningAfternoon.css('height', diffAfternoon+'px');
 		}
 
-
 		// Recalculate Planning items positions
 		function recalculatePlanning() {
 			console.log('...');
@@ -342,6 +339,18 @@
 				}
 			});
 		}
+
+		// Change weekdays
+		$(':input[name="fitplan_planning_weekdays[]"]').change(function() {
+
+			var day = $(this).val();
+
+			// Toggle in planning
+			$('.fitplan-planning-day[data-day='+day+']').toggle();
+
+			// Toggle in Add select
+			$('select[name=fitplan_addworkout_day] option[value='+day+']').prop('disabled', !$(this).prop('checked'));
+		});
 
 
 		// Fields controls

@@ -5,7 +5,7 @@ class Fitness_Planning_Activator {
 	public static function activate() {
 
 		// Create default content on first activation
-		if(get_option('fitplan_activated') == ""){
+		if(get_option('fitplan_activated') == "" or true){
 
 			// Prepare datas
 			$workouts = array(
@@ -74,21 +74,21 @@ class Fitness_Planning_Activator {
 				),
 
 				"Les Mills Grit Cardio" => array(
-					"pic" => "grit.jpg",
+					"pic" => "grit.png",
 					"desc" => _x("LES MILLS GRIT™ Cardio is a 30-minute high-intensity interval training (HIIT) workout that improves cardiovascular fitness, increase speed and maximize calorie burn. This workout uses a variety of body weight exercises and provides the challenge and intensity you need to get results fast.", 'Find it on official website', 'fitness-planning'),
 					"color" => "#F7F7F7",
 					"url" => "https://www.lesmills.com/workouts/high-intensity-interval-training/les-mills-grit-cardio/",
 				),
 
 				"Les Mills Grit Plyo" => array(
-					"pic" => "grit.jpg",
+					"pic" => "grit.png",
 					"desc" => _x("LES MILLS GRIT™ Plyo is a 30-minute high-intensity interval training (HIIT) plyometric-based workout, designed to make you perform like an athlete. This workout uses a bench and combines explosive jumping exercises with agility training to increase explosiveness and to build a lean and athletic body. ", 'Find it on official website', 'fitness-planning'),
 					"color" => "#F7F7F7",
 					"url" => "https://www.lesmills.com/workouts/high-intensity-interval-training/les-mills-grit-plyo/",
 				),
 
 				"Les Mills Grit Strength" => array(
-					"pic" => "grit.jpg",
+					"pic" => "grit.png",
 					"desc" => _x("LES MILLS GRIT™ Strength is a 30-minute high-intensity interval training (HIIT) workout, designed to improve strength and build lean muscle. This workout uses barbell, weight plate and body weight exercises to blast all major muscle groups.", 'Find it on official website', 'fitness-planning'),
 					"color" => "#F7F7F7",
 					"url" => "https://www.lesmills.com/workouts/high-intensity-interval-training/les-mills-grit-strength/",
