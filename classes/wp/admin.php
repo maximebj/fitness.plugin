@@ -24,7 +24,7 @@ class Fitness_Planning_Admin {
 			'all'
 		);
 
-		if($hook == 'post.php' and $post_type == Fitness_Planning_Consts::CPT_PLANNING) {
+		if(($hook == 'post.php' or $hook == 'post-new.php') and $post_type == Fitness_Planning_Consts::CPT_PLANNING) {
 
 			wp_enqueue_script(
 				'moment',
