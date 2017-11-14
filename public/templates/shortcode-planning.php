@@ -1,12 +1,11 @@
 <div class="fitplan-wrapper">
 
-  <div class="fitplan-planning">
-
-    <?php 
+  <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>">
+    <?php
       foreach($this->datas['weekdays'] as $day):
         if($day['displayed']):
     ?>
-    <div class="fitplan-planning-day" data-day="<?php echo $day['slug']; ?>">
+    <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>">
       <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
 
       <div class="fitplan-planning-morning">
@@ -38,6 +37,5 @@
       endif;
     endforeach;
     ?>
-
   </div>
 </div>

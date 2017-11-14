@@ -1,75 +1,9 @@
-.fitplan-planning
-  position relative
-  display flex
-  width 100%
-
-.fitplan-planning-day
-  flex 1
-  width 0
-
-  &:not(:first-child)
-    border-left 1px solid wp-neutral
-
-.fitplan-planning-title
-  text-align center
-  border-bottom 1px solid wp-neutral
-  padding pad-s
-  text-transform capitalize
-  font-weight bold
-
-.fitplan-planning-morning
-  position relative
-  border-bottom 15px solid wp-neutral
-  height 0
-
-.fitplan-planning-afternoon
-  position relative
-  height 0
-
 .fitplan-planning-item
-  display flex
-  flex-direction column
-  position absolute
-  width 100%
-  box-sizing border-box
-
-  transition all .3s ease-in
-
   &.is-edited .fitplan-planning-item-inside
     opacity .5
 
   &:hover .fitplan-planning-item-overlay
-    display flex
-
-  &:hover
-    z-index 2
-
-    .fitplan-planning-item-bubble
-      display block
-
-
-.fitplan-planning-item-inside
-  flex auto
-  display flex
-  flex-direction column
-  justify-content space-around
-  margin 3px 3px 1px 3px
-  padding 5px
-  overflow hidden
-  text-align center
-
-  img
-    display block
-    height 30px
-    margin 0 auto
-
-.fitplan-planning-item-title
-  margin 0
-  font-weight bold
-
-.fitplan-planning-item-hour
-  margin 0
-  font-size .9em
+    display flex 
 
 .fitplan-planning-item-overlay
   position absolute
