@@ -14,6 +14,14 @@ use FitnessPlanning\Entities\Planning;
 use FitnessPlanning\Entities\Workout;
 use FitnessPlanning\Entities\Coach;
 
+/**
+ * Initialize all the needed plugin classes
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class Initializer {
 
 	public function run() {

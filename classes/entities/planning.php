@@ -5,12 +5,23 @@ namespace FitnessPlanning\Entities;
 use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Services\Planning_Services;
 
+/**
+ * Plannings to be displayed on website, showing Workouts hours and Coachs 
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class Planning extends Entity {
 
 	public $services;
 
 	public function __construct() {
+
     $this->CPT_slug = Consts::CPT_PLANNING;
+
+		// Custom fields and thier default values
 		$this->fields = array(
 			'fitplan_planning' => "",
 
@@ -69,7 +80,7 @@ class Planning extends Entity {
  		  'supports' => array('title'),
  	  );
 
- 	 register_post_type($this->CPT_slug, $args);
+ 	 	register_post_type($this->CPT_slug, $args);
 	}
 
 	public function add_admin_menu() {
@@ -85,6 +96,8 @@ class Planning extends Entity {
 	public function register_meta_boxes() {
 		global $post;
 
+		// Get custom fields values and prepare datas for template
+		// These methods are in AbstractEntity
 		$raw_datas = $this->get_custom_fields($post->ID);
 		$this->datas = $this->services->prepare_datas($raw_datas);
 
@@ -141,8 +154,11 @@ class Planning extends Entity {
     }
   }
 
+	// Add a duplicate link in Admin >Planning > All Items
 	public function add_duplicate_link($actions, $post) {
 		if ($post->post_type == $this->CPT_slug and current_user_can('edit_posts') and isset($actions['trash'])) {
+
+			// Keep delete link at the end of actions list
 			$trash = $actions['trash'];
 			unset($actions['trash']);
 

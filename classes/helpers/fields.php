@@ -2,6 +2,14 @@
 
 namespace FitnessPlanning\Helpers;
 
+/**
+ * HTML Fields generator helper
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 abstract class Fields {
 
 	public static function image($field_name, $fields, $shape = "square") {

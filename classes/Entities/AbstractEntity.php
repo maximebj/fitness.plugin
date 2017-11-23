@@ -2,6 +2,14 @@
 
 namespace FitnessPlanning\Entities;
 
+/**
+ * Common methods for each entities
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 abstract class Entity {
 
 	protected $CPT_slug;
@@ -12,6 +20,7 @@ abstract class Entity {
 		return self::$CPT_slug;
 	}
 
+  // Get all the custom fields defined by the Entity Class
 	public function get_custom_fields($post_id) {
 
 		$values = array();
@@ -19,24 +28,24 @@ abstract class Entity {
 		foreach($this->fields as $field => $default) {
 			$values[$field] = get_post_meta($post_id, '_'.$field, true);
 
-			// Default value if not found
+			// Assign default value if not set (as defined in each Entity)
 			if($values[$field] == "") {
 				$values[$field] = $default;
 			}
 
-			// Checkboxes
+			// Handle Checkboxes
 			if($values[$field] == "off") {
 				$values[$field] = false;
 			}
 			if($values[$field] == "on") {
 				$values[$field] = true;
 			}
-
 		}
 
 		return $values;
 	}
 
+  // Get Custom field image and convert image ID in an URL
 	public function get_custom_field_image($fields, $key) {
 		if(array_key_exists($key, $fields) and $fields[$key]!='') {
 
@@ -63,6 +72,7 @@ abstract class Entity {
 		}
 	}
 
+  // Save custom fields
 	public function save_custom_fields($post_id, $post, $update) {
 		global $post_type;
 
@@ -70,6 +80,7 @@ abstract class Entity {
 
 		foreach($this->fields as $field => $value) {
 
+      // Check if the field is registered by the Entity before saving it
 			if(array_key_exists($field, $_POST)) {
 
 	      update_post_meta(
@@ -81,6 +92,7 @@ abstract class Entity {
 		}
 	}
 
+  // This method check if WP is in the right place and is performing a standard save post
 	private function check_saved_post($post_type, $current_type, $update, $post_id) {
 
 		return

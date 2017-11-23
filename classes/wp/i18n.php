@@ -4,6 +4,14 @@ namespace FitnessPlanning\WP;
 
 use FitnessPlanning\Helpers\Consts;
 
+/**
+ * Load translations
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class I18n {
 
 	public function register_hooks() {

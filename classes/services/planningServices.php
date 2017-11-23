@@ -8,6 +8,14 @@ use FitnessPlanning\Entities\Coach;
 
 use Datetime;
 
+/**
+ * Datas preparation for Planning
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class Planning_Services {
 
 	public function __construct() {
@@ -15,20 +23,19 @@ class Planning_Services {
 
 	public function prepare_datas($datas) {
 
-		// All metaboxes stuff
-
+		// Datas needed by all the metaboxes
 		$datas['weekdays'] = $this->get_weekdays($datas);
 
 		if($datas['fitplan_planning'] != ""){
 
+			// Get the planning entries JSON
 			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
 			$to_remove = array();
 
       // Ratio. eg: 90px per hour = 1.5 ratio in height
       $ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
 
-      // Planning
-
+      // Define Planning Morning and Afternoon areas height in px
       $morning_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
       $morning_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
 
@@ -46,7 +53,7 @@ class Planning_Services {
         "afternoon" => $afternoon_duration,
       );
 
-      // Entries
+      // Prepare datas for each Workouts Entries in the planning
 			foreach($datas['planning'] as $day => $entries) {
 				foreach($entries as $key => $entry) {
 					if($entry != null){
@@ -61,6 +68,7 @@ class Planning_Services {
 							continue;
 						}
 
+						// Get the Workout datas (name, description...)
 						$workout = new Workout();
 						$workout_metas = $workout->get_custom_fields($workout_datas->ID);
 						$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
@@ -78,6 +86,7 @@ class Planning_Services {
 							unset($datas['planning'][$day][$key]['coach']);
 						} else {
 
+							// Get the coach assigned to this Workout
 							$coach = new Coach();
 							$coach_metas = $coach->get_custom_fields($coach_datas->ID);
 							$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
@@ -89,8 +98,7 @@ class Planning_Services {
 							);
 						}
 
-						// Positions
-
+						// Define the absolute Position of the entry in the planning column
 						$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
 						$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
 
@@ -130,7 +138,8 @@ class Planning_Services {
 			}
 		}
 
-		// Workout Metabox stuff
+		// Load datas for the Add a Workout metabox
+		// Workouts, Coachs, available days of the week...
 
 		$args = array(
 			'post_type' => Consts::CPT_WORKOUT,
@@ -157,6 +166,8 @@ class Planning_Services {
 	}
 
 	public function get_weekdays($datas) {
+
+		// Get the start of the week defined in WordPress options
 		$start_of_week = get_option('start_of_week');
 
 		$base_week = array(

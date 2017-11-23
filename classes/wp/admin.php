@@ -4,6 +4,14 @@ namespace FitnessPlanning\WP;
 
 use FitnessPlanning\Helpers\Consts;
 
+/**
+ * Admin enqueue styles, scripts and menu declaration
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class Admin {
 
 	public function register_hooks() {

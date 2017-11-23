@@ -4,10 +4,20 @@ namespace FitnessPlanning\Entities;
 
 use FitnessPlanning\Helpers\Consts;
 
+/**
+ * Coachs to be attached to a Workout in a Planning
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 class Coach extends Entity {
 
 	public function __construct() {
     $this->CPT_slug = Consts::CPT_COACH;
+
+    // Custom fields and thier default values
     $this->fields = array(
 			'fitplan_coach_pic' => "",
 			'fitplan_coach_bio' => "",
@@ -61,8 +71,9 @@ class Coach extends Entity {
 
 	public function render_metabox_about($post) {
 
+		// Get custom fields values
+		// These methods are in AbstractEntity
     $this->datas = $this->get_custom_fields($post->ID);
-
 		$this->datas['fitplan_coach_pic'] = $this->get_custom_field_image($this->datas, 'fitplan_coach_pic');
 
 		wp_enqueue_media();

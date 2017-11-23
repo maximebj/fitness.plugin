@@ -2,6 +2,14 @@
 
 namespace FitnessPlanning\Helpers;
 
+/**
+ * Constants, Strings, values shared by the plugin
+ *
+ * @author Maximebj
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+
 abstract class Consts {
 
 	const PLUGIN_NAME = 'fitness-planning';
