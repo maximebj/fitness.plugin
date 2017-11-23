@@ -1,6 +1,8 @@
 <?php
 
-abstract class Fitness_Planning_Fields {
+namespace FitnessPlanning\Helpers;
+
+abstract class Fields {
 
 	public static function image($field_name, $fields, $shape = "square") {
 ?>

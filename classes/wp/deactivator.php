@@ -1,6 +1,8 @@
 <?php
 
-class Fitness_Planning_Deactivator {
+namespace FitnessPlanning\WP;
+
+class Deactivator {
 
 	public static function deactivate() {
 

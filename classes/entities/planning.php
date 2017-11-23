@@ -1,11 +1,16 @@
 <?php
 
-class Fitness_Planning_Planning extends Fitness_Planning_Entity {
+namespace FitnessPlanning\Entities;
+
+use FitnessPlanning\Helpers\Consts;
+use FitnessPlanning\Services\Planning_Services;
+
+class Planning extends Entity {
 
 	public $services;
 
 	public function __construct() {
-    $this->CPT_slug = Fitness_Planning_Consts::CPT_PLANNING;
+    $this->CPT_slug = Consts::CPT_PLANNING;
 		$this->fields = array(
 			'fitplan_planning' => "",
 
@@ -23,11 +28,12 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 			'fitplan_planning_workout_radius' => "4",
 
 			'fitplan_planning_background_color' => "",
+			'fitplan_planning_border_color' => "#eee",
 			'fitplan_planning_days_text_color' => "#000",
 			'fitplan_planning_px_per_hour' => '90',
 		);
 
-		$this->services = new Fitness_Planning_Planning_Services();
+		$this->services = new Planning_Services();
   }
 
 	public function register_hooks() {
@@ -69,7 +75,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 	public function add_admin_menu() {
 		global $submenu;
 
-		$submenu[Fitness_Planning_Consts::PLUGIN_NAME][] = array(
+		$submenu[Consts::PLUGIN_NAME][] = array(
 			__('Plannings', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
@@ -96,28 +102,28 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 	}
 
 	public function render_metabox_workout($post) {
-    include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-workout.php';
+    include Consts::get_path().'admin/templates/planning/metabox-workout.php';
 	}
 
 	public function render_metabox_preview($post) {
-		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-preview.php';
+		include Consts::get_path().'admin/templates/planning/metabox-preview.php';
 	}
 
 	public function render_metabox_settings($post) {
-		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-settings.php';
+		include Consts::get_path().'admin/templates/planning/metabox-settings.php';
 	}
 
 	public function render_metabox_shortcode($post) {
 		$post_id = $post->ID;
-		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-shortcode.php';
+		include Consts::get_path().'admin/templates/planning/metabox-shortcode.php';
 	}
 
 	public function render_metabox_workout_styling($post) {
-		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-workout-styling.php';
+		include Consts::get_path().'admin/templates/planning/metabox-workout-styling.php';
 	}
 
 	public function render_metabox_planning_styling($post) {
-		include Fitness_Planning_Consts::get_path().'admin/templates/planning/metabox-planning-styling.php';
+		include Consts::get_path().'admin/templates/planning/metabox-planning-styling.php';
 	}
 
   public function register_custom_columns($columns) {
@@ -130,7 +136,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
   public function add_custom_column_content($column, $post_id) {
     switch ($column) {
       case 'shortcode':
-        include Fitness_Planning_Consts::get_path().'admin/templates/planning/column-shortcode.php';
+        include Consts::get_path().'admin/templates/planning/column-shortcode.php';
         break;
     }
   }
@@ -189,7 +195,7 @@ class Fitness_Planning_Planning extends Fitness_Planning_Entity {
 		$raw_datas = $this->get_custom_fields($attributes['id']);
 		$this->datas = $this->services->prepare_datas($raw_datas);
 
-		include Fitness_Planning_Consts::get_path().'public/templates/shortcode-planning.php';
+		include Consts::get_path().'public/templates/shortcode-planning.php';
 	}
 
 }

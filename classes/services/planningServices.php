@@ -1,6 +1,14 @@
 <?php
 
-class Fitness_Planning_Planning_Services {
+namespace FitnessPlanning\Services;
+
+use FitnessPlanning\Helpers\Consts;
+use FitnessPlanning\Entities\Workout;
+use FitnessPlanning\Entities\Coach;
+
+use Datetime;
+
+class Planning_Services {
 
 	public function __construct() {
   }
@@ -21,8 +29,8 @@ class Fitness_Planning_Planning_Services {
 
       // Planning
 
-      $morning_start_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
-      $morning_finish_time   = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
+      $morning_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+      $morning_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
 
       $afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
       $afternoon_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_finish']);
@@ -53,7 +61,7 @@ class Fitness_Planning_Planning_Services {
 							continue;
 						}
 
-						$workout = new Fitness_Planning_Workout();
+						$workout = new Workout();
 						$workout_metas = $workout->get_custom_fields($workout_datas->ID);
 						$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
 
@@ -70,7 +78,7 @@ class Fitness_Planning_Planning_Services {
 							unset($datas['planning'][$day][$key]['coach']);
 						} else {
 
-							$coach = new Fitness_Planning_Coach();
+							$coach = new Coach();
 							$coach_metas = $coach->get_custom_fields($coach_datas->ID);
 							$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
 
@@ -125,7 +133,7 @@ class Fitness_Planning_Planning_Services {
 		// Workout Metabox stuff
 
 		$args = array(
-			'post_type' => Fitness_Planning_Consts::CPT_WORKOUT,
+			'post_type' => Consts::CPT_WORKOUT,
 			'posts_per_page' => -1,
 			'orderby' => 'title',
 			'order' => 'ASC',
@@ -137,7 +145,7 @@ class Fitness_Planning_Planning_Services {
 			$datas['workouts'][$workout->ID] = $workout->post_title;
 		endforeach;
 
-		$args['post_type'] = Fitness_Planning_Consts::CPT_COACH;
+		$args['post_type'] = Consts::CPT_COACH;
 		$coachs_raw = get_posts($args);
 		$datas['coachs'] = array();
 

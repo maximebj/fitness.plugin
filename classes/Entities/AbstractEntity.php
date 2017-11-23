@@ -1,6 +1,8 @@
 <?php
 
-abstract class Fitness_Planning_Entity {
+namespace FitnessPlanning\Entities;
+
+abstract class Entity {
 
 	protected $CPT_slug;
 	protected $fields;

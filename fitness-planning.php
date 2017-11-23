@@ -1,5 +1,9 @@
 <?php
 
+use FitnessPlanning\Initializer;
+use FitnessPlanning\WP\Activator;
+use FitnessPlanning\WP\Deactivator;
+
 /**
  * Plugin Name:       Fitness Planning
  * Plugin URI:        https://dysign.fr
@@ -18,19 +22,19 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 function activate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ).'classes/WP/Activator.php';
-	Fitness_Planning_Activator::activate();
+	require_once plugin_dir_path(__FILE__).'classes/WP/Activator.php';
+	Activator::activate();
 }
 
 function deactivate_fitness_planning() {
-	require_once plugin_dir_path( __FILE__ ).'classes/WP/Deactivator.php';
-	Fitness_Planning_Deactivator::deactivate();
+	require_once plugin_dir_path(__FILE__).'classes/WP/Deactivator.php';
+	Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_fitness_planning' );
-register_deactivation_hook( __FILE__, 'deactivate_fitness_planning' );
+register_activation_hook(__FILE__, 'activate_fitness_planning' );
+register_deactivation_hook(__FILE__, 'deactivate_fitness_planning' );
 
 
-require plugin_dir_path( __FILE__ ).'classes/fitness-planning.php';
-$fitness_planning = new Fitness_Planning();
+require plugin_dir_path(__FILE__).'classes/Initializer.php';
+$fitness_planning = new Initializer();
 $fitness_planning->run();

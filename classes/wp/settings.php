@@ -1,9 +1,14 @@
 <?php
 
-class Fitness_Planning_Settings {
+namespace FitnessPlanning\WP;
+
+use FitnessPlanning\Helpers\Consts;
+
+class Settings {
 
 	public function register_hooks() {
-		add_action('admin_menu', array( $this, 'add_admin_menu'));
+		// No settings for now
+		//add_action('admin_menu', array( $this, 'add_admin_menu'));
 	}
 
 	public function add_admin_menu() {
@@ -20,6 +25,6 @@ class Fitness_Planning_Settings {
 	}
 
 	public function settings_page(){
-    require_once Fitness_Planning_Consts::get_path().'admin/templates/settings.php';
+    require_once Consts::get_path().'admin/templates/settings.php';
 	}
 }

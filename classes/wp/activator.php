@@ -1,6 +1,10 @@
 <?php
 
-class Fitness_Planning_Activator {
+namespace FitnessPlanning\WP;
+
+use FitnessPlanning\Helpers\Consts;
+
+class Activator {
 
 	public static function activate() {
 
@@ -145,7 +149,7 @@ class Fitness_Planning_Activator {
 
 					} else {
 						// Create Image
-						$file = Fitness_Planning_Consts::get_path()."img/workouts/".$pic;
+						$file = Consts::get_path()."img/workouts/".$pic;
 
 						$upload_file = wp_upload_bits($pic, null, file_get_contents($file));
 

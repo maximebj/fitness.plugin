@@ -1,6 +1,10 @@
 <?php
 
-class Fitness_Planning_i18n {
+namespace FitnessPlanning\WP;
+
+use FitnessPlanning\Helpers\Consts;
+
+class I18n {
 
 	public function register_hooks() {
 		add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
@@ -11,7 +15,7 @@ class Fitness_Planning_i18n {
 		load_plugin_textdomain(
 			'fitness-planning',
 			false,
-			Fitness_Planning_Consts::get_path().'languages/'
+			Consts::get_path().'languages/'
 		);
 
 	}

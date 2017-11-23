@@ -1,6 +1,20 @@
 <?php
 
-class Fitness_Planning {
+namespace FitnessPlanning;
+
+use FitnessPlanning\Helpers\Consts;
+use FitnessPlanning\Helpers\Fields;
+
+use FitnessPlanning\WP\I18n;
+use FitnessPlanning\WP\Admin;
+use FitnessPlanning\WP\Front;
+use FitnessPlanning\WP\Settings;
+
+use FitnessPlanning\Entities\Planning;
+use FitnessPlanning\Entities\Workout;
+use FitnessPlanning\Entities\Coach;
+
+class Initializer {
 
 	public function run() {
 
@@ -12,7 +26,7 @@ class Fitness_Planning {
 
 		require_once $path.'classes/WP/I18n.php';
 		require_once $path.'classes/WP/Admin.php';
-		require_once $path.'classes/WP/Public.php';
+		require_once $path.'classes/WP/Front.php';
 		require_once $path.'classes/WP/Settings.php';
 
 		require_once $path.'classes/Entities/AbstractEntity.php';
@@ -24,35 +38,35 @@ class Fitness_Planning {
 
 
 		// Init Classes and Hooks
-		$plugin_i18n = new Fitness_Planning_i18n();
+		$plugin_i18n = new I18n();
 		$plugin_i18n->register_hooks();
 
-		$class_admin = new Fitness_Planning_Admin();
+		$class_admin = new Admin();
     $class_admin->register_hooks();
 
-		$class_public = new Fitness_Planning_Public();
+		$class_public = new Front();
     $class_public->register_hooks();
 
-		$class_planning = new Fitness_Planning_Planning();
+		$class_planning = new Planning();
     $class_planning->register_hooks();
 
-		$class_workout = new Fitness_Planning_Workout();
+		$class_workout = new Workout();
     $class_workout->register_hooks();
 
-		$class_coach = new Fitness_Planning_Coach();
+		$class_coach = new Coach();
     $class_coach->register_hooks();
 
-		$class_settings = new Fitness_Planning_Settings();
+		$class_settings = new Settings();
 		$class_settings->register_hooks();
 
 	}
 
 	public function get_plugin_name() {
-		return Fitness_Planning_Consts::PLUGIN_NAME;
+		return Consts::PLUGIN_NAME;
 	}
 
 	public function get_version() {
-		return Fitness_Planning_Consts::VERSION;
+		return Consts::VERSION;
 	}
 
 }

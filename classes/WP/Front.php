@@ -1,6 +1,10 @@
 <?php
 
-class Fitness_Planning_Public {
+namespace FitnessPlanning\WP;
+
+use FitnessPlanning\Helpers\Consts;
+
+class Front {
 
 	public function register_hooks() {
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
@@ -12,10 +16,10 @@ class Fitness_Planning_Public {
 
 		if(has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_style(
-				Fitness_Planning_Consts::PLUGIN_NAME,
-				Fitness_Planning_Consts::get_url().'public/css/fitness-planning-public.css',
+				Consts::PLUGIN_NAME,
+				Consts::get_url().'public/css/fitness-planning-public.css',
 				array(),
-				Fitness_Planning_Consts::VERSION,
+				Consts::VERSION,
 				'all'
 			);
 		}
@@ -26,10 +30,10 @@ class Fitness_Planning_Public {
 
 		if(has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_script(
-				Fitness_Planning_Consts::PLUGIN_NAME,
-				Fitness_Planning_Consts::get_url().'public/js/fitness-planning-public.js',
+				Consts::PLUGIN_NAME,
+				Consts::get_url().'public/js/fitness-planning-public.js',
 				array('jquery'),
-				Fitness_Planning_Consts::VERSION,
+				Consts::VERSION,
 				false
 			);
 		}

@@ -1,6 +1,8 @@
 <?php
 
-abstract class Fitness_Planning_Consts {
+namespace FitnessPlanning\Helpers;
+
+abstract class Consts {
 
 	const PLUGIN_NAME = 'fitness-planning';
 	const VERSION = '1.0';
