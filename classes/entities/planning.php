@@ -6,7 +6,7 @@ use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Services\Planning_Services;
 
 /**
- * Plannings to be displayed on website, showing Workouts hours and Coachs 
+ * Plannings to be displayed on website, showing Workouts hours and Coachs
  *
  * @author Maximebj
  * @version 1.0.0
@@ -44,6 +44,7 @@ class Planning extends Entity {
 			'fitplan_planning_px_per_hour' => '90',
 		);
 
+		// Methods for preparing datas
 		$this->services = new Planning_Services();
   }
 
@@ -146,6 +147,7 @@ class Planning extends Entity {
     return $columns;
   }
 
+	// Add a column in Admin > Planning > All items showing the shortcode to use
   public function add_custom_column_content($column, $post_id) {
     switch ($column) {
       case 'shortcode':
@@ -169,15 +171,16 @@ class Planning extends Entity {
 		return $actions;
 	}
 
+	// Duplicate a planning
 	public function duplicate_post() {
 
 		// Nonce verification
-		if (!isset( $_GET['duplicate_nonce'] ) || !wp_verify_nonce($_GET['duplicate_nonce'], basename( __FILE__ ))) {
+		if (!isset( $_GET['duplicate_nonce'] ) || !wp_verify_nonce($_GET['duplicate_nonce'], basename(__FILE__))) {
 			return;
 		}
 
 		// Get original post
-		$post_id = (isset($_GET['post']) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
+		$post_id = (isset($_GET['post']) ? absint($_GET['post']) : absint($_POST['post']));
 		$post = get_post($post_id);
 
 		if (isset($post) && $post != null) {
@@ -190,27 +193,32 @@ class Planning extends Entity {
 				'post_type'      => $post->post_type,
 			);
 
+			// Duplicate post
 			$new_post_id = wp_insert_post($args);
 
-			// Custom fields
+			// Get Custom fields
 			$post_metas = $this->get_custom_fields($post_id);
 
+			// Add the custom fields values to duplicate post
 			foreach($post_metas as $key => $value) {
 				update_post_meta($new_post_id, '_'.$key, $value);
 			}
 
+			// Go to duplicated post edit page
 			wp_redirect(admin_url('post.php?action=edit&post='.$new_post_id));
 			exit;
 		}
 
 		wp_redirect(admin_url('edit.php?post_type='.$this->CPT_slug));
+		exit;
 	}
 
 	public function execute_planning_shortcode($attributes) {
 
+		// Get all required datas
 		$raw_datas = $this->get_custom_fields($attributes['id']);
 		$this->datas = $this->services->prepare_datas($raw_datas);
-
+		
 		include Consts::get_path().'public/templates/shortcode-planning.php';
 	}
 

@@ -19,15 +19,18 @@ abstract class Consts {
 	const CPT_WORKOUT = 'workout';
 	const CPT_COACH = 'coach';
 
+	// Options for WP WYSIWYG Editor
 	const EDITOR_PARAMS = array(
     'media_buttons' => false,
     'textarea_rows' => 8
   );
 
+	// Plugin Path for includes
 	public static function get_path() {
 		return dirname(dirname(dirname(__FILE__))).'/';
 	}
 
+	// Plugin URL for assets enqueing
   public static function get_url() {
     return plugin_dir_url(dirname(dirname(__FILE__)));
   }
@@ -40,6 +43,7 @@ abstract class Consts {
 		);
 	}
 
+	// Translatable string sent to JS
 	public static function strings_to_js() {
 		return array(
 			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-planning'),
