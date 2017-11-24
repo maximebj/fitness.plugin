@@ -41,11 +41,13 @@ abstract class Entity {
 			}
 
 			// Handle Checkboxes
-			if($values[$field] == "off") {
-				$values[$field] = false;
-			}
-			if($values[$field] == "on") {
-				$values[$field] = true;
+			if($field_datas['type'] == "bool") {
+				if($values[$field] == "off" or !$values[$field]) {
+					$values[$field] = false;
+				}
+				if($values[$field] == "on" or $values[$field] == true) {
+					$values[$field] = true;
+				}
 			}
 		}
 
