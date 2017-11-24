@@ -433,6 +433,15 @@
 			$fitplanPlanning.css('background-color', color);
 		});
 
+		// --- Border Color
+		$('input[name=fitplan_planning_border_color]').change(function(){
+			var color = $(this).val();
+			$fitplanPlanning.css('border-color', color);
+			$fitplanPlanning.find('.fitplan-planning-day').css('border-color', color);
+			$fitplanPlanning.find('.fitplan-planning-title').css('border-color', color);
+			$fitplanPlanning.find('.fitplan-planning-morning').css('border-color', color+'44');
+		});
+
 		$('input[name=fitplan_planning_px_per_hour]').change(function(){
 			recalculatePlanning();
 		});

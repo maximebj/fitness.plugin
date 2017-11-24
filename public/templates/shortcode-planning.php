@@ -1,14 +1,14 @@
 <div class="fitplan-wrapper">
 
-  <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>">
+  <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;">
     <?php
       foreach($this->datas['weekdays'] as $day):
         if($day['displayed']):
     ?>
-    <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>" style="color: <?php echo $this->datas['fitplan_planning_days_text_color']; ?>">
-      <div class="fitplan-planning-title"><?php echo $day['name']; ?></div>
+    <div class="fitplan-planning-day fitplan-planning-day-<?php echo $day['slug']; ?>" style="color: <?php echo $this->datas['fitplan_planning_days_text_color']; ?>; border-color:<?php echo $this->datas['fitplan_planning_border_color']; ?>;">
+      <div class="fitplan-planning-title" style="border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;"><?php echo $day['name']; ?></div>
 
-      <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px">
+      <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>44;">
         <?php
           if(isset($this->datas['planning'])):
             foreach($this->datas['planning'][$day['slug']] as $id => $entry):

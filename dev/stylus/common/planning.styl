@@ -3,16 +3,24 @@
   position relative
   display flex
   width 100%
+  border-style solid
+  border-width 1px
 
   .fitplan-planning-day
     flex 1
     width 0
+
+    &:not(:first-child)
+      border-left-style solid
+      border-left-width 1px
 
   .fitplan-planning-title
     text-align center
     padding pad-s
     text-transform capitalize
     font-weight bold
+    border-bottom-style solid
+    border-bottom-width 1px
 
   .fitplan-planning-morning
     position relative
