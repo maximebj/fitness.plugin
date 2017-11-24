@@ -34,7 +34,7 @@
   </div>
 
   <template class="fitplan-planning-item-template">
-    <?php include 'parts/planning-item.php'; ?>
+    <?php include 'parts/planning-item-tpl.php'; ?>
   </template>
 
   <input type="hidden" name="fitplan_planning" value="<?php echo esc_js($this->datas['fitplan_planning']); ?>">
