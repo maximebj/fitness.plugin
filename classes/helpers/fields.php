@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning\Helpers;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 /**
  * HTML Fields generator helper
  *

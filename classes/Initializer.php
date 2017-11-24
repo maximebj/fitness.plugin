@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Helpers\Fields;
 

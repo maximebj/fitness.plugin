@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning\WP;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 use FitnessPlanning\Helpers\Consts;
 
 /**

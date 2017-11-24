@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning\Entities;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Services\Planning_Services;
 
@@ -218,7 +220,7 @@ class Planning extends Entity {
 		// Get all required datas
 		$raw_datas = $this->get_custom_fields($attributes['id']);
 		$this->datas = $this->services->prepare_datas($raw_datas);
-		
+
 		include Consts::get_path().'public/templates/shortcode-planning.php';
 	}
 

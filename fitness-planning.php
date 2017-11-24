@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 use FitnessPlanning\Initializer;
 use FitnessPlanning\WP\Activator;
 use FitnessPlanning\WP\Deactivator;
@@ -17,7 +19,7 @@ use FitnessPlanning\WP\Deactivator;
  * Domain Path:       /languages
  */
 
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
 	die;
 }
 
@@ -33,7 +35,6 @@ function deactivate_fitness_planning() {
 
 register_activation_hook(__FILE__, 'activate_fitness_planning' );
 register_deactivation_hook(__FILE__, 'deactivate_fitness_planning' );
-
 
 require plugin_dir_path(__FILE__).'classes/Initializer.php';
 $fitness_planning = new Initializer();

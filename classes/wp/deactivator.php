@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning\WP;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 /**
  * Things to do on Plugin deactivation
  *

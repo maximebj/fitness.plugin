@@ -2,6 +2,8 @@
 
 namespace FitnessPlanning\Services;
 
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
 use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Entities\Workout;
 use FitnessPlanning\Entities\Coach;
