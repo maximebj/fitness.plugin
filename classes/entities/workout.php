@@ -21,10 +21,10 @@ class Workout extends Entity {
 
 		// Custom fields and thier default values
 		$this->fields = array(
-			'fitplan_workout_desc' => "",
-			'fitplan_workout_pic' => "",
-			'fitplan_workout_color' => "#eee",
-			'fitplan_workout_url' => "",
+			'fitplan_workout_desc' 	=> array("type" => "text", "default" => ""),
+			'fitplan_workout_pic' 	=> array("type" => "picture", "default" => ""),
+			'fitplan_workout_color' => array("type" => "color", "default" => "#eee"),
+			'fitplan_workout_url' 	=> array("type" => "url", "default" => ""),
 		);
   }
 
@@ -75,10 +75,8 @@ class Workout extends Entity {
 
 	public function render_metabox_about($post) {
 
-		// Get custom fields values
-		// These methods are in AbstractEntity
+		// Get custom fields values (in AbstractEntity)
 		$this->datas = $this->get_custom_fields($post->ID);
-		$this->datas['fitplan_workout_pic'] = $this->get_custom_field_image($this->datas, 'fitplan_workout_pic');
 
 		wp_enqueue_media();
 

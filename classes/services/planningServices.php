@@ -71,9 +71,9 @@ class Planning_Services {
 						}
 
 						// Get the Workout datas (name, description...)
+						// TODO Remove
 						$workout = new Workout();
 						$workout_metas = $workout->get_custom_fields($workout_datas->ID);
-						$workout_metas['fitplan_workout_pic'] = $workout->get_custom_field_image($workout_metas, 'fitplan_workout_pic');
 
 						$entry['workout'] = array(
 							"id" => $entry['workout'],
@@ -88,10 +88,10 @@ class Planning_Services {
 							unset($datas['planning'][$day][$key]['coach']);
 						} else {
 
+							// TODO remove
 							// Get the coach assigned to this Workout
 							$coach = new Coach();
 							$coach_metas = $coach->get_custom_fields($coach_datas->ID);
-							$coach_metas['fitplan_coach_pic'] = $coach->get_custom_field_image($coach_metas, 'fitplan_coach_pic');
 
 							$entry['coach'] = array(
 								"id" => $entry['coach'],
@@ -144,24 +144,29 @@ class Planning_Services {
 		// Workouts, Coachs, available days of the week...
 
 		$args = array(
-			'post_type' => Consts::CPT_WORKOUT,
 			'posts_per_page' => -1,
 			'orderby' => 'title',
 			'order' => 'ASC',
 		);
-		$workouts_raw = get_posts($args);
+
+		$args['post_type'] = Consts::CPT_WORKOUT;
+		$workouts_datas = get_posts($args);
 		$datas['workouts'] = array();
 
-		foreach($workouts_raw as $workout):
-			$datas['workouts'][$workout->ID] = $workout->post_title;
+		foreach($workouts_datas as $workout_datas):
+			$workout = new Workout();
+			$workout_datas->metas = $workout->get_custom_fields($workout_datas->ID);
+			$datas['workouts'][$workout_datas->ID] = $workout_datas;
 		endforeach;
 
 		$args['post_type'] = Consts::CPT_COACH;
-		$coachs_raw = get_posts($args);
+		$coachs_datas = get_posts($args);
 		$datas['coachs'] = array();
 
-		foreach($coachs_raw as $coach):
-			$datas['coachs'][$coach->ID] = $coach->post_title;
+		foreach($coachs_datas as $coach_datas):
+			$coach = new Coach();
+			$coach_datas->metas = $coach->get_custom_fields($coach_datas->ID);
+			$datas['coachs'][$coach_datas->ID] = $coach_datas;
 		endforeach;
 
 		return $datas;

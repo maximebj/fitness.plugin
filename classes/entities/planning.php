@@ -25,25 +25,25 @@ class Planning extends Entity {
 
 		// Custom fields and thier default values
 		$this->fields = array(
-			'fitplan_planning' => "",
+			'fitplan_planning' => array("type" => "json", "default" => ""),
 
-			'fitplan_planning_weekdays' => "",
-			'fitplan_planning_morning_start' => "09:00",
-			'fitplan_planning_morning_finish' => "13:00",
-			'fitplan_planning_afternoon_start' => "17:00",
-			'fitplan_planning_afternoon_finish' => "21:00",
+			'fitplan_planning_weekdays' 				=> array("type" => "array", "default" => ""),
+			'fitplan_planning_morning_start' 		=> array("type" => "time", "default" => "09:00"),
+			'fitplan_planning_morning_finish' 	=> array("type" => "time", "default" => "13:00"),
+			'fitplan_planning_afternoon_start' 	=> array("type" => "time", "default" => "17:00"),
+			'fitplan_planning_afternoon_finish' => array("type" => "time", "default" => "21:00"),
 
-			'fitplan_planning_workout_display_pic' => true,
-      'fitplan_planning_workout_display_color' => true,
-      'fitplan_planning_workout_display_title' => false,
-      'fitplan_planning_workout_text_color' => "#444",
-			'fitplan_planning_workout_default_color' => "#eee",
-			'fitplan_planning_workout_radius' => "4",
+			'fitplan_planning_workout_display_pic' 		=> array("type" => "time", "default" => true),
+      'fitplan_planning_workout_display_color' 	=> array("type" => "time", "default" => true),
+      'fitplan_planning_workout_display_title' 	=> array("type" => "time", "default" => false),
+      'fitplan_planning_workout_text_color' 	 	=> array("type" => "color", "default" => "#444"),
+			'fitplan_planning_workout_default_color' 	=> array("type" => "color", "default" => "#eee"),
+			'fitplan_planning_workout_radius' 				=> array("type" => "int", "default" => 4),
 
-			'fitplan_planning_background_color' => "",
-			'fitplan_planning_border_color' => "#eee",
-			'fitplan_planning_days_text_color' => "#000",
-			'fitplan_planning_px_per_hour' => '90',
+			'fitplan_planning_background_color' => array("type" => "text", "default" => ""),
+			'fitplan_planning_border_color' 		=> array("type" => "color", "default" => "#eee"),
+			'fitplan_planning_days_text_color' 	=> array("type" => "color", "default" => "#000"),
+			'fitplan_planning_px_per_hour' 			=> array("type" => "int", "default" => 90),
 		);
 
 		// Methods for preparing datas

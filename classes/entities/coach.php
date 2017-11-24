@@ -21,8 +21,8 @@ class Coach extends Entity {
 
     // Custom fields and thier default values
     $this->fields = array(
-			'fitplan_coach_pic' => "",
-			'fitplan_coach_bio' => "",
+			'fitplan_coach_pic' => array("type" => "picture", "default" => ""),
+			'fitplan_coach_bio' => array("type" => "text", "default" => ""),
 		);
   }
 
@@ -73,10 +73,8 @@ class Coach extends Entity {
 
 	public function render_metabox_about($post) {
 
-		// Get custom fields values
-		// These methods are in AbstractEntity
+		// Get custom fields values (in AbstractEntity)
     $this->datas = $this->get_custom_fields($post->ID);
-		$this->datas['fitplan_coach_pic'] = $this->get_custom_field_image($this->datas, 'fitplan_coach_pic');
 
 		wp_enqueue_media();
 

@@ -27,12 +27,17 @@ abstract class Entity {
 
 		$values = array();
 
-		foreach($this->fields as $field => $default) {
+		foreach($this->fields as $field => $field_datas) {
 			$values[$field] = get_post_meta($post_id, '_'.$field, true);
 
 			// Assign default value if not set (as defined in each Entity)
 			if($values[$field] == "") {
-				$values[$field] = $default;
+				$values[$field] = $field_datas['default'];
+			}
+
+			// Handle Images
+			if($field_datas['type'] == "picture") {
+				$values[$field] = $this->get_custom_field_image($values[$field]);
 			}
 
 			// Handle Checkboxes
@@ -48,30 +53,23 @@ abstract class Entity {
 	}
 
   // Get Custom field image and convert image ID in an URL
-	public function get_custom_field_image($fields, $key) {
-		if(array_key_exists($key, $fields) and $fields[$key]!='') {
+	public function get_custom_field_image($field) {
+		$picture = false;
+		$url = "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g";
 
-			$picture = wp_get_attachment_image_src($fields[$key], "large");
+		if($field != '') {
 
+			$picture = wp_get_attachment_image_src($field, "large");
 			if($picture) {
 				$url = $picture[0];
-			} else {
-				$url = "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g";
 			}
-
-			return array(
-				"id" => $fields[$key],
-				"isset" => ($picture) ? true : false,
-				"url" => $url,
-			);
-
-		} else {
-			return array(
-				"id" => 0,
-				"isset" => false,
-				"url" => "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g",
-			);
 		}
+
+		return array(
+			"id" => $field,
+			"isset" => ($picture) ? true : false,
+			"url" => $url,
+		);
 	}
 
   // Save custom fields
@@ -80,11 +78,15 @@ abstract class Entity {
 
 		if($this->check_saved_post($post_type, $this->CPT_slug, $update, $post_id)) { return; }
 
-		foreach($this->fields as $field => $value) {
+		foreach($this->fields as $field => $field_metas) {
 
       // Check if the field is registered by the Entity before saving it
 			if(array_key_exists($field, $_POST)) {
 
+				// TODO later security check for types
+				// bool / int ...
+
+				// Save the value in post meta
 	      update_post_meta(
 	        $post_id,
 	        '_'.$field,

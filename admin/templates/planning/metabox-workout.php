@@ -8,8 +8,8 @@
     <span class="fitplan-add-workout-action" ><?php _e('Add', 'fitness-planning'); ?></span>
 
     <select name="fitplan_addworkout_workout">
-      <?php $first = true; foreach($this->datas['workouts'] as $ID => $title): ?>
-      <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $title; ?></option>
+      <?php $first = true; foreach($this->datas['workouts'] as $ID => $workout): ?>
+      <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $workout->post_title; ?></option>
       <?php endforeach; ?>
     </select>
 
@@ -32,8 +32,8 @@
     <span><?php _e('with', 'fitness-planning'); ?></span>
 
     <select name="fitplan_addworkout_coach" <?php if(count($this->datas['coachs']) == 0) echo "disabled"; ?>>
-      <?php $first = true; foreach($this->datas['coachs'] as $ID => $title): ?>
-      <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $title; ?></option>
+      <?php $first = true; foreach($this->datas['coachs'] as $ID => $coach): ?>
+      <option value="<?php echo $ID; ?>" <?php if($first){ $first=false; echo 'selected'; } ?>><?php echo $coach->post_title; ?></option>
       <?php endforeach; ?>
       <?php if(count($this->datas['coachs']) == 0): ?>
       <option value=""><?php _e('No coach defined'); ?></option>
