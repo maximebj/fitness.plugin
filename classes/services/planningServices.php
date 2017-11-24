@@ -58,34 +58,37 @@ class Planning_Services {
 			$datas['coachs'][$coach_datas->ID] = $coach_datas;
 		endforeach;
 
-		// Get the Planning entries and prepare datas for JSON
+
+		// Calculate planning height from ratio and start/finish hours for morning and afternoon
+
+    // Ratio. eg: 90px per hour = 1.5 ratio in height
+    $ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
+
+    // Define Planning Morning and Afternoon areas height in px
+    $morning_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
+    $morning_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
+
+    $afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
+    $afternoon_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_finish']);
+
+    $morning_duration = $morning_finish_time->diff($morning_start_time);
+    $morning_duration = ($morning_duration->h * 60 + $morning_duration->i) * $ratio;
+
+    $afternoon_duration = $afternoon_finish_time->diff($afternoon_start_time);
+    $afternoon_duration = ($afternoon_duration->h * 60 + $afternoon_duration->i) * $ratio;
+
+		// Each day is separated in 2 divs : morning and afternoon
+    $datas['planning_height'] = array(
+      "morning" => $morning_duration,
+      "afternoon" => $afternoon_duration,
+    );
+
+    // Get the Planning entries and prepare datas for JSON
 		if($datas['fitplan_planning'] != ""){
 
 			// Get the planning entries JSON
 			$datas['planning'] = json_decode($datas['fitplan_planning'], true);
 			$to_remove = array();
-
-      // Ratio. eg: 90px per hour = 1.5 ratio in height
-      $ratio = intval($datas['fitplan_planning_px_per_hour']) / 60;
-
-      // Define Planning Morning and Afternoon areas height in px
-      $morning_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_start']);
-      $morning_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_morning_finish']);
-
-      $afternoon_start_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_start']);
-      $afternoon_finish_time = DateTime::createFromFormat('H:i', $datas['fitplan_planning_afternoon_finish']);
-
-      $morning_duration = $morning_finish_time->diff($morning_start_time);
-      $morning_duration = ($morning_duration->h * 60 + $morning_duration->i) * $ratio;
-
-      $afternoon_duration = $afternoon_finish_time->diff($afternoon_start_time);
-      $afternoon_duration = ($afternoon_duration->h * 60 + $afternoon_duration->i) * $ratio;
-
-			// Each day is separated in 2 divs : morning and afternoon
-      $datas['planning_height'] = array(
-        "morning" => $morning_duration,
-        "afternoon" => $afternoon_duration,
-      );
 
       // Prepare datas for each Workouts Entries in the planning
 			// Database only keep record of start/finish time, Workout and Coach IDs
