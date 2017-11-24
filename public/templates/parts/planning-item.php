@@ -4,7 +4,7 @@
     style="
       <?php
       if($this->datas['fitplan_planning_workout_display_color']):
-        echo 'background-color: '.@$entry['workout']['metas']['fitplan_workout_color'];
+        echo 'background-color: '.@$entry['workout']->metas['fitplan_workout_color'];
       else:
         echo 'background-color: '.$this->datas['fitplan_planning_workout_default_color'];
       endif;
@@ -16,16 +16,16 @@
       if($this->datas['fitplan_planning_workout_display_color']):
         echo $this->datas['fitplan_planning_workout_default_color'];
       else:
-        echo @$entry['workout']['metas']['fitplan_workout_color'];
+        echo @$entry['workout']->metas['fitplan_workout_color'];
       endif;
     ?>">
 
     <div class="fitplan-planning-item-pic" style="<?php if(!$this->datas['fitplan_planning_workout_display_pic'] or intval($entry['height']) < 50 ): ?>display: none;<?php endif; ?>">
-      <img src="<?php echo @$entry['workout']['metas']['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']['name']; ?>">
+      <img src="<?php echo @$entry['workout']->metas['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']->post_title; ?>">
     </div>
 
     <p class="fitplan-planning-item-title" style="<?php if(!$this->datas['fitplan_planning_workout_display_title'] and intval($entry['height']) >= 50 ): ?>display: none;<?php endif; ?>">
-      <?php echo @$entry['workout']['name']; ?>
+      <?php echo @$entry['workout']->post_title; ?>
     </p>
 
     <p class="fitplan-planning-item-hour">
@@ -36,13 +36,13 @@
   </div>
 
   <div class="fitplan-planning-item-bubble">
-    <?php if(isset($entry['workout']['metas']['fitplan_workout_pic']['url'])): ?>
+    <?php if(isset($entry['workout']->metas['fitplan_workout_pic']['url'])): ?>
     <p class="fitplan-planning-modal-pic">
-      <img src="<?php echo @$entry['workout']['metas']['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']['name']; ?>">
+      <img src="<?php echo @$entry['workout']->metas['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']->post_title; ?>">
     </p>
     <?php else: ?>
     <p class="fitplan-planning-modal-title">
-      <?php echo @$entry['workout']['name']; ?>
+      <?php echo @$entry['workout']->post_title; ?>
     </p>
     <?php endif; ?>
 
@@ -54,16 +54,16 @@
     </div>
 
     <div class="fitplan-planning-modal-desc">
-      <?php echo @$entry['workout']['metas']['fitplan_workout_desc']; ?>
+      <?php echo @$entry['workout']->metas['fitplan_workout_desc']; ?>
     </div>
 
     <div class="fitplan-planning-modal-coach">
-      <img class="fitplan-planning-modal-coach-img" src="<?php echo @$entry['coach']['metas']['fitplan_coach_pic']['url']; ?>" alt="<?php echo @$entry['coach']['name']; ?>">
+      <img class="fitplan-planning-modal-coach-img" src="<?php echo @$entry['coach']->metas['fitplan_coach_pic']['url']; ?>" alt="<?php echo @$entry['coach']->post_title; ?>">
       <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
       <br>
-      <strong class="fitplan-planning-item-coach-name"><?php echo @$entry['coach']['name']; ?></strong>
+      <strong class="fitplan-planning-item-coach-name"><?php echo @$entry['coach']->post_title; ?></strong>
       <div class="fitplan-planning-modal-coach-bio">
-        <?php echo @$entry['coach']['metas']['fitplan_coach_bio']; ?>
+        <?php echo @$entry['coach']->metas['fitplan_coach_bio']; ?>
       </div>
     </div>
   </div>

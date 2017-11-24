@@ -133,7 +133,7 @@
 			var coachId = $workoutFormCoachField.val();
 
 			// Datas
-			$item.attr('data-id', id);
+			$item.attr('data-position-id', id);
 			$item.find('.fitplan-planning-item-title').html(workoutName).attr('data-workout-id', workoutId);
 			$item.find('.fitplan-planning-item-coach-name').html(coachName).attr('data-coach-id', coachId);
 			$item.find('.fitplan-planning-item-hour-start').html(datas.start);
@@ -184,7 +184,7 @@
 		// Global function for removing item
 
 		function removeFromPlanning($item) {
-			var id = $item.attr('data-id');
+			var id = $item.attr('data-position-id');
 			var day = $item.parents('.fitplan-planning-day').attr('data-day');
 
 			var planning = JSON.parse($planningField.val());

@@ -25,9 +25,40 @@ class Planning_Services {
 
 	public function prepare_datas($datas) {
 
-		// Datas needed by all the metaboxes
+		// Get the weekdays for Add a Workout metabox
 		$datas['weekdays'] = $this->get_weekdays($datas);
 
+
+		// Get Workouts and Coachs datas for Add a Workout metabox and Planning entries
+		$args = array(
+			'posts_per_page' => -1,
+			'orderby' => 'title',
+			'order' => 'ASC',
+		);
+
+		// Get All Workouts and theirs metas
+		$args['post_type'] = Consts::CPT_WORKOUT;
+		$workouts_datas = get_posts($args);
+		$datas['workouts'] = array();
+
+		foreach($workouts_datas as $workout_datas):
+			$workout = new Workout();
+			$workout_datas->metas = $workout->get_custom_fields($workout_datas->ID);
+			$datas['workouts'][$workout_datas->ID] = $workout_datas;
+		endforeach;
+
+		// Get all Coachssand theirs metas
+		$args['post_type'] = Consts::CPT_COACH;
+		$coachs_datas = get_posts($args);
+		$datas['coachs'] = array();
+
+		foreach($coachs_datas as $coach_datas):
+			$coach = new Coach();
+			$coach_datas->metas = $coach->get_custom_fields($coach_datas->ID);
+			$datas['coachs'][$coach_datas->ID] = $coach_datas;
+		endforeach;
+
+		// Get the Planning entries and prepare datas for JSON
 		if($datas['fitplan_planning'] != ""){
 
 			// Get the planning entries JSON
@@ -50,54 +81,42 @@ class Planning_Services {
       $afternoon_duration = $afternoon_finish_time->diff($afternoon_start_time);
       $afternoon_duration = ($afternoon_duration->h * 60 + $afternoon_duration->i) * $ratio;
 
+			// Each day is separated in 2 divs : morning and afternoon
       $datas['planning_height'] = array(
         "morning" => $morning_duration,
         "afternoon" => $afternoon_duration,
       );
 
       // Prepare datas for each Workouts Entries in the planning
+			// Database only keep record of start/finish time, Workout and Coach IDs
+			// We need to add the metas for each entry
+
 			foreach($datas['planning'] as $day => $entries) {
 				foreach($entries as $key => $entry) {
 					if($entry != null){
 
-						$workout_datas = get_post($entry['workout']);
+						// First, the Workout
+						$workout_id = $entry['workout'];
 
-						// If workout has been deleted (in Workouts)
-						if($workout_datas == null) {
+						// Don't keep entry if attached Workout has been removed
+						if(!isset($datas['workouts'][$workout_id])) {
 							$to_remove[] = array("day" =>$day, "key" => $key);
 							unset($datas['planning'][$day][$key]);
 
+							// exit this iteration. The workout will be removed from planning
 							continue;
 						}
 
-						// Get the Workout datas (name, description...)
-						// TODO Remove
-						$workout = new Workout();
-						$workout_metas = $workout->get_custom_fields($workout_datas->ID);
+						$entry['workout'] = $datas['workouts'][$workout_id];
 
-						$entry['workout'] = array(
-							"id" => $entry['workout'],
-							"name" => $workout_datas->post_title,
-							"metas" => $workout_metas,
-						);
-
-						$coach_datas = get_post($entry['coach']);
+						// Then the coach
+						$coach_id = $entry['coach'];
 
 						// If coach has been deleted (In Coachs)
-						if($coach_datas == null){
+						if(!isset($datas['coachs'][$coach_id])) {
 							unset($datas['planning'][$day][$key]['coach']);
 						} else {
-
-							// TODO remove
-							// Get the coach assigned to this Workout
-							$coach = new Coach();
-							$coach_metas = $coach->get_custom_fields($coach_datas->ID);
-
-							$entry['coach'] = array(
-								"id" => $entry['coach'],
-								"name" => $coach_datas->post_title,
-								"metas" => $coach_metas,
-							);
+							$entry['coach'] = $datas['coachs'][$coach_id];
 						}
 
 						// Define the absolute Position of the entry in the planning column
@@ -124,50 +143,19 @@ class Planning_Services {
 				}
 			}
 
-			// Updated field in case changes were made
+			// Remove unvalid Workouts (due to a Workout deletion in Admin > Fitness Planning > Workouts)
 			if(count($to_remove) > 0){
 				$prov = json_decode($datas['fitplan_planning'], true);
 
 				foreach($to_remove as $remove) {
-
 					$day = $remove['day'];
 					$key = $remove['key'];
 
 					unset($prov[$day][$key]);
 				}
 				$datas['fitplan_planning'] = json_encode($prov);
-
 			}
 		}
-
-		// Load datas for the Add a Workout metabox
-		// Workouts, Coachs, available days of the week...
-
-		$args = array(
-			'posts_per_page' => -1,
-			'orderby' => 'title',
-			'order' => 'ASC',
-		);
-
-		$args['post_type'] = Consts::CPT_WORKOUT;
-		$workouts_datas = get_posts($args);
-		$datas['workouts'] = array();
-
-		foreach($workouts_datas as $workout_datas):
-			$workout = new Workout();
-			$workout_datas->metas = $workout->get_custom_fields($workout_datas->ID);
-			$datas['workouts'][$workout_datas->ID] = $workout_datas;
-		endforeach;
-
-		$args['post_type'] = Consts::CPT_COACH;
-		$coachs_datas = get_posts($args);
-		$datas['coachs'] = array();
-
-		foreach($coachs_datas as $coach_datas):
-			$coach = new Coach();
-			$coach_datas->metas = $coach->get_custom_fields($coach_datas->ID);
-			$datas['coachs'][$coach_datas->ID] = $coach_datas;
-		endforeach;
 
 		return $datas;
 	}

@@ -53,6 +53,7 @@ class Planning extends Entity {
 	public function register_hooks() {
 		add_action('init', array($this, 'define_post_types'));
 		add_action('admin_menu', array( $this, 'add_admin_menu'));
+		add_action('admin_enqueue_scripts', array($this, 'enqueue_assets'));
 		add_action('add_meta_boxes', array($this, 'register_meta_boxes'));
 		add_action('save_post', array($this, 'save_custom_fields'), 10, 3);
     add_filter('manage_'.$this->CPT_slug.'_posts_columns', array($this, 'register_custom_columns'));
@@ -93,6 +94,22 @@ class Planning extends Entity {
 			__('Plannings', 'fitness-planning'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
+		);
+	}
+
+	// Send datas about Workouts and Coachs to JS
+	public function enqueue_assets() {
+		
+		wp_localize_script(
+			Consts::PLUGIN_NAME,
+			'fitnessPlanningWorkouts',
+			$this->datas['workouts']
+		);
+
+		wp_localize_script(
+			Consts::PLUGIN_NAME,
+			'fitnessPlanningCoachs',
+			$this->datas['coachs']
 		);
 	}
 
