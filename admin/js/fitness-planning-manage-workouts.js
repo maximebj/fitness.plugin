@@ -124,33 +124,48 @@
 		  $planningField.val(JSON.stringify(planning));
 
 			// Clone template, populate with datas and add item to planning
-			var $item = $($planningItemTemplate.clone().html());
+			var $template = $($planningItemTemplate.clone().html());
 
 			// Get IDs from Add form
 			var workoutId = $workoutFormWorkoutField.val();
 			var coachId = $workoutFormCoachField.val();
 
 			// Get Values from fitnessPlanningWorkouts & fitnessPlanningCoachs JS var (from PHP)
+			var workout = fitnessPlanningWorkouts[workoutId];
 
-			// fitnessPlanningWorkouts
-			// fitnessPlanningCoachs
+			// Don't handle coach If no one has been created yet
+			if(coachId != ""){
+				var coach = fitnessPlanningCoachs[coachId];
+			}
+
+			// Populate base datas
+			$template.attr('data-position-id', id);
+			$template.find('.fitplan-planning-item-hour-start').html(datas.start);
+			$template.find('.fitplan-planning-item-hour-finish').html(datas.finish);
+
+			// Populate Workout datas
+			$template.find('.fitplan-planning-item-title').html(workout.post_title).attr('data-workout-id', workout.ID);
+
+			// TODO others datas
+
+			// Populate Coach datas
+			if(coachId != ""){
+
+				$template.find('.fitplan-planning-item-coach-name').html(coach.post_title).attr('data-coach-id', coach.ID);
+
+				// TODO others datas
+
+			} else {
+				// remove coach  markup
+
+				// TODO
+			}
+
+			// Define colors and styles
 
 			// TODO
 
-			console.log(fitnessPlanningWorkouts[workoutId]);
-			console.log(fitnessPlanningCoachs[coachId]);
-
-			var workoutName = $workoutFormWorkoutField.find('option:selected').html();
-			var coachName = $('.js-fitplan-coach option:selected').html();
-
-			// Datas
-			$item.attr('data-position-id', id);
-			$item.find('.fitplan-planning-item-title').html(workoutName).attr('data-workout-id', workoutId);
-			$item.find('.fitplan-planning-item-coach-name').html(coachName).attr('data-coach-id', coachId);
-			$item.find('.fitplan-planning-item-hour-start').html(datas.start);
-			$item.find('.fitplan-planning-item-hour-finish').html(datas.finish);
-
-			// Position
+			// Set item Position in planning grid
 			if(datas.time == "morning")  {
 				var periodStart = $morningStart.val();
 			} else {
@@ -167,9 +182,9 @@
 		  var fromTop = workoutStartTime.diff(periodStartTime, 'minutes') * ratio;
 		  var height = workoutFinishTime.diff(workoutStartTime, 'minutes') * ratio;
 
-			$item.css({'top': fromTop+'px', 'height': height+'px'});
+			$template.css({'top': fromTop+'px', 'height': height+'px'});
 
-			$('.fitplan-planning-day[data-day='+day+'] .fitplan-planning-'+datas.time).append($item);
+			$('.fitplan-planning-day[data-day='+day+'] .fitplan-planning-'+datas.time).append($template);
 
 			// Edition mode : delete old item
 			var $editedItem = $('.fitplan-planning-item.is-edited');
