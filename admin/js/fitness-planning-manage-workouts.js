@@ -1,4 +1,4 @@
-(function( $ ) {
+(function($) {
 	'use strict';
 	$(document).ready(function() {
 
@@ -51,11 +51,10 @@
 
 		// Add or edit workout to planning
 
-		$('.js-fitplan-add-to-planning').click(function(e){
+		$workoutFormButton.click(function(e){
 		  e.preventDefault();
 
 			// Get datas
-
 			var day = $workoutFormDayField.val();
 
 		  var datas = {
@@ -84,7 +83,7 @@
 
 		  var planning = $planningField.val();
 
-		  // For new planning
+		  // For new planning : when it's the first entry in a new planning
 		  if(planning == ""){
 		    planning = { "monday": {}, "tuesday": {}, "wednesday": {}, "thursday": {}, "friday": {}, "saturday": {}, "sunday": {}};
 		  } else {
@@ -117,20 +116,32 @@
 				}
 		  }
 
-
+			// Define a new unique ID for the entry
 			var id = Object.keys(planning[day]).length;
 		  planning[day][id] = datas;
 
 			// Add JSON value to field
 		  $planningField.val(JSON.stringify(planning));
 
-			// Add item to planning
+			// Clone template, populate with datas and add item to planning
 			var $item = $($planningItemTemplate.clone().html());
 
-			var workoutName = $workoutFormWorkoutField.find('option:selected').html();
+			// Get IDs from Add form
 			var workoutId = $workoutFormWorkoutField.val();
-			var coachName = $('.js-fitplan-coach option:selected').html();
 			var coachId = $workoutFormCoachField.val();
+
+			// Get Values from fitnessPlanningWorkouts & fitnessPlanningCoachs JS var (from PHP)
+
+			// fitnessPlanningWorkouts
+			// fitnessPlanningCoachs
+
+			// TODO
+
+			console.log(fitnessPlanningWorkouts[workoutId]);
+			console.log(fitnessPlanningCoachs[coachId]);
+
+			var workoutName = $workoutFormWorkoutField.find('option:selected').html();
+			var coachName = $('.js-fitplan-coach option:selected').html();
 
 			// Datas
 			$item.attr('data-position-id', id);
@@ -140,7 +151,7 @@
 			$item.find('.fitplan-planning-item-hour-finish').html(datas.finish);
 
 			// Position
-			if( datas.time == "morning" ) {
+			if(datas.time == "morning")  {
 				var periodStart = $morningStart.val();
 			} else {
 				var periodStart = $afternoonStart.val();
@@ -177,7 +188,6 @@
 
 			var $item = $(this).parents('.fitplan-planning-item');
 			removeFromPlanning($item);
-
     });
 
 
@@ -245,7 +255,6 @@
 			window.setTimeout(function(){
 				$workoutFormContent.removeClass('is-featured');
 			}, 400);
-
 		});
 
 
@@ -254,7 +263,6 @@
 			e.preventDefault();
 
 			backToAdd();
-
 		});
 
 		function backToAdd() {
@@ -349,7 +357,6 @@
 
 		// Fields controls
 
-
 		// --- Auto update Finish Hour when changing Starting hour
 
 		$workoutFormStartField.change(function() {
@@ -359,7 +366,6 @@
 
 			$workoutFormFinishField.val(endTime.format("HH:mm"));
 		});
-
 
 
     // Live customization
@@ -447,4 +453,4 @@
 		});
 
 	});
-})( jQuery );
+})(jQuery);
