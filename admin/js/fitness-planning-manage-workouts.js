@@ -2,6 +2,9 @@
 	'use strict';
 	$(document).ready(function() {
 
+		// This is gonna be rewritten soon in React
+		// It will be less messy
+
 		// Selectors
 
 		// General components
@@ -35,14 +38,22 @@
 		var $workoutFormCoachField = $(':input[name=fitplan_addworkout_coach]');
 
 		// Settings Fiels
-		var $morningStart = $('input[name=fitplan_planning_morning_start]');
-		var $morningFinish = $('input[name=fitplan_planning_morning_finish');
-		var $afternoonStart = $('input[name=fitplan_planning_afternoon_start]');
-		var $afternoonFinish = $('input[name=fitplan_planning_afternoon_finish');
+		var $morningStart = $(':input[name=fitplan_planning_morning_start]');
+		var $morningFinish = $(':input[name=fitplan_planning_morning_finish]');
+		var $afternoonStart = $(':input[name=fitplan_planning_afternoon_start]');
+		var $afternoonFinish = $(':input[name=fitplan_planning_afternoon_finish]');
 
+		// Customize Fields
+		var $customizeWorkoutDisplayPic = $('#fitplan_planning_workout_display_pic');
+		var $customizeWorkoutDisplayTitle = $('#fitplan_planning_workout_display_title');
+		var $customizeWorkoutColor = $('#fitplan_planning_workout_display_color');
+		var $customizeWorkoutDefaultColor = $(':input[name=fitplan_planning_workout_default_color]');
+		var $customizeWorkoutRadius = $(':input[name=fitplan_planning_workout_radius]');
+		var $customizeWorkoutTextColor = $(':input[name=fitplan_planning_workout_text_color]');
 
 		// Vars
 
+		var minHeightForImage = 50;
 		var ratio = parseInt($fitplanPlanning.attr('data-px-per-hour')) / 60 ;
 
 		var oldTitle = '';
@@ -140,30 +151,79 @@
 
 			// Populate base datas
 			$template.attr('data-position-id', id);
-			$template.find('.fitplan-planning-item-hour-start').html(datas.start);
-			$template.find('.fitplan-planning-item-hour-finish').html(datas.finish);
+			$template.find('.fitplan-planning-item-hour-start, .fitplan-planning-modal-hour-start').html(datas.start);
+			$template.find('.fitplan-planning-item-hour-finish, .fitplan-planning-modal-hour-finish').html(datas.finish);
+			$template.find('.fitplan-planning-modal-day').html($workoutFormDayField.find('option[selected]').html());
 
 			// Populate Workout datas
-			$template.find('.fitplan-planning-item-title').html(workout.post_title).attr('data-workout-id', workout.ID);
+			if('url' in workout.metas.fitplan_workout_pic){
+				$template.find('.fitplan-planning-item-pic img, .fitplan-planning-modal-pic img').attr('src', workout.metas.fitplan_workout_pic.url).attr('alt', workout.post_title);
+			} else {
+				$template.find('.fitplan-planning-item-pic img, .fitplan-planning-modal-pic img').remove();
+				$template.find('.fitplan-planning-modal-title').html(workout.post_title);
+			}
 
-			// TODO others datas
+			$template.find('.fitplan-planning-item-title').html(workout.post_title).attr('data-workout-id', workout.ID);
+			$template.find('.fitplan-planning-modal-desc').html(workout.metas.fitplan_workout_desc);
 
 			// Populate Coach datas
 			if(coachId != ""){
 
-				$template.find('.fitplan-planning-item-coach-name').html(coach.post_title).attr('data-coach-id', coach.ID);
+				if('url' in coach.metas.fitplan_coach_pic){
+					$template.find('.fitplan-planning-modal-coach-img').attr('src', coach.metas.fitplan_coach_pic.url).attr('alt', coach.post_title);
+				} else {
+					$template.find('.fitplan-planning-modal-coach-img').remove();
+				}
 
-				// TODO others datas
+				$template.find('.fitplan-planning-modal-coach-name').html(coach.post_title).attr('data-coach-id', coach.ID);
+				$template.find('.fitplan-planning-modal-coach-bio').html(coach.metas.fitplan_coach_bio);
 
 			} else {
-				// remove coach  markup
-
-				// TODO
+				// remove coach markup
+				$template.find('.fitplan-planning-modal-coach').remove();
 			}
 
 			// Define colors and styles
 
-			// TODO
+			// Item background color
+			var showBGColor = $customizeWorkoutColor.prop('checked');
+			var bgColor = $customizeWorkoutDefaultColor.val();
+
+			var $itemInside = $template.find('.fitplan-planning-item-inside');
+
+			if(showBGColor) {
+				$itemInside.css('background-color', workout.metas.fitplan_workout_color);
+				$itemInside.attr('data-color', bgColor);
+			} else {
+				$itemInside.css('background-color', bgColor);
+				$itemInside.attr('data-color', workout.metas.fitplan_workout_color);
+			}
+
+			// Item border radius
+			$itemInside.css('border-radius', $customizeWorkoutRadius.val()+'px');
+
+			// Item color
+			$itemInside.css('color', $customizeWorkoutTextColor.val());
+
+			// Item picture
+			if(!$customizeWorkoutDisplayPic.prop('checked')) {
+				$template.find('.fitplan-planning-item-pic').hide();
+			}
+
+			// Item title
+			if(!$customizeWorkoutDisplayTitle.prop('checked')) {
+				$template.find('.fitplan-planning-item-title').hide();
+			}
+
+			// Hide workout pic if missing or item height is too small and show title instead
+			var gotImage = $template.find('.fitplan-planning-item-pic img').length;
+
+			// Can't test minHeight here because item is not yet rendered to DOM
+			if(gotImage == 0) {
+				$template.find('.fitplan-planning-item-pic').hide();
+				$template.find('.fitplan-planning-item-title').show();
+			}
+
 
 			// Set item Position in planning grid
 			if(datas.time == "morning")  {
@@ -184,7 +244,10 @@
 
 			$template.css({'top': fromTop+'px', 'height': height+'px'});
 
+			// Write the template to the DOM
 			$('.fitplan-planning-day[data-day='+day+'] .fitplan-planning-'+datas.time).append($template);
+
+			checkItemsMinHeight();
 
 			// Edition mode : delete old item
 			var $editedItem = $('.fitplan-planning-item.is-edited');
@@ -254,7 +317,7 @@
 			var workoutID = $item.find('.fitplan-planning-item-title').attr('data-workout-id');
 			var startHour = $item.find('.fitplan-planning-item-hour-start').html();
 			var finishHour = $item.find('.fitplan-planning-item-hour-finish').html();
-			var coachID = $item.find('.fitplan-planning-item-coach-name').attr('data-coach-id');
+			var coachID = $item.find('.fitplan-planning-modal-coach-name').attr('data-coach-id');
 			var day = $item.parents('.fitplan-planning-day').attr('data-day');
 
 			$workoutFormWorkoutField.val(workoutID);
@@ -350,7 +413,7 @@
 
 		function checkItemsMinHeight() {
 			$('.fitplan-planning-item').each(function() {
-				if (this.clientHeight < 50) {
+				if (this.clientHeight < minHeightForImage) {
 					$(this).find('.fitplan-planning-item-pic').hide();
 					$(this).find('.fitplan-planning-item-title').show();
 				}
@@ -388,19 +451,19 @@
 		// # Workouts
 
     // --- Show Logo
-    $('input[name=fitplan_planning_workout_display_pic]').change(function(){
+    $customizeWorkoutDisplayPic.change(function(){
       $('.fitplan-planning-item-pic').toggle();
 			checkItemsMinHeight();
     });
 
     // --- Show Name
-    $('input[name=fitplan_planning_workout_display_title]').change(function(){
+    $customizeWorkoutDisplayTitle.change(function(){
       $('.fitplan-planning-item-title').toggle();
 			checkItemsMinHeight();
     });
 
 		// --- Show Background Color
-    $('input[name=fitplan_planning_workout_display_color]').change(function(){
+    $customizeWorkoutColor.change(function(){
 			$('.fitplan-default-bg-color').slideToggle(200); // Default color field
 
 			$('.fitplan-planning-item-inside').each(function() {
@@ -413,9 +476,9 @@
     });
 
 		// --- Background Color
-		$('input[name=fitplan_planning_workout_default_color]').change(function(){
+		$customizeWorkoutDefaultColor.change(function(){
 			var color = $(this).val();
-			var showBGColor = $('input[name=fitplan_planning_workout_display_color]').prop('checked');
+			var showBGColor = $customizeWorkoutColor.prop('checked');
 
 			$('.fitplan-planning-item-inside').each(function() {
 				if(showBGColor) {
@@ -428,13 +491,13 @@
 		});
 
 		// --- Text Color
-		$('input[name=fitplan_planning_workout_text_color]').change(function(){
+		$customizeWorkoutTextColor.change(function(){
 			var color = $(this).val();
 			$('.fitplan-planning-item-inside').css('color', color);
 		});
 
 		// --- Border Radius
-		$('input[name=fitplan_planning_workout_radius]').change(function(){
+		$customizeWorkoutRadius.change(function(){
 			var radius = $(this).val();
 			$('.fitplan-planning-item-inside').css('border-radius', radius+'px');
     });

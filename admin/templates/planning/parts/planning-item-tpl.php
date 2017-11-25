@@ -25,7 +25,7 @@
     </p>
 
     <div class="fitplan-planning-modal-hour">
-      <span></span>
+      <span class="fitplan-planning-modal-day"></span>
       <span class="fitplan-planning-modal-hour-start"></span>
       -
       <span class="fitplan-planning-modal-hour-finish"></span>
@@ -38,7 +38,7 @@
       <img class="fitplan-planning-modal-coach-img" src="" alt="">
       <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
       <br>
-      <strong class="fitplan-planning-item-coach-name" data-coach-id=""></strong>
+      <strong class="fitplan-planning-modal-coach-name" data-coach-id=""></strong>
       <div class="fitplan-planning-modal-coach-bio">
       </div>
     </div>
