@@ -1,23 +1,23 @@
 <p>
   <input type="hidden" name="fitplan_planning_workout_display_pic" value="off">
-  <input type="checkbox" name="fitplan_planning_workout_display_pic" id="fitplan_planning_workout_display_pic" <?php if($this->datas['fitplan_planning_workout_display_pic']): ?>checked<?php endif; ?>>
+  <input type="checkbox" name="fitplan_planning_workout_display_pic" id="fitplan_planning_workout_display_pic" <?php if($this->datas['fitplan_planning_workout_display_pic'] == "on"): ?>checked<?php endif; ?>>
   <label for="fitplan_planning_workout_display_pic"><?php _e('Show workout logo', 'fitness-planning'); ?></label>
 </p>
 
 <p>
   <input type="hidden" name="fitplan_planning_workout_display_title" value="off">
-  <input type="checkbox" name="fitplan_planning_workout_display_title" id="fitplan_planning_workout_display_title" <?php if($this->datas['fitplan_planning_workout_display_title']): ?>checked<?php endif; ?>>
+  <input type="checkbox" name="fitplan_planning_workout_display_title" id="fitplan_planning_workout_display_title" <?php if($this->datas['fitplan_planning_workout_display_title'] == "on"): ?>checked<?php endif; ?>>
   <label for="fitplan_planning_workout_display_title"><?php _e('Show workout name', 'fitness-planning'); ?></label>
 </p>
 
 <p>
   <input type="hidden" name="fitplan_planning_workout_display_color" value="off">
-  <input type="checkbox" name="fitplan_planning_workout_display_color" id="fitplan_planning_workout_display_color"<?php if($this->datas['fitplan_planning_workout_display_color']): ?>checked<?php endif; ?>>
+  <input type="checkbox" name="fitplan_planning_workout_display_color" id="fitplan_planning_workout_display_color"<?php if($this->datas['fitplan_planning_workout_display_color'] == "on"): ?>checked<?php endif; ?>>
   <label for="fitplan_planning_workout_display_color"><?php _e('Show workout background color', 'fitness-planning'); ?></label>
 </p>
 
-<div class="fitplan-default-bg-color" style="<?php if($this->datas['fitplan_planning_workout_display_color']): echo 'display: none'; endif; ?>">
-  <label class="fitplan-label" for="fitplan_planning_workout_default_color"><?php _e('Background color', 'fitness-planning'); ?></label>
+<div class="fitplan-default-bg-color" style="<?php if($this->datas['fitplan_planning_workout_display_color'] == "on"): echo 'display: none'; endif; ?>">
+  <label class="fitplan-label" for="fitplan_planning_workout_default_color"><?php _e('All items background color', 'fitness-planning'); ?></label>
   <input type="text" class="color-picker" data-alpha="true" name="fitplan_planning_workout_default_color" value="<?php echo $this->datas['fitplan_planning_workout_default_color']; ?>">
 </div>
 
