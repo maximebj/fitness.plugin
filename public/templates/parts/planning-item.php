@@ -3,7 +3,7 @@
     class="fitplan-planning-item-inside"
     style="
       <?php
-      if($this->datas['fitplan_planning_workout_display_color']):
+      if($this->datas['fitplan_planning_workout_display_color'] == "on"):
         echo 'background-color: '.@$entry['workout']->metas['fitplan_workout_color'];
       else:
         echo 'background-color: '.$this->datas['fitplan_planning_workout_default_color'];
@@ -20,11 +20,11 @@
       endif;
     ?>">
 
-    <div class="fitplan-planning-item-pic" style="<?php if(!$this->datas['fitplan_planning_workout_display_pic'] or intval($entry['height']) < 50 ): ?>display: none;<?php endif; ?>">
+    <div class="fitplan-planning-item-pic" style="<?php if($this->datas['fitplan_planning_workout_display_pic'] == "off" or intval($entry['height']) < 50 ): ?>display: none;<?php endif; ?>">
       <img src="<?php echo @$entry['workout']->metas['fitplan_workout_pic']['url']; ?>" alt="<?php echo @$entry['workout']->post_title; ?>">
     </div>
 
-    <p class="fitplan-planning-item-title" style="<?php if(!$this->datas['fitplan_planning_workout_display_title'] and intval($entry['height']) >= 50 ): ?>display: none;<?php endif; ?>">
+    <p class="fitplan-planning-item-title" style="<?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 ): ?>display: none;<?php endif; ?>">
       <?php echo @$entry['workout']->post_title; ?>
     </p>
 
