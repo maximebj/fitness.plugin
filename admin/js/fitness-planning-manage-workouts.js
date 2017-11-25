@@ -65,6 +65,14 @@
 		$workoutFormButton.click(function(e){
 		  e.preventDefault();
 
+			// Edit mode : delete old item before continue
+			var $editedItem = $('.fitplan-planning-item.is-edited');
+
+			if($editedItem.length) {
+				removeFromPlanning($editedItem);
+				backToAdd();
+			}
+
 			// Get datas
 			var day = $workoutFormDayField.val();
 
@@ -248,14 +256,6 @@
 			$('.fitplan-planning-day[data-day='+day+'] .fitplan-planning-'+datas.time).append($template);
 
 			checkItemsMinHeight();
-
-			// Edition mode : delete old item
-			var $editedItem = $('.fitplan-planning-item.is-edited');
-
-			if($editedItem.length) {
-				removeFromPlanning($editedItem);
-				backToAdd();
-			}
 		});
 
 
