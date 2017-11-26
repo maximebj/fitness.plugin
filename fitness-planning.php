@@ -36,6 +36,8 @@ function deactivate_fitness_planning() {
 register_activation_hook(__FILE__, 'activate_fitness_planning' );
 register_deactivation_hook(__FILE__, 'deactivate_fitness_planning' );
 
+load_plugin_textdomain('fitness-planning', false, basename(__DIR__).'/languages');
+
 require plugin_dir_path(__FILE__).'classes/Initializer.php';
 $fitness_planning = new Initializer();
 $fitness_planning->run();

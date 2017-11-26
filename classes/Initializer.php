@@ -7,7 +7,6 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 use FitnessPlanning\Helpers\Consts;
 use FitnessPlanning\Helpers\Fields;
 
-use FitnessPlanning\WP\I18n;
 use FitnessPlanning\WP\Admin;
 use FitnessPlanning\WP\Front;
 use FitnessPlanning\WP\Settings;
@@ -34,7 +33,6 @@ class Initializer {
 		require_once $path.'classes/Helpers/Consts.php';
 		require_once $path.'classes/Helpers/Fields.php';
 
-		require_once $path.'classes/WP/I18n.php';
 		require_once $path.'classes/WP/Admin.php';
 		require_once $path.'classes/WP/Front.php';
 		require_once $path.'classes/WP/Settings.php';
@@ -48,9 +46,6 @@ class Initializer {
 
 
 		// Init Classes and Hooks
-		$plugin_i18n = new I18n();
-		$plugin_i18n->register_hooks();
-
 		$class_admin = new Admin();
     $class_admin->register_hooks();
 
