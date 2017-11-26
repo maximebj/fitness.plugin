@@ -57,9 +57,9 @@ abstract class Entity {
   // Get Custom field image and convert image ID in an URL
 	public function get_custom_field_image($field) {
 		$picture = false;
-		$url = "http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g";
+		$url = "";
 
-		if($field != '') {
+		if($field != "") {
 
 			$picture = wp_get_attachment_image_src($field, "large");
 			if($picture) {

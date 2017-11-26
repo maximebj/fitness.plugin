@@ -21,7 +21,13 @@ abstract class Fields {
 
 <div class="fitplan-picture" id="<?php echo $field_name; ?>">
 	<a href="#" class="fitplan-picture-field <?php if($shape == "circle"): ?>fitplan-picture-field-circle<?php endif; ?> js-fitness-planning-change-pic">
-		<img src="<?php echo $fields[$field_name]['url']; ?>" alt="<?php _e('Picture', 'fitness-planning'); ?>">
+		<img src="<?php
+      if($fields[$field_name]['url'] != ""):
+        echo $fields[$field_name]['url'];
+      else:
+        echo 'http://2.gravatar.com/avatar/520afd2daee093cefdac74fe50ee64b4?s=150&d=mm&f=y&r=g';
+      endif;
+    ?>" alt="<?php _e('Picture', 'fitness-planning'); ?>">
 	</a>
 	<input type="hidden" class="js-fitness-planning-media" name="<?php echo $field_name; ?>" value="<?php echo $fields[$field_name]['id']; ?>">
 

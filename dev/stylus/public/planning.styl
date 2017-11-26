@@ -16,7 +16,8 @@
     height auto !important
 
   .fitplan-planning-morning
-    border-bottom 2px dashed wp-neutral
+    border-bottom-width 2px
+    border-bottom-style dashed
     margin-bottom pad-s
 
   .fitplan-planning-title
@@ -45,8 +46,12 @@
       display block
 
   .fitplan-planning-item-title
-    display none !important
     margin-bottom 0
+    font-weight bold
+
+    &:not(.fitplan-dont-hide)
+      display none !important
+
 
   .fitplan-planning-item-pic
     display block !important

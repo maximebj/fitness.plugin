@@ -20,11 +20,11 @@
       endif;
     ?>">
 
-    <div class="fitplan-planning-item-pic" <?php if($this->datas['fitplan_planning_workout_display_pic'] == "off" or intval($entry['height']) < 50 ): ?>style="display: none;"<?php endif; ?>>
+    <div class="fitplan-planning-item-pic" <?php if($this->datas['fitplan_planning_workout_display_pic'] == "off" or intval($entry['height']) < 50 or !$entry['workout']->metas['fitplan_workout_pic']['isset']): ?>style="display: none;"<?php endif; ?>>
       <img src="<?php if(isset($entry['workout']->metas['fitplan_workout_pic']['url'])): echo $entry['workout']->metas['fitplan_workout_pic']['url']; endif; ?>" alt="<?php echo $entry['workout']->post_title; ?>">
     </div>
 
-    <p class="fitplan-planning-item-title" data-workout-id="<?php echo $entry['workout']->ID; ?>" <?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 ): ?>style="display: none;"<?php endif; ?>>
+    <p class="fitplan-planning-item-title" data-workout-id="<?php echo $entry['workout']->ID; ?>" <?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 and $entry['workout']->metas['fitplan_workout_pic']['isset']): ?>style="display: none;"<?php endif; ?>>
       <?php echo $entry['workout']->post_title; ?>
     </p>
 
@@ -36,7 +36,7 @@
   </div>
 
   <div class="fitplan-planning-item-bubble">
-    <?php if(isset($entry['workout']->metas['fitplan_workout_pic']['url'])): ?>
+    <?php if(isset($entry['workout']->metas['fitplan_workout_pic']['isset'])): ?>
     <p class="fitplan-planning-modal-pic">
       <img src="<?php echo $entry['workout']->metas['fitplan_workout_pic']['url']; ?>" alt="<?php echo $entry['workout']->post_title; ?>">
     </p>

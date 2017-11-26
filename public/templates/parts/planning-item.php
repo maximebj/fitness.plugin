@@ -1,4 +1,4 @@
-<div class="fitplan-planning-item" style="top: <?php echo $entry['top']; ?>; height: <?php echo $entry['height']; ?>">
+<div class="fitplan-planning-item fitplan-planning-item-<?php echo $entry['workout']->ID; ?> fitplan-planning-item-<?php echo sanitize_title($entry['workout']->post_title); ?>" style="top: <?php echo $entry['top']; ?>; height: <?php echo $entry['height']; ?>">
   <div
     class="fitplan-planning-item-inside"
     style="
@@ -20,11 +20,13 @@
       endif;
     ?>">
 
+    <?php if($entry['workout']->metas['fitplan_workout_pic']['url'] != ""): ?>
     <div class="fitplan-planning-item-pic" style="<?php if($this->datas['fitplan_planning_workout_display_pic'] == "off" or intval($entry['height']) < 50 ): ?>display: none;<?php endif; ?>">
       <img src="<?php echo $entry['workout']->metas['fitplan_workout_pic']['url']; ?>" alt="<?php echo $entry['workout']->post_title; ?>">
     </div>
+    <?php endif; ?>
 
-    <p class="fitplan-planning-item-title" style="<?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 ): ?>display: none;<?php endif; ?>">
+    <p class="fitplan-planning-item-title<?php if($entry['workout']->metas['fitplan_workout_pic']['url'] == ""): echo ' fitplan-dont-hide'; endif; ?>" style="<?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 and $entry['workout']->metas['fitplan_workout_pic']['url'] != "" ): ?>display: none;<?php endif; ?>">
       <?php echo $entry['workout']->post_title; ?>
     </p>
 

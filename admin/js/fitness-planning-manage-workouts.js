@@ -413,14 +413,13 @@
 		  $fitplanPlanningAfternoon.css('height', diffAfternoon+'px');
 		}
 
-		// Recalculate Planning items positions
-		function recalculatePlanning() {
-			console.log('...');
-		}
 
+		// Display Title if there is not enough room for image or if workout image is not set
 		function checkItemsMinHeight() {
 			$('.fitplan-planning-item').each(function() {
-				if (this.clientHeight < minHeightForImage) {
+				var hasImage = $(this).find('.fitplan-planning-item-pic img').attr('src') != "";
+
+				if (this.clientHeight < minHeightForImage || !hasImage) {
 					$(this).find('.fitplan-planning-item-pic').hide();
 					$(this).find('.fitplan-planning-item-title').show();
 				}
@@ -534,7 +533,7 @@
 		});
 
 		$('input[name=fitplan_planning_px_per_hour]').change(function(){
-			recalculatePlanning();
+			// TODO
 		});
 
 	});
