@@ -122,14 +122,14 @@ class Planning_Services {
 							$entry['coach'] = $datas['coachs'][$coach_id];
 						}
 
-            // TODO format hours US if needed
-            $entry['start_display'] = $entry['start'];
-            $entry['finish_display'] = $entry['finish'];
-
 						// Define the absolute Position of the entry in the planning column
 						$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
 						$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
 
+						// Format time according to WP Settings
+						$time_format = get_option('time_format');
+            $entry['start_display'] = $start_time->format($time_format);
+            $entry['finish_display'] = $finish_time->format($time_format);
 
 						$duration = $finish_time->diff($start_time);
 						$duration_in_min = $duration->h * 60 + $duration->i;

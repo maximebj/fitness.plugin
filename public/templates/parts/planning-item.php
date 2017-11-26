@@ -31,9 +31,9 @@
     </p>
 
     <p class="fitplan-planning-item-hour">
-      <span class="fitplan-planning-item-hour-start"><?php echo $entry['start']; ?></span>
+      <span class="fitplan-planning-item-hour-start"><?php echo $entry['start_display']; ?></span>
       -
-      <span class="fitplan-planning-item-hour-finish"><?php echo $entry['finish']; ?></span>
+      <span class="fitplan-planning-item-hour-finish"><?php echo $entry['finish_display']; ?></span>
     </p>
   </div>
 
@@ -50,9 +50,9 @@
 
     <div class="fitplan-planning-modal-hour">
       <span><?php echo $day['name']; ?></span>
-      <span class="fitplan-planning-modal-hour-start"><?php echo $entry['start']; ?></span>
+      <span class="fitplan-planning-modal-hour-start"><?php echo $entry['start_display']; ?></span>
       -
-      <span class="fitplan-planning-modal-hour-finish"><?php echo $entry['finish']; ?></span>
+      <span class="fitplan-planning-modal-hour-finish"><?php echo $entry['finish_display']; ?></span>
     </div>
 
     <div class="fitplan-planning-modal-desc">

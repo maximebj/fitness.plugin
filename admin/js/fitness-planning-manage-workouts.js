@@ -9,7 +9,6 @@
 
 		// General components
 		var $fitplanPlanning = $('.fitplan-planning');
-		var $fitplanModal = $('.fitplan-planning-modal');
 
 		// General planning morning/afternoon sub parts
 		var $fitplanPlanningMorning = $('.fitplan-planning-morning');
@@ -56,6 +55,8 @@
 		var minHeightForImage = 50;
 		var ratio = parseInt($('input[name=fitplan_planning_px_per_hour]').val()) / 60;
 
+		var planning = JSON.parse($planningField.val());
+
 		var oldTitle = '';
 		var oldButton = '';
 		var oldAction = '';
@@ -100,33 +101,34 @@
 				datas.time = "afternoon";
 			}
 
-		  var planning = $planningField.val();
 
 		  // For new planning : when it's the first entry in a new planning
 		  if(planning == ""){
 		    planning = { "monday": {}, "tuesday": {}, "wednesday": {}, "thursday": {}, "friday": {}, "saturday": {}, "sunday": {}};
 		  } else {
-		    planning = JSON.parse(planning);
 
 				// Fields Validation
 				var result = true;
+
 				$.each(planning[day], function(index, value) {
+					if(typeof(value) != "undefined"){
 
-					var otherWorkoutStartTime = moment(value.start, "HH:mm");
-					var otherWorkoutFinishTime = moment(value.finish, "HH:mm");
+						var otherWorkoutStartTime = moment(value.start, "HH:mm");
+						var otherWorkoutFinishTime = moment(value.finish, "HH:mm");
 
-					// check for start time conflict
-					if(workoutStartTime >= otherWorkoutStartTime && workoutStartTime < otherWorkoutFinishTime) {
-						alert(fitnessPlanningStrings.addWorkoutConflictError);
-						result = false;
-						return false;
-					}
+						// check for start time conflict
+						if(workoutStartTime >= otherWorkoutStartTime && workoutStartTime < otherWorkoutFinishTime) {
+							alert(fitnessPlanningStrings.addWorkoutConflictError);
+							result = false;
+							return false;
+						}
 
-					// check for finish time conflict
-					if(result && workoutFinishTime > otherWorkoutStartTime && workoutFinishTime <= otherWorkoutFinishTime) {
-						alert(fitnessPlanningStrings.addWorkoutConflictError);
-						result = false;
-						return false;
+						// check for finish time conflict
+						if(result && workoutFinishTime > otherWorkoutStartTime && workoutFinishTime <= otherWorkoutFinishTime) {
+							alert(fitnessPlanningStrings.addWorkoutConflictError);
+							result = false;
+							return false;
+						}
 					}
 				});
 
@@ -159,8 +161,28 @@
 
 			// Populate base datas
 			$template.attr('data-position-id', id);
-			$template.find('.fitplan-planning-item-hour-start, .fitplan-planning-modal-hour-start').html(datas.start);
-			$template.find('.fitplan-planning-item-hour-finish, .fitplan-planning-modal-hour-finish').html(datas.finish);
+
+      var timeFormat = $fitplanPlanning.attr('data-time-format');
+
+			if(timeFormat == "g:i a") {
+				datas.startDisplay = moment(datas.start, "HH:mm").format("hh:mm a");
+				datas.finishDisplay = moment(datas.finish, "HH:mm").format("hh:mm a");
+			}
+			else if(timeFormat == "g:i A") {
+				datas.startDisplay = moment(datas.start, "HH:mm").format("hh:mm A");
+				datas.finishDisplay = moment(datas.finish, "HH:mm").format("hh:mm A");
+			}
+			else {
+				datas.startDisplay = datas.start;
+				datas.finishDisplay = datas.finish;
+			}
+
+			$template.find('.fitplan-planning-item-hour-start').attr('data-start', datas.start);
+			$template.find('.fitplan-planning-item-hour-finish').attr('data-finish', datas.finish);
+
+      $template.find('.fitplan-planning-item-hour-start, .fitplan-planning-modal-hour-start').html(datas.startDisplay);
+			$template.find('.fitplan-planning-item-hour-finish, .fitplan-planning-modal-hour-finish').html(datas.finishDisplay);
+
 			$template.find('.fitplan-planning-modal-day').html($workoutFormDayField.find('option[selected]').html());
 
 			// Populate Workout datas
@@ -282,9 +304,6 @@
 			var id = $item.attr('data-position-id');
 			var day = $item.parents('.fitplan-planning-day').attr('data-day');
 
-			var planning = JSON.parse($planningField.val());
-
-			console.log(planning, id);
 			delete planning[day][id];
 			$planningField.val(JSON.stringify(planning));
 
@@ -322,8 +341,8 @@
 
 			// Populate values
 			var workoutID = $item.find('.fitplan-planning-item-title').attr('data-workout-id');
-			var startHour = $item.find('.fitplan-planning-item-hour-start').html();
-			var finishHour = $item.find('.fitplan-planning-item-hour-finish').html();
+			var startHour = $item.find('.fitplan-planning-item-hour-start').attr('data-start');
+			var finishHour = $item.find('.fitplan-planning-item-hour-finish').attr('data-finish');
 			var coachID = $item.find('.fitplan-planning-modal-coach-name').attr('data-coach-id');
 			var day = $item.parents('.fitplan-planning-day').attr('data-day');
 

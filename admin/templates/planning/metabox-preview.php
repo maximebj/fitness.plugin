@@ -1,5 +1,5 @@
 <div class="fitplan-section">
-  <div class="fitplan-planning" id="fitplan-planning-<?php echo $post->ID; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;">
+  <div class="fitplan-planning" id="fitplan-planning-<?php echo $post->ID; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;" data-time-format="<?php echo get_option('time_format'); ?>">
 
     <?php foreach($this->datas['weekdays'] as $day): ?>
     <div class="fitplan-planning-day" style="<?php if(!$day['displayed']): ?>display: none; <?php endif; ?>border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;" data-day="<?php echo $day['slug']; ?>">
