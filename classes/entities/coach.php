@@ -78,6 +78,6 @@ class Coach extends Entity {
 
 		wp_enqueue_media();
 
-    include Fitness_Planning_Consts::get_path().'admin/templates/coach/metabox-about.php';
+    include Consts::get_path().'admin/templates/coach/metabox-about.php';
 	}
 }

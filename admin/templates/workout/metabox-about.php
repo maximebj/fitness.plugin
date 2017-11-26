@@ -1,7 +1,7 @@
 <div class="fitplan-section fitplan-flex">
   <div class="f50">
 
-    <?php Fitness_Planning_Fields::image('fitplan_workout_pic', $this->datas); ?>
+    <?php FitnessPlanning\Helpers\Fields::image('fitplan_workout_pic', $this->datas); ?>
 
   </div>
   <div class="f50">
@@ -17,7 +17,7 @@
 
   <div class="f100 with-top-margin">
     <label class="fitplan-label" for="fitplan_workout_desc"><?php _e('Description', 'fitness-planning'); ?></label>
-    <?php wp_editor($this->datas['fitplan_workout_desc'], 'fitplan_workout_desc', $settings = Fitness_Planning_Consts::EDITOR_PARAMS); ?>
+    <?php wp_editor($this->datas['fitplan_workout_desc'], 'fitplan_workout_desc', $settings = FitnessPlanning\Helpers\Consts::EDITOR_PARAMS); ?>
   </div>
 
 </div>
