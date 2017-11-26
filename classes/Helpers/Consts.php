@@ -29,7 +29,7 @@ abstract class Consts {
 
 	// Plugin Path for includes
 	public static function get_path() {
-		return dirname(dirname(dirname(__FILE__))).'/';
+		return WP_PLUGIN_DIR.'/'.Consts::PLUGIN_NAME.'/';
 	}
 
 	// Plugin URL for assets enqueing
