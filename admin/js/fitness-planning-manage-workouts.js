@@ -111,6 +111,7 @@
 				var result = true;
 
 				$.each(planning[day], function(index, value) {
+
 					if(typeof(value) != "undefined"){
 
 						var otherWorkoutStartTime = moment(value.start, "HH:mm");

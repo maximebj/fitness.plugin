@@ -128,6 +128,10 @@ class Planning_Services {
 
 						// Format time according to WP Settings
 						$time_format = get_option('time_format');
+						if ($time_format != "g:i A" and $time_format !="g:i a") {
+							// if not american format, set a standard, simple format.
+							$time_format = "H:i";
+						}
             $entry['start_display'] = $start_time->format($time_format);
             $entry['finish_display'] = $finish_time->format($time_format);
 
