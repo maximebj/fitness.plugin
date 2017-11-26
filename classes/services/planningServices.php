@@ -122,9 +122,14 @@ class Planning_Services {
 							$entry['coach'] = $datas['coachs'][$coach_id];
 						}
 
+            // TODO format hours US if needed
+            $entry['start_display'] = $entry['start'];
+            $entry['finish_display'] = $entry['finish'];
+
 						// Define the absolute Position of the entry in the planning column
 						$start_time  = DateTime::createFromFormat('H:i', $entry['start']);
 						$finish_time = DateTime::createFromFormat('H:i', $entry['finish']);
+
 
 						$duration = $finish_time->diff($start_time);
 						$duration_in_min = $duration->h * 60 + $duration->i;

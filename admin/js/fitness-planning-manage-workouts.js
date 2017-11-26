@@ -54,7 +54,7 @@
 		// Vars
 
 		var minHeightForImage = 50;
-		var ratio = parseInt($fitplanPlanning.attr('data-px-per-hour')) / 60 ;
+		var ratio = parseInt($('input[name=fitplan_planning_px_per_hour]').val()) / 60;
 
 		var oldTitle = '';
 		var oldButton = '';
@@ -419,7 +419,7 @@
 			$('.fitplan-planning-item').each(function() {
 				var hasImage = $(this).find('.fitplan-planning-item-pic img').attr('src') != "";
 
-				if (this.clientHeight < minHeightForImage || !hasImage) {
+				if (parseInt($(this).height()) <= minHeightForImage || !hasImage) {
 					$(this).find('.fitplan-planning-item-pic').hide();
 					$(this).find('.fitplan-planning-item-title').show();
 				}
@@ -532,8 +532,50 @@
 			$fitplanPlanning.find('.fitplan-planning-morning').css('border-color', color+'44');
 		});
 
+
 		$('input[name=fitplan_planning_px_per_hour]').change(function(){
-			// TODO
+
+			// Calc new ratio
+			ratio = parseInt($(this).val()) / 60;
+
+			// First, adapt planning height
+			adaptPlanning();
+
+			// Then, adapt items heights and top positions
+			$('.fitplan-planning-item').each(function() {
+
+				var period = $(this).parent().attr('class');
+
+				if(period == "fitplan-planning-morning")  {
+					var periodStart = $morningStart.val();
+				} else {
+					var periodStart = $afternoonStart.val();
+				}
+
+				var workoutStart = $(this).find('.fitplan-planning-item-hour-start').attr('data-start');
+				var workoutFinish = $(this).find('.fitplan-planning-item-hour-finish').attr('data-finish');
+
+			  var periodStartTime = moment(periodStart, "HH:mm");
+			  var workoutStartTime = moment(workoutStart, "HH:mm");
+			  var workoutFinishTime = moment(workoutFinish, "HH:mm");
+
+			  var fromTop = workoutStartTime.diff(periodStartTime, 'minutes') * ratio;
+			  var height = workoutFinishTime.diff(workoutStartTime, 'minutes') * ratio;
+
+				$(this).css({'top': fromTop+'px', 'height': height+'px'});
+
+				// Finally, check is there is still enough roomm for images
+				var hasImage = $(this).find('.fitplan-planning-item-pic img').attr('src') != "";
+
+				if (height <= minHeightForImage || !hasImage) {
+					$(this).find('.fitplan-planning-item-pic').hide();
+					$(this).find('.fitplan-planning-item-title').show();
+				}
+				else if(height > minHeightForImage && hasImage && $customizeWorkoutDisplayPic.prop('checked')) {
+					$(this).find('.fitplan-planning-item-pic').show();
+					$(this).find('.fitplan-planning-item-title').hide();
+				}
+			});
 		});
 
 	});

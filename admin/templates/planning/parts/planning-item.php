@@ -29,9 +29,9 @@
     </p>
 
     <p class="fitplan-planning-item-hour">
-      <span class="fitplan-planning-item-hour-start"><?php echo $entry['start']; ?></span>
+      <span class="fitplan-planning-item-hour-start" data-start="<?php echo $entry['start']; ?>"><?php echo $entry['start_display']; ?></span>
       -
-      <span class="fitplan-planning-item-hour-finish"><?php echo $entry['finish']; ?></span>
+      <span class="fitplan-planning-item-hour-finish" data-finish="<?php echo $entry['finish']; ?>"><?php echo $entry['finish_display']; ?></span>
     </p>
   </div>
 

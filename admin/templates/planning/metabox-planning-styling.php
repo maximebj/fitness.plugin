@@ -9,4 +9,4 @@
 
 <label class="fitplan-label" for="fitplan_planning_px_per_hour"><?php _e('Pixels per hour', 'fitness-planning'); ?></label>
 <p class="fitplan-description"><?php _e("Info: logos won't show when there isn't enough height", 'fitness-planning'); ?></p>
-<input type="number" class="fitplan-small-num" name="fitplan_planning_px_per_hour" value="<?php echo $this->datas['fitplan_planning_px_per_hour']; ?>"> px <?php _e('per hour', 'fitness-planning'); ?>
+<input type="number" class="fitplan-small-num" name="fitplan_planning_px_per_hour" step="5" value="<?php echo $this->datas['fitplan_planning_px_per_hour']; ?>"> px <?php _e('per hour', 'fitness-planning'); ?>

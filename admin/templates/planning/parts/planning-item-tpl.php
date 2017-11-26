@@ -26,9 +26,9 @@
 
     <div class="fitplan-planning-modal-hour">
       <span class="fitplan-planning-modal-day"></span>
-      <span class="fitplan-planning-modal-hour-start"></span>
+      <span class="fitplan-planning-modal-hour-start" data-start=""></span>
       -
-      <span class="fitplan-planning-modal-hour-finish"></span>
+      <span class="fitplan-planning-modal-hour-finish" data-finish=""></span>
     </div>
 
     <div class="fitplan-planning-modal-desc">
