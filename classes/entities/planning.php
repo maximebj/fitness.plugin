@@ -99,7 +99,7 @@ class Planning extends Entity {
 
 	// Send datas about Workouts and Coachs to JS
 	public function enqueue_assets() {
-		
+
 		wp_localize_script(
 			Consts::PLUGIN_NAME,
 			'fitnessPlanningWorkouts',
@@ -238,7 +238,13 @@ class Planning extends Entity {
 		$raw_datas = $this->get_custom_fields($attributes['id']);
 		$this->datas = $this->services->prepare_datas($raw_datas);
 
+		// Store content in buffer (goal is to return var, not echoing it now)
+		ob_start();
 		include Consts::get_path().'public/templates/shortcode-planning.php';
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
 	}
 
 }
