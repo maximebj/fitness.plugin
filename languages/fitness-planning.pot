@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-12 00:02+0100\n"
+"POT-Creation-Date: 2017-11-26 17:35+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -21,283 +21,366 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/templates/coach-metabox-about.php:5
+#: admin/templates/coach/metabox-about.php:5
 msgid "A few words about him"
 msgstr ""
 
-#: admin/templates/parts/planning-item.php:13
-#: public/templates/parts/planning-item.php:13
-msgid "With"
-msgstr ""
-
-#: admin/templates/parts/planning-item.php:18
-msgid "Click to edit"
-msgstr ""
-
-#: admin/templates/planning-column-shortcode.php:3
+#: admin/templates/planning/column-shortcode.php:3
 msgctxt "verb"
 msgid "Copy"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:3
+#: admin/templates/planning/metabox-planning-styling.php:1
+msgid "Days text color"
+msgstr ""
+
+#: admin/templates/planning/metabox-planning-styling.php:4
+msgid "Background color"
+msgstr ""
+
+#: admin/templates/planning/metabox-planning-styling.php:7
+msgid "Border color"
+msgstr ""
+
+#: admin/templates/planning/metabox-planning-styling.php:10
+msgid "Pixels per hour"
+msgstr ""
+
+#: admin/templates/planning/metabox-planning-styling.php:11
+msgid "Info: logos won't show when there isn't enough height"
+msgstr ""
+
+#: admin/templates/planning/metabox-planning-styling.php:12
+msgid "per hour"
+msgstr ""
+
+#: admin/templates/planning/metabox-settings.php:3
 msgid "Show"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:14
+#: admin/templates/planning/metabox-settings.php:14
 msgid "Planning hours"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:17
+#: admin/templates/planning/metabox-settings.php:17
 msgid "Morning:"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:18
-#: admin/templates/planning-metabox-settings.php:24
-#: admin/templates/planning-metabox-workout.php:24
+#: admin/templates/planning/metabox-settings.php:18
+#: admin/templates/planning/metabox-settings.php:27
+#: admin/templates/planning/metabox-workout.php:24
 msgid "from"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:19
-#: admin/templates/planning-metabox-settings.php:25
-#: admin/templates/planning-metabox-workout.php:28
+#: admin/templates/planning/metabox-settings.php:19
+#: admin/templates/planning/metabox-settings.php:28
+#: admin/templates/planning/metabox-workout.php:28
 msgid "to"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:23
+#: admin/templates/planning/metabox-settings.php:21
+#: admin/templates/planning/metabox-settings.php:30
+msgid "Start time can't be later than finish time"
+msgstr ""
+
+#: admin/templates/planning/metabox-settings.php:26
 msgid "Afternoon:"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:28
+#: admin/templates/planning/metabox-settings.php:33
+msgid "Afternoon starts before morning finish"
+msgstr ""
+
+#: admin/templates/planning/metabox-settings.php:37
 msgid "Others"
 msgstr ""
 
-#: admin/templates/planning-metabox-settings.php:30
+#: admin/templates/planning/metabox-settings.php:39
 msgid ""
 "You can customize the first day of the week or the date format in <a href="
 "\"options-general.php\" target=\"_blank\">Settings > General</a>."
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:5
+#: admin/templates/planning/metabox-shortcode.php:2
+msgid "Simply copy/paste this code in a post or a page to display planning."
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:4
+msgid "Show workout logo"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:10
+msgid "Show workout name"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:16
+msgid "Show workout background color"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:20
+msgid "All items background color"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:24
+msgid "Text color"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout-styling.php:27
+msgid "Border radius"
+msgstr ""
+
+#: admin/templates/planning/metabox-workout.php:5
 msgid ""
 "You don't have any workout to add to the planning. <a href='edit.php?"
 "post_type=workout'>Add a Workout</a>."
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:8
+#: admin/templates/planning/metabox-workout.php:8
 msgid "Add"
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:16
+#: admin/templates/planning/metabox-workout.php:16
 msgid "on"
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:32
+#: admin/templates/planning/metabox-workout.php:32
 msgid "with"
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:39
+#: admin/templates/planning/metabox-workout.php:39
 msgid "No coach defined"
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:43
+#: admin/templates/planning/metabox-workout.php:43
 msgid "Add to planning"
 msgstr ""
 
-#: admin/templates/planning-metabox-workout.php:46
+#: admin/templates/planning/metabox-workout.php:46
 msgid "Cancel"
 msgstr ""
 
-#: admin/templates/settings.php:2 classes/Entities/Planning.php:75
-#: classes/WP/Settings.php:13 classes/WP/Settings.php:14
+#: admin/templates/planning/parts/planning-item-tpl.php:37
+#: admin/templates/planning/parts/planning-item.php:61
+#: public/templates/parts/planning-item.php:63
+msgid "Visit official page"
+msgstr ""
+
+#: admin/templates/planning/parts/planning-item-tpl.php:41
+#: admin/templates/planning/parts/planning-item.php:67
+#: public/templates/parts/planning-item.php:69
+msgid "By"
+msgstr ""
+
+#: admin/templates/planning/parts/planning-item-tpl.php:50
+#: admin/templates/planning/parts/planning-item.php:78
+msgid "Click to edit"
+msgstr ""
+
+#: admin/templates/settings/settings.php:2 classes/Entities/Planning.php:128
+#: classes/WP/Settings.php:28 classes/WP/Settings.php:29
 msgid "Settings"
 msgstr ""
 
-#: admin/templates/workout-metabox-about.php:9
+#: admin/templates/workout/metabox-about.php:8
 msgid "Color"
 msgstr ""
 
-#: admin/templates/workout-metabox-about.php:10
+#: admin/templates/workout/metabox-about.php:9
 msgid "Choose a background color for this workout"
 msgstr ""
 
-#: admin/templates/workout-metabox-about.php:13
+#: admin/templates/workout/metabox-about.php:12
 msgid "URL"
 msgstr ""
 
-#: admin/templates/workout-metabox-about.php:14
+#: admin/templates/workout/metabox-about.php:13
 msgid "Optional. Workout official description page URL"
 msgstr ""
 
-#: admin/templates/workout-metabox-about.php:20
+#: admin/templates/workout/metabox-about.php:19
 msgid "Description"
 msgstr ""
 
-#: classes/Entities/Coach.php:23 classes/Entities/Coach.php:48
+#: classes/Entities/Coach.php:39 classes/Entities/Coach.php:64
 msgid "Coachs"
 msgstr ""
 
-#: classes/Entities/Coach.php:24
+#: classes/Entities/Coach.php:40
 msgid "All coachs"
 msgstr ""
 
-#: classes/Entities/Coach.php:25
+#: classes/Entities/Coach.php:41
 msgid "Coach"
 msgstr ""
 
-#: classes/Entities/Coach.php:26
+#: classes/Entities/Coach.php:42
 msgid "Add a coach"
 msgstr ""
 
-#: classes/Entities/Coach.php:27
+#: classes/Entities/Coach.php:43
 msgid "Edit coach"
 msgstr ""
 
-#: classes/Entities/Coach.php:28
+#: classes/Entities/Coach.php:44
 msgid "No coachs found."
 msgstr ""
 
-#: classes/Entities/Coach.php:55
+#: classes/Entities/Coach.php:71
 msgid "About the coach"
 msgstr ""
 
-#: classes/Entities/Planning.php:36 classes/Entities/Planning.php:61
+#: classes/Entities/Planning.php:69 classes/Entities/Planning.php:94
 msgid "Plannings"
 msgstr ""
 
-#: classes/Entities/Planning.php:37
+#: classes/Entities/Planning.php:70
 msgid "All plannings"
 msgstr ""
 
-#: classes/Entities/Planning.php:38
+#: classes/Entities/Planning.php:71
 msgid "Planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:39
+#: classes/Entities/Planning.php:72
 msgid "Add a planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:40
+#: classes/Entities/Planning.php:73
 msgid "Edit planning"
 msgstr ""
 
-#: classes/Entities/Planning.php:41
+#: classes/Entities/Planning.php:74
 msgid "No plannings found."
 msgstr ""
 
-#: classes/Entities/Planning.php:73 classes/Entities/Workout.php:29
+#: classes/Entities/Planning.php:124 classes/Entities/Workout.php:44
 msgid "Add a workout"
 msgstr ""
 
-#: classes/Entities/Planning.php:74
+#: classes/Entities/Planning.php:126
 msgid "Planning Preview"
 msgstr ""
 
-#: classes/Entities/Planning.php:76
-msgid "Styling"
-msgstr ""
-
-#: classes/Entities/Planning.php:97
+#: classes/Entities/Planning.php:130 classes/Entities/Planning.php:164
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Entities/Planning.php:115
+#: classes/Entities/Planning.php:132
+msgid "Customize Workouts"
+msgstr ""
+
+#: classes/Entities/Planning.php:134
+msgid "Customize Planning"
+msgstr ""
+
+#: classes/Entities/Planning.php:186
 msgid "Duplicate"
 msgstr ""
 
-#: classes/Entities/Planning.php:139
+#: classes/Entities/Planning.php:211
 msgctxt "noun"
 msgid "Copy"
 msgstr ""
 
-#: classes/Entities/Workout.php:26 classes/Entities/Workout.php:51
+#: classes/Entities/Workout.php:41 classes/Entities/Workout.php:66
 msgid "Workouts"
 msgstr ""
 
-#: classes/Entities/Workout.php:27
+#: classes/Entities/Workout.php:42
 msgid "All workouts"
 msgstr ""
 
-#: classes/Entities/Workout.php:28
+#: classes/Entities/Workout.php:43
 msgid "Workout"
 msgstr ""
 
-#: classes/Entities/Workout.php:30
+#: classes/Entities/Workout.php:45
 msgid "Edit workout"
 msgstr ""
 
-#: classes/Entities/Workout.php:31
+#: classes/Entities/Workout.php:46
 msgid "No workout found."
 msgstr ""
 
-#: classes/Entities/Workout.php:58
+#: classes/Entities/Workout.php:73
 msgid "About the workout"
 msgstr ""
 
-#: classes/Helpers/Consts.php:35
+#: classes/Helpers/Consts.php:51
 msgid "Select a image to upload"
 msgstr ""
 
-#: classes/Helpers/Consts.php:36
+#: classes/Helpers/Consts.php:52
 msgid "Use this image"
 msgstr ""
 
-#: classes/Helpers/Consts.php:37
+#: classes/Helpers/Consts.php:53
 msgid "Edit this Workout"
 msgstr ""
 
-#: classes/Helpers/Consts.php:38
+#: classes/Helpers/Consts.php:54
 msgid "Apply changes"
 msgstr ""
 
-#: classes/Helpers/Consts.php:39
+#: classes/Helpers/Consts.php:55
 msgid "Edit"
 msgstr ""
 
-#: classes/Helpers/Fields.php:8 classes/Helpers/Fields.php:12
+#: classes/Helpers/Consts.php:56
+msgid "Start time must be before end Time"
+msgstr ""
+
+#: classes/Helpers/Consts.php:57
+msgid ""
+"You can't add a workout here because there is already another one at this "
+"time. We suggest you make another planning (eg: special bike planning) "
+msgstr ""
+
+#: classes/Helpers/Fields.php:20 classes/Helpers/Fields.php:30
 msgid "Picture"
 msgstr ""
 
-#: classes/Helpers/Fields.php:17
+#: classes/Helpers/Fields.php:35
 msgid "Choose picture"
 msgstr ""
 
-#: classes/Helpers/Fields.php:18
+#: classes/Helpers/Fields.php:36
 msgid "Change"
 msgstr ""
 
-#: classes/Helpers/Fields.php:19
+#: classes/Helpers/Fields.php:37
 msgid "Remove"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:112
+#: classes/Services/PlanningServices.php:172
 msgid "Sunday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:113
+#: classes/Services/PlanningServices.php:173
 msgid "Monday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:114
+#: classes/Services/PlanningServices.php:174
 msgid "Tuesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:115
+#: classes/Services/PlanningServices.php:175
 msgid "Wednesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:116
+#: classes/Services/PlanningServices.php:176
 msgid "Thursday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:117
+#: classes/Services/PlanningServices.php:177
 msgid "Friday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:118
+#: classes/Services/PlanningServices.php:178
 msgid "Saturday"
 msgstr ""
 
-#: classes/WP/Activator.php:15
+#: classes/WP/Activator.php:29
 msgctxt "Find it on official website"
 msgid ""
 "BODYATTACK™ is a high-energy fitness class with moves that cater for total "
@@ -305,7 +388,7 @@ msgid ""
 "lunging and jumping with strength exercises such as push-ups and squats."
 msgstr ""
 
-#: classes/WP/Activator.php:22
+#: classes/WP/Activator.php:36
 msgctxt "Find it on official website"
 msgid ""
 "BODYPUMP™ is a barbell workout for anyone looking to get lean, toned and "
@@ -313,7 +396,7 @@ msgid ""
 "BODYPUMP gives you a total body workout. It will burn up to 540 calories."
 msgstr ""
 
-#: classes/WP/Activator.php:29
+#: classes/WP/Activator.php:43
 msgctxt "Find it on official website"
 msgid ""
 "Step into a BODYCOMBAT workout and you’ll punch and kick your way to "
@@ -322,7 +405,7 @@ msgid ""
 "complex moves to master. "
 msgstr ""
 
-#: classes/WP/Activator.php:36
+#: classes/WP/Activator.php:50
 msgctxt "Find it on official website"
 msgid ""
 "Choreographed by Gandalf Archer-Mills in Auckland, New Zealand, BODYJAM™ "
@@ -331,7 +414,7 @@ msgid ""
 "BODYJAM last year."
 msgstr ""
 
-#: classes/WP/Activator.php:43
+#: classes/WP/Activator.php:57
 msgctxt "Find it on official website"
 msgid ""
 "If you want the optimal mix of strength, cardio and core training this is "
@@ -341,14 +424,14 @@ msgid ""
 "leave fizzing with energy and on track for all-around healthy living."
 msgstr ""
 
-#: classes/WP/Activator.php:50
+#: classes/WP/Activator.php:64
 msgctxt "Find it on official website"
 msgid ""
 "Ideal for anyone and everyone, BODYBALANCE™ is the yoga-based class that "
 "will improve your mind, your body and your life."
 msgstr ""
 
-#: classes/WP/Activator.php:57
+#: classes/WP/Activator.php:71
 msgctxt "Find it on official website"
 msgid ""
 "RPM™ is a group indoor cycling workout where you control the intensity. "
@@ -357,7 +440,7 @@ msgid ""
 "you on a journey of hill climbs, sprints and flat riding."
 msgstr ""
 
-#: classes/WP/Activator.php:64
+#: classes/WP/Activator.php:78
 msgctxt "Find it on official website"
 msgid ""
 "Exercising muscles around the core, CXWORX™ provides the vital ingredient "
@@ -366,7 +449,7 @@ msgid ""
 "everything together."
 msgstr ""
 
-#: classes/WP/Activator.php:71
+#: classes/WP/Activator.php:85
 msgctxt "Find it on official website"
 msgid ""
 "A fun-loving, insanely addictive dance workout. SH’BAM™ is an ego-free "
@@ -375,7 +458,7 @@ msgid ""
 "thinking you can’t, you’ll walk out knowing you can!"
 msgstr ""
 
-#: classes/WP/Activator.php:78
+#: classes/WP/Activator.php:92
 msgctxt "Find it on official website"
 msgid ""
 "LES MILLS GRIT™ Cardio is a 30-minute high-intensity interval training "
@@ -385,7 +468,7 @@ msgid ""
 "fast."
 msgstr ""
 
-#: classes/WP/Activator.php:85
+#: classes/WP/Activator.php:99
 msgctxt "Find it on official website"
 msgid ""
 "LES MILLS GRIT™ Plyo is a 30-minute high-intensity interval training "
@@ -395,7 +478,7 @@ msgid ""
 "lean and athletic body. "
 msgstr ""
 
-#: classes/WP/Activator.php:92
+#: classes/WP/Activator.php:106
 msgctxt "Find it on official website"
 msgid ""
 "LES MILLS GRIT™ Strength is a 30-minute high-intensity interval training "
@@ -404,14 +487,14 @@ msgid ""
 "major muscle groups."
 msgstr ""
 
-#: classes/WP/Activator.php:99
+#: classes/WP/Activator.php:113
 msgctxt "Find it on official website"
 msgid ""
 "LES MILLS SPRINT™ is a 30-minute High-Intensity Interval Training (HIIT) "
 "workout, using an indoor bike to achieve fast results."
 msgstr ""
 
-#: classes/WP/Activator.php:106
+#: classes/WP/Activator.php:120
 msgctxt "Find it on official website"
 msgid ""
 "Zumba involves dance and aerobic movements performed to energetic music. "
