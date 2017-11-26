@@ -61,6 +61,7 @@
     <p class="fitplan-planning-modal-link"><a target="_blank" href="<?php echo $entry['workout']->metas['fitplan_workout_url']; ?>"><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
     <?php endif; ?>
 
+    <?php if(isset($entry['coach'])): ?>
     <div class="fitplan-planning-modal-coach">
       <img class="fitplan-planning-modal-coach-img" src="<?php echo $entry['coach']->metas['fitplan_coach_pic']['url']; ?>" alt="<?php echo $entry['coach']->post_title; ?>">
       <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
@@ -70,6 +71,7 @@
         <?php echo $entry['coach']->metas['fitplan_coach_bio']; ?>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 
   <div class="fitplan-planning-item-overlay">

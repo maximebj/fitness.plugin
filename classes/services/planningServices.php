@@ -117,7 +117,7 @@ class Planning_Services {
 
 						// If coach has been deleted (In Coachs)
 						if(!isset($datas['coachs'][$coach_id])) {
-							unset($datas['planning'][$day][$key]['coach']);
+							unset($entry['coach']);
 						} else {
 							$entry['coach'] = $datas['coachs'][$coach_id];
 						}
