@@ -58,7 +58,7 @@
     </div>
 
     <?php if($entry['workout']->metas['fitplan_workout_url'] != ""): ?>
-    <p class="fitplan-planning-modal-link"><a target="_blank" href="<?php echo $entry['workout']->metas['fitplan_workout_url']; ?>"><?php _e('See on official page', 'fitness-planning'); ?></a></p>
+    <p class="fitplan-planning-modal-link"><a target="_blank" href="<?php echo $entry['workout']->metas['fitplan_workout_url']; ?>"><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
     <?php endif; ?>
 
     <?php if(isset($entry['coach'])): ?>

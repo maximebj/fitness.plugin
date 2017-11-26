@@ -174,6 +174,13 @@
 			$template.find('.fitplan-planning-item-title').html(workout.post_title).attr('data-workout-id', workout.ID);
 			$template.find('.fitplan-planning-modal-desc').html(workout.metas.fitplan_workout_desc);
 
+
+			if(workout.metas.fitplan_workout_url != "") {
+				$template.find('.fitplan-planning-modal-link a').attr('href', workout.metas.fitplan_workout_url);
+			} else {
+				$template.find('.fitplan-planning-modal-link').hide();
+			}
+
 			// Populate Coach datas
 			if(coachId != ""){
 

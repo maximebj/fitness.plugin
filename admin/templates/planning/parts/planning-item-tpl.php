@@ -34,6 +34,8 @@
     <div class="fitplan-planning-modal-desc">
     </div>
 
+    <p class="fitplan-planning-modal-link"><a target="_blank" href=""><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
+
     <div class="fitplan-planning-modal-coach">
       <img class="fitplan-planning-modal-coach-img" src="" alt="">
       <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
