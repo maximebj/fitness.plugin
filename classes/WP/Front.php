@@ -44,7 +44,7 @@ class Front {
 				Consts::get_url().'public/js/fitness-planning-public.js',
 				array('jquery'),
 				Consts::VERSION,
-				false
+				true
 			);
 		}
 	}
