@@ -55,6 +55,7 @@ abstract class Consts {
 			'editWorkoutAction' => __('Edit', 'fitness-planning'),
 			'addWorkoutTimeError' => __('Start time must be before end Time', 'fitness-planning'),
 			'addWorkoutConflictError' => __("You can't add a workout here because there is already another one at this time. We suggest you make another planning (eg: special bike planning) ", 'fitness-planning'),
+			'addWorkoutOutsideBoundariesError' => __("This workout is outside the current planning hours boundaries", 'fitness-planning'),
 		);
 	}
 

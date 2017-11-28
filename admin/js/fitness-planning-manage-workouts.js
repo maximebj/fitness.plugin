@@ -82,23 +82,48 @@
 		    "coach": $workoutFormCoachField.val()
 		  };
 
-			var morningFinish = $morningFinish.val();
-		  var morningFinishTime = moment(morningFinish, "HH:mm");
-		  var workoutStartTime = moment(datas.start, "HH:mm");
+			var workoutStartTime = moment(datas.start, "HH:mm");
 		  var workoutFinishTime = moment(datas.finish, "HH:mm");
 
+			var morningStart = $morningStart.val();
+		  var morningStartTime = moment(morningStart, "HH:mm");
+			var morningFinish = $morningFinish.val();
+		  var morningFinishTime = moment(morningFinish, "HH:mm");
+			var afternoonStart = $afternoonStart.val();
+		  var afternoonStartTime = moment(afternoonStart, "HH:mm");
+			var afternoonFinish = $afternoonFinish.val();
+		  var afternoonFinishTime = moment(afternoonFinish, "HH:mm");
+
+
 			// Fields Validation
+
+			// Case start is later than end
 			if(workoutStartTime > workoutFinishTime) {
 				alert(fitnessPlanningStrings.addWorkoutTimeError);
 				return false;
 			}
 
+
+			// Define the moment of the day
 		  if(workoutStartTime < morningFinishTime) {
 				datas.time = "morning";
 			} else {
 				datas.time = "afternoon";
 			}
 
+			// Case workout start or finish outside current hours limits
+			if(datas.time == "morning" && (workoutStartTime < morningStartTime || workoutFinishTime > morningFinishTime)) {
+				alert(fitnessPlanningStrings.addWorkoutOutsideBoundariesError);
+				return false;
+			}
+
+			if(datas.time == "afternoon" && (workoutStartTime < afternoonStartTime || workoutFinishTime > afternoonFinishTime)) {
+				alert(fitnessPlanningStrings.addWorkoutOutsideBoundariesError);
+				return false;
+			}
+
+
+			// Get value from the input hidden field
 			var planning = $planningField.val();
 
 		  // For new planning : when it's the first entry in a new planning
@@ -106,11 +131,13 @@
 		    planning = { "monday": {}, "tuesday": {}, "wednesday": {}, "thursday": {}, "friday": {}, "saturday": {}, "sunday": {}};
 		  } else {
 
+				// Get the Json
 				planning = JSON.parse(planning);
 
 				// Fields Validation
 				var result = true;
 
+				// Search for conflict with existing items
 				$.each(planning[day], function(index, value) {
 
 					if(typeof(value) != "undefined"){
