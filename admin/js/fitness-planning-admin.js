@@ -6,12 +6,12 @@
 		$('.fitness-planning-shortcode button, .fitness-planning-shortcode input').on('click', function(e){
 			e.preventDefault();
 
-			if(event.target.tagName === 'BUTTON') {
+			if(e.target.tagName === 'BUTTON') {
 				var $input = $(this).prev('input');
 				var $button = $(this);
 			}
 
-			if(event.target.tagName === 'INPUT') {
+			if(e.target.tagName === 'INPUT') {
 				var $input = $(this);
 				var $button = $(this).next('button');
 			}
