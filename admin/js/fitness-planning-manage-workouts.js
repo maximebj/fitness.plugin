@@ -55,8 +55,6 @@
 		var minHeightForImage = 50;
 		var ratio = parseInt($('input[name=fitplan_planning_px_per_hour]').val()) / 60;
 
-		var planning = JSON.parse($planningField.val());
-
 		var oldTitle = '';
 		var oldButton = '';
 		var oldAction = '';
@@ -101,11 +99,14 @@
 				datas.time = "afternoon";
 			}
 
+			var planning = $planningField.val();
 
 		  // For new planning : when it's the first entry in a new planning
 		  if(planning == ""){
 		    planning = { "monday": {}, "tuesday": {}, "wednesday": {}, "thursday": {}, "friday": {}, "saturday": {}, "sunday": {}};
 		  } else {
+
+				planning = JSON.parse(planning);
 
 				// Fields Validation
 				var result = true;
@@ -304,8 +305,10 @@
 		function removeFromPlanning($item) {
 			var id = $item.attr('data-position-id');
 			var day = $item.parents('.fitplan-planning-day').attr('data-day');
+			var planning = JSON.parse($planningField.val());
 
 			delete planning[day][id];
+
 			$planningField.val(JSON.stringify(planning));
 
       $item.remove();
