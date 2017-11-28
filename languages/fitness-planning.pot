@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-26 17:35+0100\n"
+"POT-Creation-Date: 2017-11-28 11:49+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -336,6 +336,10 @@ msgid ""
 "time. We suggest you make another planning (eg: special bike planning) "
 msgstr ""
 
+#: classes/Helpers/Consts.php:58
+msgid "This workout is outside the current planning hours boundaries"
+msgstr ""
+
 #: classes/Helpers/Fields.php:20 classes/Helpers/Fields.php:30
 msgid "Picture"
 msgstr ""
@@ -352,31 +356,31 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:172
+#: classes/Services/PlanningServices.php:181
 msgid "Sunday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:173
+#: classes/Services/PlanningServices.php:182
 msgid "Monday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:174
+#: classes/Services/PlanningServices.php:183
 msgid "Tuesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:175
+#: classes/Services/PlanningServices.php:184
 msgid "Wednesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:176
+#: classes/Services/PlanningServices.php:185
 msgid "Thursday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:177
+#: classes/Services/PlanningServices.php:186
 msgid "Friday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:178
+#: classes/Services/PlanningServices.php:187
 msgid "Saturday"
 msgstr ""
 

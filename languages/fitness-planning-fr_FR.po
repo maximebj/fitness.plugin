@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-26 17:35+0100\n"
-"PO-Revision-Date: 2017-11-26 17:39+0100\n"
+"POT-Creation-Date: 2017-11-28 11:49+0100\n"
+"PO-Revision-Date: 2017-11-28 11:50+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -346,6 +346,10 @@ msgstr ""
 "horaire. Nous vous suggérons de créer un autre planning (ex: un planning "
 "spécial pour les cours de vélo) "
 
+#: classes/Helpers/Consts.php:58
+msgid "This workout is outside the current planning hours boundaries"
+msgstr "Ce cours est en dehors des limites horaires du planning"
+
 #: classes/Helpers/Fields.php:20 classes/Helpers/Fields.php:30
 msgid "Picture"
 msgstr "Photo"
@@ -362,31 +366,31 @@ msgstr "Remplacer"
 msgid "Remove"
 msgstr "Retirer"
 
-#: classes/Services/PlanningServices.php:172
+#: classes/Services/PlanningServices.php:181
 msgid "Sunday"
 msgstr "Dimanche"
 
-#: classes/Services/PlanningServices.php:173
+#: classes/Services/PlanningServices.php:182
 msgid "Monday"
 msgstr "Lundi"
 
-#: classes/Services/PlanningServices.php:174
+#: classes/Services/PlanningServices.php:183
 msgid "Tuesday"
 msgstr "Mardi"
 
-#: classes/Services/PlanningServices.php:175
+#: classes/Services/PlanningServices.php:184
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: classes/Services/PlanningServices.php:176
+#: classes/Services/PlanningServices.php:185
 msgid "Thursday"
 msgstr "Jeudi"
 
-#: classes/Services/PlanningServices.php:177
+#: classes/Services/PlanningServices.php:186
 msgid "Friday"
 msgstr "Vendredi"
 
-#: classes/Services/PlanningServices.php:178
+#: classes/Services/PlanningServices.php:187
 msgid "Saturday"
 msgstr "Samedi"
 
