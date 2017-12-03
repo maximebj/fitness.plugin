@@ -19,7 +19,7 @@ class Activator {
 	public static function activate() {
 
 		// Create default content on first activation
-		if(get_option('fitplan_activated') == "" or true){
+		if(get_option('fitplan_activated') == ""){
 
 			// Prepare datas
 			$workouts = array(
