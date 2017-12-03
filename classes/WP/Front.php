@@ -19,6 +19,8 @@ class Front {
 	public function register_hooks() {
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+
+		add_action('template_include', array($this, 'archives_templates'));
 	}
 
 	public function enqueue_styles() {
@@ -47,6 +49,28 @@ class Front {
 				true
 			);
 		}
+	}
+
+	// Checks first if template exists in current theme or child theme, else load default
+	public function archives_templates($template) {
+
+		if (is_post_type_archive(Consts::CPT_WORKOUT) and !locate_template('archive-workout.php')) {
+			return Consts::get_path()."public/templates/archive-workout.php";
+		}
+
+		if (is_singular(Consts::CPT_WORKOUT) and !locate_template('single-workout.php')) {
+			return Consts::get_path()."public/templates/single-workout.php";
+		}
+
+		if (is_post_type_archive(Consts::CPT_COACH) and !locate_template('archive-coach.php')) {
+			return Consts::get_path()."public/templates/archive-coach.php";
+		}
+
+		if (is_singular(Consts::CPT_COACH) and !locate_template('single-coach.php')) {
+			return Consts::get_path()."public/templates/single-coach.php";
+		}
+
+		return $template;
 	}
 
 }
