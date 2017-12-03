@@ -47,13 +47,28 @@ class Coach extends Entity {
 		$args = array(
 			'labels' => $labels,
 			'public' => true,
-		  'exclude_from_search' => true,
-		  'publicly_queryable' => false,
-		  'show_in_nav_menus' => false,
-		  'show_in_menu' => false,
+			'show_in_menu' => false,
 			'supports' => array('title'),
 		);
 
+		if(get_option('fitplan_coach_archive')) {
+			$args_compl = array(
+				'has_archive' => true,
+				'rewrite' => array(
+					'slug' => _x('coachs', 'Post type slug', 'fitness-planning'),
+					'with_front' => apply_filters('fitness_planning_with_front', true)
+				)
+			);
+
+		} else {
+			$args_compl = array(
+				'exclude_from_search' => true,
+				'publicly_queryable' => false,
+				'show_in_nav_menus' => false,
+			);
+		}
+
+		$args += $args_compl;
 		register_post_type($this->CPT_slug, $args);
 	}
 

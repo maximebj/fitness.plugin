@@ -17,8 +17,8 @@ use FitnessPlanning\Helpers\Consts;
 class Settings {
 
 	public function register_hooks() {
-		// No settings for now
-		//add_action('admin_menu', array( $this, 'add_admin_menu'));
+		add_action('admin_menu', array($this, 'add_admin_menu'));
+		add_action('admin_init', array($this, 'register_settings'));
 	}
 
 	public function add_admin_menu() {
@@ -31,10 +31,15 @@ class Settings {
 			'fitness-planning',
 			array($this, 'settings_page')
 		);
-
 	}
 
+	public function register_settings() {
+		register_setting('fitness-planning-settings', 'fitplan_workout_archive');
+		register_setting('fitness-planning-settings', 'fitplan_coach_archive');
+	}
+
+
 	public function settings_page(){
-    require_once Consts::get_path().'admin/templates/settings.php';
+    require_once Consts::get_path().'admin/templates/settings/settings.php';
 	}
 }
