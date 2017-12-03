@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-28 11:49+0100\n"
+"POT-Creation-Date: 2017-12-03 18:11+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -161,7 +161,9 @@ msgstr ""
 
 #: admin/templates/planning/parts/planning-item-tpl.php:37
 #: admin/templates/planning/parts/planning-item.php:61
+#: public/templates/archive-workout.php:35
 #: public/templates/parts/planning-item.php:63
+#: public/templates/single-workout.php:28
 msgid "Visit official page"
 msgstr ""
 
@@ -179,6 +181,21 @@ msgstr ""
 #: admin/templates/settings/settings.php:2 classes/Entities/Planning.php:128
 #: classes/WP/Settings.php:28 classes/WP/Settings.php:29
 msgid "Settings"
+msgstr ""
+
+#: admin/templates/settings/settings.php:10
+#: admin/templates/settings/settings.php:14
+msgid "Workouts archive"
+msgstr ""
+
+#: admin/templates/settings/settings.php:19
+#: admin/templates/settings/settings.php:35
+msgid "Activate"
+msgstr ""
+
+#: admin/templates/settings/settings.php:26
+#: admin/templates/settings/settings.php:30
+msgid "Coachs archive"
 msgstr ""
 
 #: admin/templates/workout/metabox-about.php:8
@@ -201,7 +218,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: classes/Entities/Coach.php:39 classes/Entities/Coach.php:64
+#: classes/Entities/Coach.php:39 classes/Entities/Coach.php:79
 msgid "Coachs"
 msgstr ""
 
@@ -225,7 +242,12 @@ msgstr ""
 msgid "No coachs found."
 msgstr ""
 
-#: classes/Entities/Coach.php:71
+#: classes/Entities/Coach.php:58
+msgctxt "Post type slug"
+msgid "coachs"
+msgstr ""
+
+#: classes/Entities/Coach.php:86
 msgid "About the coach"
 msgstr ""
 
@@ -282,7 +304,7 @@ msgctxt "noun"
 msgid "Copy"
 msgstr ""
 
-#: classes/Entities/Workout.php:41 classes/Entities/Workout.php:66
+#: classes/Entities/Workout.php:41 classes/Entities/Workout.php:81
 msgid "Workouts"
 msgstr ""
 
@@ -302,7 +324,12 @@ msgstr ""
 msgid "No workout found."
 msgstr ""
 
-#: classes/Entities/Workout.php:73
+#: classes/Entities/Workout.php:60
+msgctxt "Post type slug"
+msgid "workouts"
+msgstr ""
+
+#: classes/Entities/Workout.php:88
 msgid "About the workout"
 msgstr ""
 
@@ -504,6 +531,11 @@ msgid ""
 "Zumba involves dance and aerobic movements performed to energetic music. "
 "The choreography incorporates hip-hop, soca, samba, salsa, merengue and "
 "mambo. Squats and lunges are also included."
+msgstr ""
+
+#: public/templates/archive-coach.php:33
+#: public/templates/archive-workout.php:39
+msgid "Read more"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

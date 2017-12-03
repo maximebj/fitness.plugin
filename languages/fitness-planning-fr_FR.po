@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-11-28 11:49+0100\n"
-"PO-Revision-Date: 2017-11-28 11:50+0100\n"
+"POT-Creation-Date: 2017-12-03 18:11+0100\n"
+"PO-Revision-Date: 2017-12-03 18:12+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -168,7 +168,9 @@ msgstr "Annuler"
 
 #: admin/templates/planning/parts/planning-item-tpl.php:37
 #: admin/templates/planning/parts/planning-item.php:61
+#: public/templates/archive-workout.php:35
 #: public/templates/parts/planning-item.php:63
+#: public/templates/single-workout.php:28
 msgid "Visit official page"
 msgstr "Visiter la page officielle"
 
@@ -187,6 +189,21 @@ msgstr "Cliquez pour éditer"
 #: classes/WP/Settings.php:28 classes/WP/Settings.php:29
 msgid "Settings"
 msgstr "Réglages"
+
+#: admin/templates/settings/settings.php:10
+#: admin/templates/settings/settings.php:14
+msgid "Workouts archive"
+msgstr "Archive des cours"
+
+#: admin/templates/settings/settings.php:19
+#: admin/templates/settings/settings.php:35
+msgid "Activate"
+msgstr "Activer"
+
+#: admin/templates/settings/settings.php:26
+#: admin/templates/settings/settings.php:30
+msgid "Coachs archive"
+msgstr "Archive des coachs"
 
 #: admin/templates/workout/metabox-about.php:8
 msgid "Color"
@@ -208,7 +225,7 @@ msgstr "Optionnelle. Page officielle de description du cours"
 msgid "Description"
 msgstr "Description"
 
-#: classes/Entities/Coach.php:39 classes/Entities/Coach.php:64
+#: classes/Entities/Coach.php:39 classes/Entities/Coach.php:79
 msgid "Coachs"
 msgstr "Coachs"
 
@@ -232,7 +249,12 @@ msgstr "Modifier le coach"
 msgid "No coachs found."
 msgstr "Aucun coach trouvé."
 
-#: classes/Entities/Coach.php:71
+#: classes/Entities/Coach.php:58
+msgctxt "Post type slug"
+msgid "coachs"
+msgstr "coachs"
+
+#: classes/Entities/Coach.php:86
 msgid "About the coach"
 msgstr "À propos du coach"
 
@@ -289,7 +311,7 @@ msgctxt "noun"
 msgid "Copy"
 msgstr "Copie"
 
-#: classes/Entities/Workout.php:41 classes/Entities/Workout.php:66
+#: classes/Entities/Workout.php:41 classes/Entities/Workout.php:81
 msgid "Workouts"
 msgstr "Cours"
 
@@ -309,7 +331,12 @@ msgstr "Modifier le cours"
 msgid "No workout found."
 msgstr "Aucun cours trouvé."
 
-#: classes/Entities/Workout.php:73
+#: classes/Entities/Workout.php:60
+msgctxt "Post type slug"
+msgid "workouts"
+msgstr "cours"
+
+#: classes/Entities/Workout.php:88
 msgid "About the workout"
 msgstr "À propos du cours"
 
@@ -571,6 +598,11 @@ msgstr ""
 "et flexibilité. Les chorégraphies s'inspirent principalement des danses "
 "latines (salsa, merengue, cumbia, reggaeton, soca, samba, tango, flamenco…), "
 "mais aussi de styles variés comme la danse du ventre ou la Quebradita."
+
+#: public/templates/archive-coach.php:33
+#: public/templates/archive-workout.php:39
+msgid "Read more"
+msgstr "Lire la suite"
 
 #. Plugin Name of the plugin/theme
 msgid "Fitness Planning"
