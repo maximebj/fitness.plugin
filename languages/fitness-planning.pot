@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-12-03 18:11+0100\n"
+"POT-Creation-Date: 2017-12-03 19:30+0100\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -196,6 +196,12 @@ msgstr ""
 #: admin/templates/settings/settings.php:26
 #: admin/templates/settings/settings.php:30
 msgid "Coachs archive"
+msgstr ""
+
+#: admin/templates/settings/settings.php:43
+msgid ""
+"Don't forget to flush WP permalinks structure after enabling archives "
+"pages. Go in Settings > Permalinks and hit Save button"
 msgstr ""
 
 #: admin/templates/workout/metabox-about.php:8

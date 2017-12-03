@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-12-03 18:11+0100\n"
-"PO-Revision-Date: 2017-12-03 18:12+0100\n"
+"POT-Creation-Date: 2017-12-03 19:30+0100\n"
+"PO-Revision-Date: 2017-12-03 19:31+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -48,7 +48,7 @@ msgstr "Pixels par heure"
 
 #: admin/templates/planning/metabox-planning-styling.php:11
 msgid "Info: logos won't show when there isn't enough height"
-msgstr "info: les logo n'apparaissent que s'ils ont assez d'espace"
+msgstr "Info: les logo n'apparaissent que s'ils ont assez d'espace"
 
 #: admin/templates/planning/metabox-planning-styling.php:12
 msgid "per hour"
@@ -204,6 +204,15 @@ msgstr "Activer"
 #: admin/templates/settings/settings.php:30
 msgid "Coachs archive"
 msgstr "Archive des coachs"
+
+#: admin/templates/settings/settings.php:43
+msgid ""
+"Don't forget to flush WP permalinks structure after enabling archives pages. "
+"Go in Settings > Permalinks and hit Save button"
+msgstr ""
+"N'oubliez pas de mettre à jour la structure des permaliens après avoir "
+"activé les archives. Allez dans Réglages > Permaliens et cliquez sur "
+"enregistrer"
 
 #: admin/templates/workout/metabox-about.php:8
 msgid "Color"
