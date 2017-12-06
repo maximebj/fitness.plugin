@@ -1,4 +1,4 @@
-<div class="fitplan-wrapper">
+<div class="fitplan-wrapper" id="fitplan-<?php echo $attributes['id']; ?>">
 
   <div class="fitplan-planning fitplan-planning-<?php echo $attributes['id']; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;">
     <?php
