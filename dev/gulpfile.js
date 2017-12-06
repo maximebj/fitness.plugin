@@ -5,14 +5,14 @@ const plumber = require("gulp-plumber")
 
 const bs = require("browser-sync").create() // create a browser sync instance.
 
-gulp.task("browser-sync", function() {
-  bs.init({
-    proxy: "http://fitness-planning.dev",
-    ghostMode: false,
-    open: false,
-    notify: false
-  })
-})
+// gulp.task("browser-sync", function() {
+//   bs.init({
+//     proxy: "http://fitness-planning.dev",
+//     ghostMode: false,
+//     open: false,
+//     notify: false
+//   })
+// })
 
 gulp.task("stylus-public-css", function() {
   return gulp
@@ -42,9 +42,13 @@ gulp.task("stylus-admin-css", function() {
     .pipe(bs.reload({ stream: true }))
 })
 
-gulp.task("watch", ["browser-sync"], function() {
+// gulp.task("watch", ["browser-sync"], function() {
+//   gulp.watch("./stylus/**/*.styl", ["stylus-public-css", "stylus-admin-css"])
+//   gulp.watch("../*.php").on("change", bs.reload)
+//   gulp.watch("../**/*.php").on("change", bs.reload)
+//   gulp.watch("../**/*.js").on("change", bs.reload)
+// })
+
+gulp.task("watch", function() {
   gulp.watch("./stylus/**/*.styl", ["stylus-public-css", "stylus-admin-css"])
-  gulp.watch("../*.php").on("change", bs.reload)
-  gulp.watch("../**/*.php").on("change", bs.reload)
-  gulp.watch("../**/*.js").on("change", bs.reload)
 })

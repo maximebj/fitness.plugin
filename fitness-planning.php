@@ -7,9 +7,9 @@ use FitnessPlanning\WP\Activator;
 use FitnessPlanning\WP\Deactivator;
 
 /**
- * Plugin Name:       Fitness Planning
+ * Plugin Name:       Fitness Schedule
  * Plugin URI:        https://dysign.fr
- * Description:       Easily create and customize interactive plannings for your fitness club : Body Attack, Pump, Combat, Zumba...
+ * Description:       Easily create and customize weekly timetables for your fitness club : Body Attack, Pump, Combat, Zumba...
  * Version:           1.0.0
  * Author:            Maxime BERNARD-JACQUET
  * Author URI:        https://dysign.fr

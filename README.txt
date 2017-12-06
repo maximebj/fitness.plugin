@@ -1,4 +1,4 @@
-=== Fitness Planning ===
+=== Fitness Schedule ===
 Contributors: maximebj
 Tags: Planning, schedule, workout, Les Mills, Body Attack, Body Pump, Zumba
 Requires at least: 4.0
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Create beautiful and interactive plannings showing your weekly workouts schedules. My plugin already includes the most common Workouts like Les Mills classes (Body Attack, Pump...) and also Zumba.
+Create beautiful schedule showing your weekly workouts. My plugin already includes the most common Workouts like Les Mills classes (Body Attack, Pump...) and also Zumba.
 
 == Changelog ==
 
