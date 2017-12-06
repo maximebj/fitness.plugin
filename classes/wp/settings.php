@@ -24,11 +24,11 @@ class Settings {
 	public function add_admin_menu() {
 
 		add_submenu_page(
-			'fitness-planning',
+			Consts::PLUGIN_NAME,
 			__('Settings', 'fitness-planning'),
 			__('Settings', 'fitness-planning'),
 			'edit_posts',
-			'fitness-planning',
+			Consts::PLUGIN_NAME,
 			array($this, 'settings_page')
 		);
 	}
