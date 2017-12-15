@@ -1,4 +1,4 @@
-<div class="fitplan-section">
+<div class="fitplan-section" id="fitplan-preview">
   <div class="fitplan-planning" id="fitplan-planning-<?php echo $post->ID; ?>" style="background-color: <?php echo $this->datas['fitplan_planning_background_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;" data-time-format="<?php echo get_option('time_format'); ?>">
 
     <?php foreach($this->datas['weekdays'] as $day): ?>
