@@ -9,7 +9,6 @@
         echo 'background-color: '.$this->datas['fitplan_planning_workout_default_color'];
       endif;
       ?>;
-      <?php echo 'color: '.$this->datas['fitplan_planning_workout_text_color']; ?>;
       <?php echo 'border-radius: '.$this->datas['fitplan_planning_workout_radius']; ?>px;"
 
     data-color="<?php
@@ -26,11 +25,15 @@
     </div>
     <?php endif; ?>
 
-    <p class="fitplan-planning-item-title<?php if($entry['workout']->metas['fitplan_workout_pic']['url'] == ""): echo ' fitplan-dont-hide'; endif; ?>" style="<?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 and $entry['workout']->metas['fitplan_workout_pic']['url'] != "" ): ?>display: none;<?php endif; ?>">
+    <p
+      class="fitplan-planning-item-title<?php if($entry['workout']->metas['fitplan_workout_pic']['url'] == ""): echo ' fitplan-dont-hide'; endif; ?>" style="
+        <?php echo 'color: '.$this->datas['fitplan_planning_workout_text_color']; ?>;
+        <?php if($this->datas['fitplan_planning_workout_display_title'] == "off" and intval($entry['height']) >= 50 and $entry['workout']->metas['fitplan_workout_pic']['url'] != "" ): ?>display: none;<?php endif; ?>
+    ">
       <?php echo $entry['workout']->post_title; ?>
     </p>
 
-    <p class="fitplan-planning-item-hour">
+    <p class="fitplan-planning-item-hour" style="<?php echo 'color: '.$this->datas['fitplan_planning_workout_text_color']; ?>;">
       <span class="fitplan-planning-item-hour-start"><?php echo $entry['start_display']; ?></span>
       -
       <span class="fitplan-planning-item-hour-finish"><?php echo $entry['finish_display']; ?></span>
