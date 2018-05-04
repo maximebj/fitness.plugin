@@ -167,7 +167,10 @@
 		  }
 
 			// Define a new unique ID for the entry
-			var id = Object.keys(planning[day]).length;
+			var objKeys = Object.keys(planning[day]);
+			var lastUsedKey = objKeys[objKeys.length - 1];
+			var id = parseInt(lastUsedKey) + 1
+
 		  planning[day][id] = datas;
 
 			// Add JSON value to field
