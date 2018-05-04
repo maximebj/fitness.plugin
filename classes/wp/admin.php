@@ -74,11 +74,10 @@ class Admin {
 	}
 
 	public function add_admin_menu() {
-		global $submenu;
 
 		add_menu_page(
-			'Fitness Planning',
-			'Fitness Planning',
+			'Fitness Schedule',
+			'Fitness Schedule',
 			'edit_posts',
 			Consts::PLUGIN_NAME,
 			null,

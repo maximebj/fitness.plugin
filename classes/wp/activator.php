@@ -53,10 +53,10 @@ class Activator {
 				),
 
 				"Body Vive" => array(
-					"pic" => "bodyvive.png",
-					"desc" => _x("If you want the optimal mix of strength, cardio and core training this is it. Step into a BODYVIVE™ class and you'll tick off a complete workout. The challenging mix of lunges, squats, running and tubing exercises will help you burn calories and take your fitness to the next level. You'll leave fizzing with energy and on track for all-around healthy living.", 'Find it on official website', 'fitness-planning'),
+					"pic" => "tone.png",
+					"desc" => _x("We are excited to bring you LES MILLS TONE™. We listened to your global feedback and heard your desire for a more modern training experience. Created from the foundations of BODYVIVE 3.1, LES MILLS TONE maintains the original 3 in 1 training style - a mix of cardio, resistance and core while playing with different training concepts to ensure everyone gets the best results from their workouts.", 'Find it on official website', 'fitness-planning'),
 					"color" => "#F7E9FF",
-					"url" => "https://www.lesmills.com/workouts/fitness-classes/bodyvive/",
+					"url" => "https://www.lesmills.com/workouts/fitness-classes/les-mills-tone/",
 				),
 
 				"Body Balance" => array(

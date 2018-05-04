@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2017-12-03 19:30+0100\n"
+"POT-Creation-Date: 2018-05-04 09:16+0200\n"
 "PO-Revision-Date: 2017-10-06 09:28+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -162,14 +162,14 @@ msgstr ""
 #: admin/templates/planning/parts/planning-item-tpl.php:37
 #: admin/templates/planning/parts/planning-item.php:61
 #: public/templates/archive-workout.php:35
-#: public/templates/parts/planning-item.php:63
+#: public/templates/parts/planning-item.php:66
 #: public/templates/single-workout.php:28
 msgid "Visit official page"
 msgstr ""
 
 #: admin/templates/planning/parts/planning-item-tpl.php:41
 #: admin/templates/planning/parts/planning-item.php:67
-#: public/templates/parts/planning-item.php:69
+#: public/templates/parts/planning-item.php:72
 msgid "By"
 msgstr ""
 
@@ -389,31 +389,31 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:181
+#: classes/Services/planningServices.php:181
 msgid "Sunday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:182
+#: classes/Services/planningServices.php:182
 msgid "Monday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:183
+#: classes/Services/planningServices.php:183
 msgid "Tuesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:184
+#: classes/Services/planningServices.php:184
 msgid "Wednesday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:185
+#: classes/Services/planningServices.php:185
 msgid "Thursday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:186
+#: classes/Services/planningServices.php:186
 msgid "Friday"
 msgstr ""
 
-#: classes/Services/PlanningServices.php:187
+#: classes/Services/planningServices.php:187
 msgid "Saturday"
 msgstr ""
 
@@ -454,11 +454,12 @@ msgstr ""
 #: classes/WP/Activator.php:57
 msgctxt "Find it on official website"
 msgid ""
-"If you want the optimal mix of strength, cardio and core training this is "
-"it. Step into a BODYVIVE™ class and you'll tick off a complete workout. "
-"The challenging mix of lunges, squats, running and tubing exercises will "
-"help you burn calories and take your fitness to the next level. You'll "
-"leave fizzing with energy and on track for all-around healthy living."
+"We are excited to bring you LES MILLS TONE™. We listened to your global "
+"feedback and heard your desire for a more modern training experience. "
+"Created from the foundations of BODYVIVE 3.1, LES MILLS TONE maintains the "
+"original 3 in 1 training style - a mix of cardio, resistance and core "
+"while playing with different training concepts to ensure everyone gets the "
+"best results from their workouts."
 msgstr ""
 
 #: classes/WP/Activator.php:64
@@ -545,7 +546,7 @@ msgid "Read more"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Fitness Planning"
+msgid "Fitness Schedule"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -555,8 +556,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Easily create and customize interactive plannings for your fitness club : "
-"Body Attack, Pump, Combat, Zumba..."
+"Easily create and customize weekly timetables for your fitness club : Body "
+"Attack, Pump, Combat, Zumba..."
 msgstr ""
 
 #. Author of the plugin/theme
