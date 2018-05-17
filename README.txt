@@ -14,6 +14,9 @@ Create beautiful schedule showing your weekly workouts. My plugin already includ
 
 == Changelog ==
 
+= 1.1.1 =
+- Bugfixes
+
 = 1.1 =
 - Added : New Les Mills Tone workout replacing Vive
 - Bugfix : some workout were randomly deleted

@@ -167,12 +167,18 @@
 		  }
 
 			// Define a new unique ID for the entry
-			var objKeys = Object.keys(planning[day]);
-			var lastUsedKey = objKeys[objKeys.length - 1];
-			var id = parseInt(lastUsedKey) + 1
+
+      if( jQuery.isEmptyObject( planning[day] ) ) {
+        var id = 0;
+      } else {
+  			var objKeys = Object.keys(planning[day]);
+  			var lastUsedKey = objKeys[objKeys.length - 1];
+  			var id = parseInt(lastUsedKey) + 1
+      }
 
 		  planning[day][id] = datas;
-
+      console.log(planning[day]);
+      
 			// Add JSON value to field
 		  $planningField.val(JSON.stringify(planning));
 
