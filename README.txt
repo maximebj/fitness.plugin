@@ -14,6 +14,9 @@ Create beautiful schedule showing your weekly workouts. My plugin already includ
 
 == Changelog ==
 
+= 1.2 =
+- You can now disable morning or afternoon if you don't need it
+
 = 1.1.1 =
 - Bugfixes
 

@@ -37,6 +37,8 @@
 		var $workoutFormCoachField = $(':input[name=fitplan_addworkout_coach]');
 
 		// Settings Fiels
+		var $showMorning = $(':input[name=fitplan_planning_show_morning]');
+		var $showAfternoon = $(':input[name=fitplan_planning_show_afternoon]');
 		var $morningStart = $(':input[name=fitplan_planning_morning_start]');
 		var $morningFinish = $(':input[name=fitplan_planning_morning_finish]');
 		var $afternoonStart = $(':input[name=fitplan_planning_afternoon_start]');
@@ -178,7 +180,7 @@
 
 		  planning[day][id] = datas;
       console.log(planning[day]);
-      
+
 			// Add JSON value to field
 		  $planningField.val(JSON.stringify(planning));
 
@@ -471,6 +473,35 @@
 
 		  $fitplanPlanningAfternoon.css('height', diffAfternoon+'px');
 		}
+
+
+    // Show / hide morning / afternoon
+
+    $showMorning.change(function() {
+
+      if ( $(this).prop('checked') ) {
+        $morningStart.prop('disabled', false);
+        $morningFinish.prop('disabled', false);
+        $fitplanPlanningMorning.show();
+      } else {
+        $morningStart.prop('disabled', true);
+        $morningFinish.prop('disabled', true);
+        $fitplanPlanningMorning.hide();
+      }
+    });
+
+    $showAfternoon.change(function() {
+
+      if ( $(this).prop('checked') ) {
+        $afternoonStart.prop('disabled', false);
+        $afternoonFinish.prop('disabled', false);
+        $fitplanPlanningAfternoon.show();
+      } else {
+        $afternoonStart.prop('disabled', true);
+        $afternoonFinish.prop('disabled', true);
+        $fitplanPlanningAfternoon.hide();
+      }
+    });
 
 
 		// Display Title if there is not enough room for image or if workout image is not set

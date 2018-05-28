@@ -32,6 +32,8 @@ class Planning extends Entity {
 			'fitplan_planning_morning_finish' 	=> array("type" => "time", "default" => "13:00"),
 			'fitplan_planning_afternoon_start' 	=> array("type" => "time", "default" => "17:00"),
 			'fitplan_planning_afternoon_finish' => array("type" => "time", "default" => "21:00"),
+			'fitplan_planning_show_morning'     => array("type" => "bool", "default" => "on"),
+			'fitplan_planning_show_afternoon'   => array("type" => "bool", "default" => "on"),
 
 			'fitplan_planning_workout_display_pic' 		=> array("type" => "time", "default" => true),
       'fitplan_planning_workout_display_color' 	=> array("type" => "time", "default" => true),

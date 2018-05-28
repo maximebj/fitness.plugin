@@ -45,7 +45,7 @@ abstract class Entity {
 				if($values[$field] == "off" or !$values[$field]) {
 					$values[$field] = false;
 				}
-				if($values[$field] == "on" or $values[$field] == true) {
+				if($values[$field] == "on" or $values[$field] == true ) {
 					$values[$field] = true;
 				}
 			}
@@ -95,6 +95,16 @@ abstract class Entity {
 	        $_POST[$field]
 	      );
 	    }
+
+      // Disable unchecked checkboxes
+      if( $field_metas['type'] == "bool" and !isset( $_POST[$field] ) ) {
+
+        update_post_meta(
+	        $post_id,
+	        '_'.$field,
+	        'off'
+	      );
+      }
 		}
 	}
 

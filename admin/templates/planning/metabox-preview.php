@@ -5,7 +5,7 @@
     <div class="fitplan-planning-day" style="<?php if(!$day['displayed']): ?>display: none; <?php endif; ?>border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;" data-day="<?php echo $day['slug']; ?>">
       <div class="fitplan-planning-title" style="color: <?php echo $this->datas['fitplan_planning_days_text_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>;"><?php echo $day['name']; ?></div>
 
-      <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>44;">
+      <div class="fitplan-planning-morning" style="height: <?php echo $this->datas['planning_height']['morning']; ?>px; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>; border-color: <?php echo $this->datas['fitplan_planning_border_color']; ?>44; <?php if(!$this->datas['fitplan_planning_show_morning']): ?>display: none; <?php endif; ?>">
         <?php
           if(isset($this->datas['planning'])):
             foreach($this->datas['planning'][$day['slug']] as $id => $entry):
@@ -17,7 +17,7 @@
         ?>
       </div>
 
-      <div class="fitplan-planning-afternoon" style="height: <?php echo $this->datas['planning_height']['afternoon']; ?>px">
+      <div class="fitplan-planning-afternoon" style="height: <?php echo $this->datas['planning_height']['afternoon']; ?>px; <?php if(!$this->datas['fitplan_planning_show_afternoon']): ?>display: none; <?php endif; ?>">
         <?php
           if(isset($this->datas['planning'])):
             foreach($this->datas['planning'][$day['slug']] as $id => $entry):
