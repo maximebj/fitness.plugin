@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Fitness Planning\n"
-"POT-Creation-Date: 2018-05-04 09:16+0200\n"
-"PO-Revision-Date: 2018-05-04 09:18+0200\n"
+"POT-Creation-Date: 2018-06-01 19:34+0200\n"
+"PO-Revision-Date: 2018-06-01 19:35+0200\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -62,40 +62,40 @@ msgstr "Afficher"
 msgid "Planning hours"
 msgstr "Horaires du planning"
 
-#: admin/templates/planning/metabox-settings.php:17
+#: admin/templates/planning/metabox-settings.php:18
 msgid "Morning:"
 msgstr "Matin :"
 
-#: admin/templates/planning/metabox-settings.php:18
-#: admin/templates/planning/metabox-settings.php:27
+#: admin/templates/planning/metabox-settings.php:20
+#: admin/templates/planning/metabox-settings.php:34
 #: admin/templates/planning/metabox-workout.php:24
 msgid "from"
 msgstr "de"
 
-#: admin/templates/planning/metabox-settings.php:19
-#: admin/templates/planning/metabox-settings.php:28
+#: admin/templates/planning/metabox-settings.php:23
+#: admin/templates/planning/metabox-settings.php:37
 #: admin/templates/planning/metabox-workout.php:28
 msgid "to"
 msgstr "à"
 
-#: admin/templates/planning/metabox-settings.php:21
-#: admin/templates/planning/metabox-settings.php:30
+#: admin/templates/planning/metabox-settings.php:27
+#: admin/templates/planning/metabox-settings.php:41
 msgid "Start time can't be later than finish time"
 msgstr "L'heure de début ne peut pas être plus tard que celle de fin"
 
-#: admin/templates/planning/metabox-settings.php:26
+#: admin/templates/planning/metabox-settings.php:33
 msgid "Afternoon:"
 msgstr "Après-midi :"
 
-#: admin/templates/planning/metabox-settings.php:33
+#: admin/templates/planning/metabox-settings.php:44
 msgid "Afternoon starts before morning finish"
 msgstr "L'après midi démarre avant la fin de la matinée"
 
-#: admin/templates/planning/metabox-settings.php:37
+#: admin/templates/planning/metabox-settings.php:48
 msgid "Others"
 msgstr "Autres réglages"
 
-#: admin/templates/planning/metabox-settings.php:39
+#: admin/templates/planning/metabox-settings.php:50
 msgid ""
 "You can customize the first day of the week or the date format in <a href="
 "\"options-general.php\" target=\"_blank\">Settings > General</a>."
@@ -185,27 +185,43 @@ msgstr "Avec"
 msgid "Click to edit"
 msgstr "Cliquez pour éditer"
 
-#: admin/templates/settings/settings.php:2 classes/Entities/Planning.php:128
+#: admin/templates/settings/settings.php:2 classes/Entities/Planning.php:130
 #: classes/WP/Settings.php:28 classes/WP/Settings.php:29
 msgid "Settings"
 msgstr "Réglages"
 
-#: admin/templates/settings/settings.php:10
-#: admin/templates/settings/settings.php:14
+#: admin/templates/settings/settings.php:12
+msgid "Time Step"
+msgstr "Intervalle de temps"
+
+#: admin/templates/settings/settings.php:15
+msgid "minutes"
+msgstr "minutes"
+
+#: admin/templates/settings/settings.php:16
+msgid ""
+"Interval of time used for choosing workouts start time and duration. "
+"Default: 15 minutes."
+msgstr ""
+"Intervalle de temps utilisé pour choisir une heure. Défini sur 15 minutes "
+"par défaut."
+
+#: admin/templates/settings/settings.php:21
+#: admin/templates/settings/settings.php:25
 msgid "Workouts archive"
 msgstr "Archive des cours"
 
-#: admin/templates/settings/settings.php:19
-#: admin/templates/settings/settings.php:35
+#: admin/templates/settings/settings.php:30
+#: admin/templates/settings/settings.php:46
 msgid "Activate"
 msgstr "Activer"
 
-#: admin/templates/settings/settings.php:26
-#: admin/templates/settings/settings.php:30
+#: admin/templates/settings/settings.php:37
+#: admin/templates/settings/settings.php:41
 msgid "Coachs archive"
 msgstr "Archive des coachs"
 
-#: admin/templates/settings/settings.php:43
+#: admin/templates/settings/settings.php:56
 msgid ""
 "Don't forget to flush WP permalinks structure after enabling archives pages. "
 "Go in Settings > Permalinks and hit Save button"
@@ -267,55 +283,55 @@ msgstr "coachs"
 msgid "About the coach"
 msgstr "À propos du coach"
 
-#: classes/Entities/Planning.php:69 classes/Entities/Planning.php:94
+#: classes/Entities/Planning.php:71 classes/Entities/Planning.php:96
 msgid "Plannings"
 msgstr "Plannings"
 
-#: classes/Entities/Planning.php:70
+#: classes/Entities/Planning.php:72
 msgid "All plannings"
 msgstr "Tous les plannings"
 
-#: classes/Entities/Planning.php:71
+#: classes/Entities/Planning.php:73
 msgid "Planning"
 msgstr "Planning"
 
-#: classes/Entities/Planning.php:72
+#: classes/Entities/Planning.php:74
 msgid "Add a planning"
 msgstr "Ajouter un planning"
 
-#: classes/Entities/Planning.php:73
+#: classes/Entities/Planning.php:75
 msgid "Edit planning"
 msgstr "Modifier le planning"
 
-#: classes/Entities/Planning.php:74
+#: classes/Entities/Planning.php:76
 msgid "No plannings found."
 msgstr "Aucun planning trouvé."
 
-#: classes/Entities/Planning.php:124 classes/Entities/Workout.php:44
+#: classes/Entities/Planning.php:126 classes/Entities/Workout.php:44
 msgid "Add a workout"
 msgstr "Ajouter un cours"
 
-#: classes/Entities/Planning.php:126
+#: classes/Entities/Planning.php:128
 msgid "Planning Preview"
 msgstr "Prévisualisation du planning"
 
-#: classes/Entities/Planning.php:130 classes/Entities/Planning.php:164
+#: classes/Entities/Planning.php:132 classes/Entities/Planning.php:166
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: classes/Entities/Planning.php:132
+#: classes/Entities/Planning.php:134
 msgid "Customize Workouts"
 msgstr "Personnaliser les Cours"
 
-#: classes/Entities/Planning.php:134
+#: classes/Entities/Planning.php:136
 msgid "Customize Planning"
 msgstr "Personnaliser le Planning"
 
-#: classes/Entities/Planning.php:186
+#: classes/Entities/Planning.php:188
 msgid "Duplicate"
 msgstr "Dupliquer"
 
-#: classes/Entities/Planning.php:211
+#: classes/Entities/Planning.php:213
 msgctxt "noun"
 msgid "Copy"
 msgstr "Copie"
