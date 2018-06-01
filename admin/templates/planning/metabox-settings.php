@@ -18,10 +18,10 @@
       <label for="fitplan_planning_show_morning" class="fitplan-row"><?php _e('Morning:', 'fitness-planning'); ?></label>
 
       <?php _e('from', 'fitness-planning'); ?>
-      <input type="time" name="fitplan_planning_morning_start" step="900" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>" <?php if(!$this->datas['fitplan_planning_show_morning']): ?>disabled <?php endif; ?>>
+      <input type="time" name="fitplan_planning_morning_start" step="<?php echo intval(esc_attr(get_option('fitplan_time_step', 15))) * 60; ?>" value="<?php echo $this->datas['fitplan_planning_morning_start'] ?>" <?php if(!$this->datas['fitplan_planning_show_morning']): ?>disabled <?php endif; ?>>
 
       <?php _e('to', 'fitness-planning'); ?>
-      <input type="time" name="fitplan_planning_morning_finish" step="900" value="<?php echo $this->datas['fitplan_planning_morning_finish'] ?>" <?php if(!$this->datas['fitplan_planning_show_morning']): ?>disabled <?php endif; ?>>
+      <input type="time" name="fitplan_planning_morning_finish" step="<?php echo intval(esc_attr(get_option('fitplan_time_step', 15))) * 60; ?>" value="<?php echo $this->datas['fitplan_planning_morning_finish'] ?>" <?php if(!$this->datas['fitplan_planning_show_morning']): ?>disabled <?php endif; ?>>
 
       <span class="fitplan-field-error js-fitplan-morning-finish-before-start">
         <span class="dashicons dashicons-warning"></span> <?php _e("Start time can't be later than finish time", 'fitness-planning'); ?>
@@ -32,10 +32,10 @@
       <input type="checkbox" name="fitplan_planning_show_afternoon" id="fitplan_planning_show_afternoon" <?php if($this->datas['fitplan_planning_show_afternoon']): ?>checked<?php endif; ?>>
       <label for="fitplan_planning_show_afternoon" class="fitplan-row"><?php _e('Afternoon:', 'fitness-planning'); ?></label>
       <?php _e('from', 'fitness-planning'); ?>
-      <input type="time" name="fitplan_planning_afternoon_start" step="900" value="<?php echo $this->datas['fitplan_planning_afternoon_start'] ?>" <?php if(!$this->datas['fitplan_planning_show_afternoon']): ?>disabled <?php endif; ?>>
+      <input type="time" name="fitplan_planning_afternoon_start" step="<?php echo intval(esc_attr(get_option('fitplan_time_step', 15))) * 60; ?>" value="<?php echo $this->datas['fitplan_planning_afternoon_start'] ?>" <?php if(!$this->datas['fitplan_planning_show_afternoon']): ?>disabled <?php endif; ?>>
 
       <?php _e('to', 'fitness-planning'); ?>
-      <input type="time" name="fitplan_planning_afternoon_finish" step="900" value="<?php echo $this->datas['fitplan_planning_afternoon_finish'] ?>" <?php if(!$this->datas['fitplan_planning_show_afternoon']): ?>disabled<?php endif; ?>>
+      <input type="time" name="fitplan_planning_afternoon_finish" step="<?php echo intval(esc_attr(get_option('fitplan_time_step', 15))) * 60; ?>" value="<?php echo $this->datas['fitplan_planning_afternoon_finish'] ?>" <?php if(!$this->datas['fitplan_planning_show_afternoon']): ?>disabled<?php endif; ?>>
 
       <span class="fitplan-field-error js-fitplan-afternoon-finish-before-start">
         <span class="dashicons dashicons-warning"></span> <?php _e("Start time can't be later than finish time", 'fitness-planning'); ?>

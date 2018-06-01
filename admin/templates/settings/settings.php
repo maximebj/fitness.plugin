@@ -6,6 +6,17 @@
     <?php do_settings_sections('fitness-planning-settings'); ?>
 
     <table class="form-table">
+
+      <tr>
+        <th scope="row">
+          <label for="fitplan_time_step"><?php _e('Time Step'); ?></label>
+        </th>
+        <td>
+          <input name="fitplan_time_step" type="number" min="5" max="30" step="5" value="<?php echo esc_attr(get_option('fitplan_time_step', 1)); ?>" class="small-text"> <?php _e('minutes'); ?>
+          <p class="description"><?php _e('Interval of time used for choosing workouts start time and duration. Default: 15 minutes.'); ?></p>
+        </td>
+      </tr>
+
       <tr>
         <th scope="row"><?php _e('Workouts archive'); ?></th>
         <td>
@@ -37,6 +48,8 @@
           </fieldset>
         </td>
       </tr>
+
+
 
     </table>
 

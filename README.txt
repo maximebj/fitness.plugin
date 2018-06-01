@@ -14,6 +14,9 @@ Create beautiful schedule showing your weekly workouts. My plugin already includ
 
 == Changelog ==
 
+= 1.3 =
+- You can now change the default 15 minutes step to define the workout start and duration
+
 = 1.2 =
 - You can now disable morning or afternoon if you don't need it
 

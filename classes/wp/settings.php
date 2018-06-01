@@ -36,6 +36,7 @@ class Settings {
 	public function register_settings() {
 		register_setting('fitness-planning-settings', 'fitplan_workout_archive');
 		register_setting('fitness-planning-settings', 'fitplan_coach_archive');
+		register_setting('fitness-planning-settings', 'fitplan_time_step');
 	}
 
 
