@@ -14,6 +14,10 @@ Create beautiful schedule showing your weekly workouts. My plugin already includ
 
 == Changelog ==
 
+= 1.3.1 =
+- Bugfix : Workout bubble doesn't appear outside the page on the right anymore
+- Bugfix : line break are not displayed on workouts description
+
 = 1.3 =
 - You can now change the default 15 minutes step to define the workout start and duration
 
