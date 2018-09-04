@@ -49,8 +49,6 @@
         </td>
       </tr>
 
-
-
     </table>
 
     <p><em><?php _e("Don't forget to flush WP permalinks structure after enabling archives pages. Go in Settings > Permalinks and hit Save button", 'fitness-planning'); ?></em></p>

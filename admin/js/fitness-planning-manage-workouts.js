@@ -179,7 +179,7 @@
       }
 
 		  planning[day][id] = datas;
-      console.log(planning[day]);
+      //console.log(planning[day]);
 
 			// Add JSON value to field
 		  $planningField.val(JSON.stringify(planning));
@@ -234,7 +234,7 @@
 			}
 
 			$template.find('.fitplan-planning-item-title').html(workout.post_title).attr('data-workout-id', workout.ID);
-			$template.find('.fitplan-planning-modal-desc').html(workout.metas.fitplan_workout_desc);
+			$template.find('.fitplan-planning-modal-desc').html(nl2br(workout.metas.fitplan_workout_desc));
 
 
 			if(workout.metas.fitplan_workout_url != "") {
@@ -669,4 +669,9 @@
 		});
 
 	});
+
+  function nl2br(str) {
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2');
+  }
+
 })(jQuery);

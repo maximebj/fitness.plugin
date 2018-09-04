@@ -59,7 +59,7 @@
     </div>
 
     <div class="fitplan-planning-modal-desc">
-      <?php echo $entry['workout']->metas['fitplan_workout_desc']; ?>
+      <?php echo nl2br( $entry['workout']->metas['fitplan_workout_desc'] ); ?>
     </div>
 
     <?php if($entry['workout']->metas['fitplan_workout_url'] != ""): ?>
