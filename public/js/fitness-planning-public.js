@@ -21,5 +21,17 @@
 				}
 			});
 		}
+
+    // Avoid bubble to be displyed out of the page
+    $('.fitplan-planning-item').on('hover', function() {
+
+      if ( $( window ).width() - event.pageX < 350 ) {
+        $(this).find('.fitplan-planning-item-bubble').css({ 'left': 'auto', 'right': '100%'});
+      } else {
+        $(this).find('.fitplan-planning-item-bubble').attr('style', '');
+      }
+    });
+
+
 	});
 })(jQuery);
