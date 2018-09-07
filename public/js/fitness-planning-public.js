@@ -23,7 +23,7 @@
 		}
 
     // Avoid bubble to be displyed out of the page
-    $('.fitplan-planning-item').on('hover', function() {
+    $('.fitplan-planning-item').on('hover', function( event ) {
 
       if ( $( window ).width() - event.pageX < 350 ) {
         $(this).find('.fitplan-planning-item-bubble').css({ 'left': 'auto', 'right': '100%'});
@@ -31,7 +31,6 @@
         $(this).find('.fitplan-planning-item-bubble').attr('style', '');
       }
     });
-
 
 	});
 })(jQuery);
