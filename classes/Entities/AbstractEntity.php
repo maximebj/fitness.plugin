@@ -1,6 +1,6 @@
 <?php
 
-namespace FitnessPlanning\Entities;
+namespace FitnessSchedule\Entities;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 

@@ -63,13 +63,13 @@
     </div>
 
     <?php if($entry['workout']->metas['fitplan_workout_url'] != ""): ?>
-    <p class="fitplan-planning-modal-link"><a target="_blank" href="<?php echo $entry['workout']->metas['fitplan_workout_url']; ?>"><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
+    <p class="fitplan-planning-modal-link"><a target="_blank" href="<?php echo $entry['workout']->metas['fitplan_workout_url']; ?>"><?php _e('Visit official page', 'fitness-schedule'); ?></a></p>
     <?php endif; ?>
 
     <?php if(isset($entry['coach'])): ?>
     <div class="fitplan-planning-modal-coach">
       <img class="fitplan-planning-modal-coach-img" src="<?php echo $entry['coach']->metas['fitplan_coach_pic']['url']; ?>" alt="<?php echo $entry['coach']->post_title; ?>">
-      <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-planning'); ?></span>
+      <span class="fitplan-planning-modal-coach-by"><?php _e('By', 'fitness-schedule'); ?></span>
       <br>
       <strong class="fitplan-planning-item-coach-name"><?php echo $entry['coach']->post_title; ?></strong>
       <div class="fitplan-planning-modal-coach-bio">

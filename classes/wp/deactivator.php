@@ -1,6 +1,6 @@
 <?php
 
-namespace FitnessPlanning\WP;
+namespace FitnessSchedule\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 

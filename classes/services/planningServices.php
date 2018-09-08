@@ -1,12 +1,12 @@
 <?php
 
-namespace FitnessPlanning\Services;
+namespace FitnessSchedule\Services;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
-use FitnessPlanning\Entities\Workout;
-use FitnessPlanning\Entities\Coach;
+use FitnessSchedule\Helpers\Consts;
+use FitnessSchedule\Entities\Workout;
+use FitnessSchedule\Entities\Coach;
 
 use Datetime;
 

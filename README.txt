@@ -1,7 +1,7 @@
 === Fitness Schedule ===
 Contributors: maximebj
 Donate link: https://paypal.me/maximebj
-Tags: Planning, schedule, workout, Les Mills, Body Attack, Body Pump, Zumba
+Tags: Planning, workout, Les Mills, Body Attack, Body Pump, Zumba
 Requires at least: 4.0
 Tested up to: 4.9
 Requires PHP: 5.6

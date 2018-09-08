@@ -1,6 +1,6 @@
 <?php
 
-namespace FitnessPlanning\Helpers;
+namespace FitnessSchedule\Helpers;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
@@ -48,14 +48,14 @@ abstract class Consts {
 	// Translatable string sent to JS
 	public static function strings_to_js() {
 		return array(
-			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-planning'),
-			'mediaUploaderButton' => __('Use this image', 'fitness-planning'),
-			'editWorkoutTitle' => __('Edit this Workout', 'fitness-planning'),
-			'editWorkoutButton' => __('Apply changes', 'fitness-planning'),
-			'editWorkoutAction' => __('Edit', 'fitness-planning'),
-			'addWorkoutTimeError' => __('Start time must be before end Time', 'fitness-planning'),
-			'addWorkoutConflictError' => __("You can't add a workout here because there is already another one at this time. We suggest you make another planning (eg: special bike planning) ", 'fitness-planning'),
-			'addWorkoutOutsideBoundariesError' => __("This workout is outside the current planning hours boundaries", 'fitness-planning'),
+			'mediaUploaderTitle' => __('Select a image to upload', 'fitness-schedule'),
+			'mediaUploaderButton' => __('Use this image', 'fitness-schedule'),
+			'editWorkoutTitle' => __('Edit this Workout', 'fitness-schedule'),
+			'editWorkoutButton' => __('Apply changes', 'fitness-schedule'),
+			'editWorkoutAction' => __('Edit', 'fitness-schedule'),
+			'addWorkoutTimeError' => __('Start time must be before end Time', 'fitness-schedule'),
+			'addWorkoutConflictError' => __("You can't add a workout here because there is already another one at this time. We suggest you make another planning (eg: special bike planning) ", 'fitness-schedule'),
+			'addWorkoutOutsideBoundariesError' => __("This workout is outside the current planning hours boundaries", 'fitness-schedule'),
 		);
 	}
 

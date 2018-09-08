@@ -1,10 +1,10 @@
 <?php
 
-namespace FitnessPlanning\Entities;
+namespace FitnessSchedule\Entities;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
+use FitnessSchedule\Helpers\Consts;
 
 /**
  * Coachs to be attached to a Workout in a Planning
@@ -36,12 +36,12 @@ class Coach extends Entity {
 	public function define_post_types() {
 
 	 $labels = array(
-			'name' => __('Coachs', 'fitness-planning'),
-			'all_items' => __('All coachs', 'fitness-planning'),
-			'singular_name' => __('Coach', 'fitness-planning'),
-			'add_new_item' => __('Add a coach', 'fitness-planning'),
-			'edit_item' => __('Edit coach', 'fitness-planning'),
-		  'not_found' => __('No coachs found.', 'fitness-planning'),
+			'name' => __('Coachs', 'fitness-schedule'),
+			'all_items' => __('All coachs', 'fitness-schedule'),
+			'singular_name' => __('Coach', 'fitness-schedule'),
+			'add_new_item' => __('Add a coach', 'fitness-schedule'),
+			'edit_item' => __('Edit coach', 'fitness-schedule'),
+		  'not_found' => __('No coachs found.', 'fitness-schedule'),
 		);
 
 		$args = array(
@@ -55,7 +55,7 @@ class Coach extends Entity {
 			$args_compl = array(
 				'has_archive' => true,
 				'rewrite' => array(
-					'slug' => _x('coachs', 'Post type slug', 'fitness-planning'),
+					'slug' => _x('coachs', 'Post type slug', 'fitness-schedule'),
 					'with_front' => apply_filters('fitness_planning_with_front', true)
 				)
 			);
@@ -76,14 +76,14 @@ class Coach extends Entity {
 		global $submenu;
 
 		$submenu[Consts::PLUGIN_NAME][] = array(
-			__('Coachs', 'fitness-planning'),
+			__('Coachs', 'fitness-schedule'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
 		);
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('fitness-planning-coach-about', __('About the coach', 'fitness-planning'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-coach-about', __('About the coach', 'fitness-schedule'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_about($post) {

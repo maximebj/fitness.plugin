@@ -1,10 +1,10 @@
 <?php
 
-namespace FitnessPlanning\Entities;
+namespace FitnessSchedule\Entities;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
+use FitnessSchedule\Helpers\Consts;
 
 /**
  * Pre-registered Workouts like Body Attack & Zumba
@@ -38,12 +38,12 @@ class Workout extends Entity {
 	public function define_post_types() {
 
 		$labels = array(
- 		  'name' => __('Workouts', 'fitness-planning'),
- 		  'all_items' => __('All workouts', 'fitness-planning'),
- 		  'singular_name' => __('Workout', 'fitness-planning'),
- 		  'add_new_item' => __('Add a workout', 'fitness-planning'),
- 		  'edit_item' => __('Edit workout', 'fitness-planning'),
-      'not_found' => __('No workout found.', 'fitness-planning'),
+ 		  'name' => __('Workouts', 'fitness-schedule'),
+ 		  'all_items' => __('All workouts', 'fitness-schedule'),
+ 		  'singular_name' => __('Workout', 'fitness-schedule'),
+ 		  'add_new_item' => __('Add a workout', 'fitness-schedule'),
+ 		  'edit_item' => __('Edit workout', 'fitness-schedule'),
+      'not_found' => __('No workout found.', 'fitness-schedule'),
  		);
 
  		$args = array(
@@ -57,7 +57,7 @@ class Workout extends Entity {
       $args_compl = array(
 				'has_archive' => true,
         'rewrite' => array(
-          'slug' => _x('workouts', 'Post type slug', 'fitness-planning'),
+          'slug' => _x('workouts', 'Post type slug', 'fitness-schedule'),
           'with_front' => apply_filters('fitness_planning_with_front', true)
         )
       );
@@ -78,14 +78,14 @@ class Workout extends Entity {
 		global $submenu;
 
 		$submenu[Consts::PLUGIN_NAME][] = array(
-			__('Workouts', 'fitness-planning'),
+			__('Workouts', 'fitness-schedule'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
 		);
 	}
 
 	public function register_meta_boxes() {
-		add_meta_box('fitness-planning-workout-about', __('About the workout', 'fitness-planning'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-workout-about', __('About the workout', 'fitness-schedule'), array($this, 'render_metabox_about'), $this->CPT_slug, 'normal', 'high');
 	}
 
 	public function render_metabox_about($post) {

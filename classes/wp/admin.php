@@ -1,10 +1,10 @@
 <?php
 
-namespace FitnessPlanning\WP;
+namespace FitnessSchedule\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
+use FitnessSchedule\Helpers\Consts;
 
 /**
  * Admin enqueue styles, scripts and menu declaration

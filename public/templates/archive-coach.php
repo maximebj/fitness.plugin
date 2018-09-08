@@ -30,7 +30,7 @@
       </div>
 
       <p>
-        <a href="<?php the_permalink(); ?>"><?php _e('Read more', 'fitness-planning'); ?></a>
+        <a href="<?php the_permalink(); ?>"><?php _e('Read more', 'fitness-schedule'); ?></a>
       </p>
 
     </article>

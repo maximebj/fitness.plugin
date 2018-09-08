@@ -25,7 +25,7 @@
     </div>
 
     <?php if($fitplan_workout_url != ""): ?>
-    <p><a href="<?php echo $fitplan_workout_url; ?>" target="_blank"><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
+    <p><a href="<?php echo $fitplan_workout_url; ?>" target="_blank"><?php _e('Visit official page', 'fitness-schedule'); ?></a></p>
     <?php endif; ?>
 
   </div>

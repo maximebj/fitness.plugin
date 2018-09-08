@@ -1,11 +1,11 @@
 <?php
 
-namespace FitnessPlanning\Entities;
+namespace FitnessSchedule\Entities;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
-use FitnessPlanning\Services\Planning_Services;
+use FitnessSchedule\Helpers\Consts;
+use FitnessSchedule\Services\Planning_Services;
 
 /**
  * Plannings to be displayed on website, showing Workouts hours and Coachs
@@ -68,12 +68,12 @@ class Planning extends Entity {
 	public function define_post_types() {
 
 		$labels = array(
- 		  'name' => __('Plannings', 'fitness-planning'),
- 		  'all_items' => __('All plannings', 'fitness-planning'),
- 		  'singular_name' => __('Planning', 'fitness-planning'),
- 		  'add_new_item' => __('Add a planning', 'fitness-planning'),
- 		  'edit_item' => __('Edit planning', 'fitness-planning'),
- 		  'not_found' => __('No plannings found.', 'fitness-planning'),
+ 		  'name' => __('Plannings', 'fitness-schedule'),
+ 		  'all_items' => __('All plannings', 'fitness-schedule'),
+ 		  'singular_name' => __('Planning', 'fitness-schedule'),
+ 		  'add_new_item' => __('Add a planning', 'fitness-schedule'),
+ 		  'edit_item' => __('Edit planning', 'fitness-schedule'),
+ 		  'not_found' => __('No plannings found.', 'fitness-schedule'),
  	  );
 
  	 $args = array(
@@ -93,7 +93,7 @@ class Planning extends Entity {
 		global $submenu;
 
 		$submenu[Consts::PLUGIN_NAME][] = array(
-			__('Plannings', 'fitness-planning'),
+			__('Plannings', 'fitness-schedule'),
 			'edit_posts',
 			'edit.php?post_type='.$this->CPT_slug
 		);
@@ -123,17 +123,17 @@ class Planning extends Entity {
 		$raw_datas = $this->get_custom_fields($post->ID);
 		$this->datas = $this->services->prepare_datas($raw_datas);
 
-		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-planning'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-workout', __('Add a workout', 'fitness-schedule'), array($this, 'render_metabox_workout'), $this->CPT_slug, 'normal', 'high');
 
-		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-planning'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-preview', __('Planning Preview', 'fitness-schedule'), array($this, 'render_metabox_preview'), $this->CPT_slug, 'normal', 'high');
 
-		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-planning'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
+		add_meta_box('fitness-planning-settings', __('Settings', 'fitness-schedule'), array($this, 'render_metabox_settings'), $this->CPT_slug, 'normal', 'high');
 
-		add_meta_box('fitness-planning-shortcode', __('Shortcode', 'fitness-planning'), array($this, 'render_metabox_shortcode'), $this->CPT_slug, 'side', 'low');
+		add_meta_box('fitness-planning-shortcode', __('Shortcode', 'fitness-schedule'), array($this, 'render_metabox_shortcode'), $this->CPT_slug, 'side', 'low');
 
-		add_meta_box('fitness-planning-workout-styling', __('Customize Workouts', 'fitness-planning'), array($this, 'render_metabox_workout_styling'), $this->CPT_slug, 'side', 'low');
+		add_meta_box('fitness-planning-workout-styling', __('Customize Workouts', 'fitness-schedule'), array($this, 'render_metabox_workout_styling'), $this->CPT_slug, 'side', 'low');
 
-		add_meta_box('fitness-planning-styling', __('Customize Planning', 'fitness-planning'), array($this, 'render_metabox_planning_styling'), $this->CPT_slug, 'side', 'low');
+		add_meta_box('fitness-planning-styling', __('Customize Planning', 'fitness-schedule'), array($this, 'render_metabox_planning_styling'), $this->CPT_slug, 'side', 'low');
 	}
 
 	public function render_metabox_workout($post) {
@@ -163,7 +163,7 @@ class Planning extends Entity {
 
   public function register_custom_columns($columns) {
 		unset($columns['date']);
-    $columns['shortcode'] = __('Shortcode', 'fitness-planning');
+    $columns['shortcode'] = __('Shortcode', 'fitness-schedule');
 
     return $columns;
   }
@@ -185,7 +185,7 @@ class Planning extends Entity {
 			$trash = $actions['trash'];
 			unset($actions['trash']);
 
-			$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=duplicate&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="'.__('Duplicate', 'fitness-planning').'" rel="permalink">'.__('Duplicate', 'fitness-planning').'</a>';
+			$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=duplicate&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce') . '" title="'.__('Duplicate', 'fitness-schedule').'" rel="permalink">'.__('Duplicate', 'fitness-schedule').'</a>';
 
 			$actions['trash'] = $trash;
 		}
@@ -210,7 +210,7 @@ class Planning extends Entity {
 				'post_author'    => $post->post_author,
 				'post_name'      => $post->post_name,
 				'post_status'    => $post->post_status,
-				'post_title'     => $post->post_title.' - '._x('Copy', 'noun', 'fitness-planning'),
+				'post_title'     => $post->post_title.' - '._x('Copy', 'noun', 'fitness-schedule'),
 				'post_type'      => $post->post_type,
 			);
 

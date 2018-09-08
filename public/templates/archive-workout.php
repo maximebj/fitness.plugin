@@ -32,11 +32,11 @@
       </div>
 
       <?php if($fitplan_workout_url != ""): ?>
-      <p><a href="<?php echo $fitplan_workout_url; ?>" target="_blank"><?php _e('Visit official page', 'fitness-planning'); ?></a></p>
+      <p><a href="<?php echo $fitplan_workout_url; ?>" target="_blank"><?php _e('Visit official page', 'fitness-schedule'); ?></a></p>
       <?php endif; ?>
 
       <p>
-        <a href="<?php the_permalink(); ?>"><?php _e('Read more', 'fitness-planning'); ?></a>
+        <a href="<?php the_permalink(); ?>"><?php _e('Read more', 'fitness-schedule'); ?></a>
       </p>
 
     </article>

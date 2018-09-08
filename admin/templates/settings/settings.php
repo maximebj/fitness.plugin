@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h1><?php _e('Settings', 'fitness-planning'); ?></h1>
+  <h1><?php _e('Settings', 'fitness-schedule'); ?></h1>
 
   <form method="post" action="options.php">
     <?php settings_fields('fitness-planning-settings'); ?>
@@ -22,12 +22,12 @@
         <td>
           <fieldset>
             <legend class="screen-reader-text">
-              <span><?php _e('Workouts archive', 'fitness-planning'); ?></span>
+              <span><?php _e('Workouts archive', 'fitness-schedule'); ?></span>
             </legend>
 
             <label for="fitplan_workout_archive">
               <input name="fitplan_workout_archive" type="checkbox" id="fitplan_workout_archive" <?php if(esc_attr(get_option('fitplan_workout_archive'))): echo 'checked'; endif ?> value="1">
-              <?php _e('Activate', 'fitness-planning'); ?>
+              <?php _e('Activate', 'fitness-schedule'); ?>
             </label>
           </fieldset>
         </td>
@@ -38,12 +38,12 @@
         <td>
           <fieldset>
             <legend class="screen-reader-text">
-              <span><?php _e('Coachs archive', 'fitness-planning'); ?></span>
+              <span><?php _e('Coachs archive', 'fitness-schedule'); ?></span>
             </legend>
 
             <label for="fitplan_coach_archive">
               <input name="fitplan_coach_archive" type="checkbox" id="fitplan_coach_archive" <?php if(esc_attr(get_option('fitplan_coach_archive'))): echo 'checked'; endif ?> value="1">
-              <?php _e('Activate', 'fitness-planning'); ?>
+              <?php _e('Activate', 'fitness-schedule'); ?>
             </label>
           </fieldset>
         </td>
@@ -51,7 +51,7 @@
 
     </table>
 
-    <p><em><?php _e("Don't forget to flush WP permalinks structure after enabling archives pages. Go in Settings > Permalinks and hit Save button", 'fitness-planning'); ?></em></p>
+    <p><em><?php _e("Don't forget to flush WP permalinks structure after enabling archives pages. Go in Settings > Permalinks and hit Save button", 'fitness-schedule'); ?></em></p>
 
     <?php submit_button(); ?>
   </form>

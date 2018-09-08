@@ -1,10 +1,10 @@
 <?php
 
-namespace FitnessPlanning\WP;
+namespace FitnessSchedule\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
+use FitnessSchedule\Helpers\Consts;
 
 /**
  * Settings page fields registration
@@ -25,8 +25,8 @@ class Settings {
 
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__('Settings', 'fitness-planning'),
-			__('Settings', 'fitness-planning'),
+			__('Settings', 'fitness-schedule'),
+			__('Settings', 'fitness-schedule'),
 			'edit_posts',
 			Consts::PLUGIN_NAME,
 			array($this, 'settings_page')

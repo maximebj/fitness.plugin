@@ -1,19 +1,19 @@
 <?php
 
-namespace FitnessPlanning;
+namespace FitnessSchedule;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use FitnessPlanning\Helpers\Consts;
-use FitnessPlanning\Helpers\Fields;
+use FitnessSchedule\Helpers\Consts;
+use FitnessSchedule\Helpers\Fields;
 
-use FitnessPlanning\WP\Admin;
-use FitnessPlanning\WP\Front;
-use FitnessPlanning\WP\Settings;
+use FitnessSchedule\WP\Admin;
+use FitnessSchedule\WP\Front;
+use FitnessSchedule\WP\Settings;
 
-use FitnessPlanning\Entities\Planning;
-use FitnessPlanning\Entities\Workout;
-use FitnessPlanning\Entities\Coach;
+use FitnessSchedule\Entities\Planning;
+use FitnessSchedule\Entities\Workout;
+use FitnessSchedule\Entities\Coach;
 
 /**
  * Initialize all the needed plugin classes
