@@ -26,7 +26,7 @@ class Front {
 	public function enqueue_styles() {
 		global $post;
 
-		if(isset($post) and has_shortcode($post->post_content, 'fitness-schedule')) {
+		if(isset($post) and has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_style(
 				Consts::PLUGIN_NAME,
 				Consts::get_url().'public/css/fitness-planning-public.css',
@@ -40,7 +40,7 @@ class Front {
 	public function enqueue_scripts() {
 		global $post;
 
-		if(isset($post) and has_shortcode($post->post_content, 'fitness-schedule')) {
+		if(isset($post) and has_shortcode($post->post_content, 'fitness-planning')) {
 			wp_enqueue_script(
 				Consts::PLUGIN_NAME,
 				Consts::get_url().'public/js/fitness-planning-public.js',
