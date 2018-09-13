@@ -52,7 +52,7 @@ class Activator {
 					"url" => "https://www.lesmills.com/workouts/fitness-classes/bodyjam/",
 				),
 
-				"Body Vive" => array(
+				"Tone" => array(
 					"pic" => "tone.png",
 					"desc" => _x("We are excited to bring you LES MILLS TONE™. We listened to your global feedback and heard your desire for a more modern training experience. Created from the foundations of BODYVIVE 3.1, LES MILLS TONE maintains the original 3 in 1 training style - a mix of cardio, resistance and core while playing with different training concepts to ensure everyone gets the best results from their workouts.", 'Find it on official website', 'fitness-schedule'),
 					"color" => "#F7E9FF",
