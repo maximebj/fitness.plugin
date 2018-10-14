@@ -40,7 +40,7 @@ class Initializer {
 		require_once $path.'classes/Entities/AbstractEntity.php';
 		require_once $path.'classes/Entities/Planning.php';
 		require_once $path.'classes/Entities/Workout.php';
-		require_once $path.'classes/Entities/Coach.php';
+		require_once $path.'classes/Entities/Coaches.php';
 
 		require_once $path.'classes/Services/PlanningServices.php';
 
