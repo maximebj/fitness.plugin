@@ -5,7 +5,7 @@ Tags: Planning, workout, Les Mills, Body Attack, Body Pump, Zumba
 Requires at least: 4.0
 Tested up to: 4.9
 Requires PHP: 5.6
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,10 @@ Yes! There is an option to activate the archives pages and display the list of t
 == Screenshots ==
 
 == Changelog ==
+
+= 1.3.5 =
+- Coachs are not mandatory anymore when adding a workout
+- Bugfix : error with bubble outside screen on mobile
 
 = 1.3.4 =
 - Bugfix : error on activation due to missing uppercase filenames
