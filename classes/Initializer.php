@@ -38,8 +38,8 @@ class Initializer {
 		require_once $path.'classes/WP/Settings.php';
 
 		require_once $path.'classes/Entities/AbstractEntity.php';
-		require_once $path.'classes/Entities/Planning.php';
-		require_once $path.'classes/Entities/Workout.php';
+		require_once $path.'classes/Entities/Plannings.php';
+		require_once $path.'classes/Entities/Workouts.php';
 		require_once $path.'classes/Entities/Coaches.php';
 
 		require_once $path.'classes/Services/PlanningServices.php';
