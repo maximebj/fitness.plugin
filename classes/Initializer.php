@@ -30,19 +30,19 @@ class Initializer {
 		$path = plugin_dir_path(dirname(__FILE__));
 
 		// Load Classes
-		require_once $path.'classes/Helpers/Consts.php';
-		require_once $path.'classes/Helpers/Fields.php';
+		require_once $path . 'classes/helpers/consts.php';
+		require_once $path . 'classes/helpers/fields.php';
 
-		require_once $path.'classes/WP/Admin.php';
-		require_once $path.'classes/WP/Front.php';
-		require_once $path.'classes/WP/Settings.php';
+		require_once $path . 'classes/wp/admin.php';
+		require_once $path . 'classes/wp/front.php';
+		require_once $path . 'classes/wp/settings.php';
 
-		require_once $path.'classes/Entities/AbstractEntity.php';
-		require_once $path.'classes/Entities/Plannings.php';
-		require_once $path.'classes/Entities/Workouts.php';
-		require_once $path.'classes/Entities/Coaches.php';
+		require_once $path . 'classes/entities/abstractEntity.php';
+		require_once $path . 'classes/entities/planning.php';
+		require_once $path . 'classes/entities/workout.php';
+		require_once $path . 'classes/entities/coach.php';
 
-		require_once $path.'classes/Services/PlanningServices.php';
+		require_once $path . 'classes/services/planningservices.php';
 
 
 		// Init Classes and Hooks

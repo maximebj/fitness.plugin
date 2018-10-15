@@ -24,12 +24,12 @@ if (!defined('WPINC')) {
 }
 
 function activate_fitness_schedule() {
-	require_once plugin_dir_path( __FILE__ ) . 'classes/WP/Activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/wp/activator.php';
 	Activator::activate();
 }
 
 function deactivate_fitness_schedule() {
-	require_once plugin_dir_path( __FILE__ ) . 'classes/WP/Deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/wp/deactivator.php';
 	Deactivator::deactivate();
 }
 
@@ -38,6 +38,6 @@ register_deactivation_hook( __FILE__, 'deactivate_fitness_schedule' );
 
 load_plugin_textdomain( 'fitness-schedule', false, basename( __DIR__ ) . '/languages');
 
-require plugin_dir_path( __FILE__ ) . 'classes/Initializer.php';
+require plugin_dir_path( __FILE__ ) . 'classes/initializer.php';
 $fitness_planning = new Initializer();
 $fitness_planning->run();
