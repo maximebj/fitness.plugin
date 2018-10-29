@@ -3,7 +3,7 @@ Contributors: maximebj
 Donate link: https://paypal.me/maximebj
 Tags: Planning, workout, Les Mills, Body Attack, Body Pump, Zumba
 Requires at least: 4.0
-Tested up to: 4.9
+Tested up to: 5.0
 Requires PHP: 5.6
 Stable tag: 1.3.5
 License: GPLv2 or later
