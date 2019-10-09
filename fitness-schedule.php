@@ -10,7 +10,7 @@ use FitnessSchedule\WP\Deactivator;
  * Plugin Name:       Fitness Schedule
  * Plugin URI:        https://dysign.fr
  * Description:       Easily create and customize weekly timetables for your fitness club : Body Attack, Pump, Combat, Zumba...
- * Version:           1.3.5
+ * Version:           1.3.6
  * Author:            Maxime BERNARD-JACQUET
  * Author URI:        https://dysign.fr
  * License:           GPL-2.0+
