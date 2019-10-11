@@ -75,6 +75,7 @@ Yes! There is an option to activate the archives pages and display the list of t
 
 = 1.3.7 =
 - Fixed a bug on preventing plugin activation
+- Fixed bad workout order in mobile view thanks to @mrsco007
 
 = 1.3.6 =
 - Check compatibilty with newer WordPress versions

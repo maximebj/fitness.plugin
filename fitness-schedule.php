@@ -38,6 +38,6 @@ register_deactivation_hook( __FILE__, 'deactivate_fitness_schedule' );
 
 load_plugin_textdomain( 'fitness-schedule', false, basename( __DIR__ ) . '/languages');
 
-require plugin_dir_path( __FILE__ ) . 'classes/initializer.php';
+require plugin_dir_path( __FILE__ ) . 'classes/init.php';
 $fitness_planning = new Initializer();
 $fitness_planning->run();
