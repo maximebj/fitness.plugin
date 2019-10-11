@@ -5,7 +5,7 @@ Tags: Planning, workout, Les Mills, Body Attack, Body Pump, Zumba
 Requires at least: 4.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,9 +73,11 @@ Yes! There is an option to activate the archives pages and display the list of t
 
 == Changelog ==
 
+= 1.3.8 =
+- Fixed bad workout order in mobile view thanks to @mrsco007
+
 = 1.3.7 =
 - Fixed a bug on preventing plugin activation
-- Fixed bad workout order in mobile view thanks to @mrsco007
 
 = 1.3.6 =
 - Check compatibilty with newer WordPress versions
