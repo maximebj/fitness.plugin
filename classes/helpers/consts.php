@@ -15,7 +15,7 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 abstract class Consts {
 
 	const PLUGIN_NAME = 'fitness-schedule';
-	const VERSION = '1.3.6';
+	const VERSION = '1.3.7';
 
 	const CPT_PLANNING = 'planning';
 	const CPT_WORKOUT = 'workout';
